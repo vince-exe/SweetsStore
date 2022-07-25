@@ -22,10 +22,6 @@ private slots:
 
     void on_infoButton_clicked();
 
-    void on_infoButton_pressed();
-
-    void on_infoButton_released();
-
     void on_addProdBtn_clicked();
 
     void on_rmProdBtn_clicked();

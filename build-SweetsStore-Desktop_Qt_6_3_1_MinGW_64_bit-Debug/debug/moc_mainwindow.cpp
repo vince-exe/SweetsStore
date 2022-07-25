@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../SweetStore/SweetsStore/mainwindow.h"
+#include "../../SweetsStore/mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[18];
-    char stringdata0[189];
+    const uint offsetsAndSize[10];
+    char stringdata0[91];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -32,19 +32,11 @@ static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
 QT_MOC_LITERAL(0, 10), // "MainWindow"
 QT_MOC_LITERAL(11, 23), // "on_signInButton_clicked"
 QT_MOC_LITERAL(35, 0), // ""
-QT_MOC_LITERAL(36, 23), // "on_signInButton_pressed"
-QT_MOC_LITERAL(60, 24), // "on_signInButton_released"
-QT_MOC_LITERAL(85, 23), // "on_signUpButton_pressed"
-QT_MOC_LITERAL(109, 24), // "on_signUpButton_released"
-QT_MOC_LITERAL(134, 27), // "on_emailTextBox_textChanged"
-QT_MOC_LITERAL(162, 26) // "on_passTextBox_textChanged"
+QT_MOC_LITERAL(36, 27), // "on_emailTextBox_textChanged"
+QT_MOC_LITERAL(64, 26) // "on_passTextBox_textChanged"
 
     },
     "MainWindow\0on_signInButton_clicked\0\0"
-    "on_signInButton_pressed\0"
-    "on_signInButton_released\0"
-    "on_signUpButton_pressed\0"
-    "on_signUpButton_released\0"
     "on_emailTextBox_textChanged\0"
     "on_passTextBox_textChanged"
 };
@@ -56,7 +48,7 @@ static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,19 +56,11 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   56,    2, 0x08,    1 /* Private */,
-       3,    0,   57,    2, 0x08,    2 /* Private */,
-       4,    0,   58,    2, 0x08,    3 /* Private */,
-       5,    0,   59,    2, 0x08,    4 /* Private */,
-       6,    0,   60,    2, 0x08,    5 /* Private */,
-       7,    0,   61,    2, 0x08,    6 /* Private */,
-       8,    0,   62,    2, 0x08,    7 /* Private */,
+       1,    0,   32,    2, 0x08,    1 /* Private */,
+       3,    0,   33,    2, 0x08,    2 /* Private */,
+       4,    0,   34,    2, 0x08,    3 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -91,12 +75,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->on_signInButton_clicked(); break;
-        case 1: _t->on_signInButton_pressed(); break;
-        case 2: _t->on_signInButton_released(); break;
-        case 3: _t->on_signUpButton_pressed(); break;
-        case 4: _t->on_signUpButton_released(); break;
-        case 5: _t->on_emailTextBox_textChanged(); break;
-        case 6: _t->on_passTextBox_textChanged(); break;
+        case 1: _t->on_emailTextBox_textChanged(); break;
+        case 2: _t->on_passTextBox_textChanged(); break;
         default: ;
         }
     }
@@ -111,7 +91,7 @@ const QMetaObject MainWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
 , QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -138,13 +118,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 3;
     }
     return _id;
 }

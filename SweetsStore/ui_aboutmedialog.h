@@ -41,16 +41,26 @@ public:
         if (AboutMeDialog->objectName().isEmpty())
             AboutMeDialog->setObjectName(QString::fromUtf8("AboutMeDialog"));
         AboutMeDialog->resize(589, 574);
+        AboutMeDialog->setStyleSheet(QString::fromUtf8("QDialog {\n"
+"	background-color: rgb(102, 16, 53);\n"
+"}"));
         titleLabel = new QLabel(AboutMeDialog);
         titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
-        titleLabel->setGeometry(QRect(210, 10, 201, 61));
+        titleLabel->setGeometry(QRect(190, 10, 201, 61));
         QFont font;
         font.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
         font.setPointSize(28);
         font.setBold(true);
         titleLabel->setFont(font);
         titleLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(209, 209, 209);\n"
+"border: 5px solid '#1a1818';\n"
+"border-radius: 16px;\n"
+"padding: 4px;\n"
+"}\n"
+"\n"
+"QLabel::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
         label = new QLabel(AboutMeDialog);
         label->setObjectName(QString::fromUtf8("label"));
@@ -60,49 +70,49 @@ public:
         font1.setPointSize(25);
         label->setFont(font1);
         label->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(191, 191, 191)\n"
 "}"));
         label_2 = new QLabel(AboutMeDialog);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(20, 160, 211, 71));
         label_2->setFont(font1);
         label_2->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(191, 191, 191)\n"
 "}"));
         label_3 = new QLabel(AboutMeDialog);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(20, 220, 81, 71));
         label_3->setFont(font1);
         label_3->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(191, 191, 191)\n"
 "}"));
         label_4 = new QLabel(AboutMeDialog);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(20, 280, 81, 71));
         label_4->setFont(font1);
         label_4->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(191, 191, 191)\n"
 "}"));
         label_5 = new QLabel(AboutMeDialog);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(20, 340, 131, 71));
         label_5->setFont(font1);
         label_5->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(191, 191, 191)\n"
 "}"));
         label_6 = new QLabel(AboutMeDialog);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setGeometry(QRect(20, 400, 121, 71));
         label_6->setFont(font1);
         label_6->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(191, 191, 191)\n"
 "}"));
         label_7 = new QLabel(AboutMeDialog);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(20, 460, 211, 71));
         label_7->setFont(font1);
         label_7->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(191, 191, 191)\n"
 "}"));
         label_8 = new QLabel(AboutMeDialog);
         label_8->setObjectName(QString::fromUtf8("label_8"));

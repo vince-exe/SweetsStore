@@ -1,5 +1,6 @@
 #include "employeewindow.h"
 #include "ui_employeewindow.h"
+#include "add_product_dialog.h"
 
 #include <iostream>
 #include <string>
@@ -8,11 +9,6 @@
 
 #include "database.h"
 #include "about_me_dialog.h"
-
-/* UI widgets stylesheet */
-const QString infoBtnStyleSheet = "text-align: center; background: '#661035'; border: 3px solid '#bfbfbf'; color: '#ebebeb';";
-const QString dateLabelStylesheet = "color: '#ebebeb'; background: '#75103c';  color: '#e8e8e8'; border: 4px solid '#1a1818';";
-const QString windowBtnsStylesheet = "background: '#75103c'; color: '#e8e8e8'; border: 4px solid '#1a1818';";
 
 /* function to get the current time */
 const std::string currentDateTime() {
@@ -34,38 +30,10 @@ EmployeeWindow::EmployeeWindow(QWidget *parent) :
     this->setGeometry(100, 50, 1300, 730);
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
 
-    QPalette backgroundPalette;
-    backgroundPalette.setColor(QPalette::Window, "#661035");
-
-    this->setAutoFillBackground(true);
-    this->setPalette(backgroundPalette);
-
     /* info label */
-    ui->infoLabel->setStyleSheet("color: '#ebebeb';");
     ui->infoLabel->setText("Welcome:   " + QString::fromUtf8(currentEmployee.getFirstName()));
-    /* title label */
-    ui->titleLabel->setStyleSheet("color: '#ebebeb';");
-    /*info button */
-    ui->infoButton->setStyleSheet(infoBtnStyleSheet);
     /* set the time label */
-    ui->dateLabel->setStyleSheet(dateLabelStylesheet);
     ui->dateLabel->setText("Current Date:  " + QString::fromUtf8(currentDateTime().c_str()));
-
-    /* set the stylesheet to the product buttons */
-    ui->addProdBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->rmProdBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->srcProdBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->modProdBtn->setStyleSheet(windowBtnsStylesheet);
-    /* set the stylesheet to the customer buttons */
-    ui->addCstmrBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->rmvCstmrBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->srcCstmrBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->modCstmrBtn->setStyleSheet(windowBtnsStylesheet);
-    /* set the stylesheet to the employee buttons */
-    ui->addEmplyBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->rmEmplyBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->modEmplyBtn->setStyleSheet(windowBtnsStylesheet);
-    ui->srchEmplyBtn->setStyleSheet(windowBtnsStylesheet);
 }
 
 EmployeeWindow::~EmployeeWindow()
@@ -80,20 +48,12 @@ void EmployeeWindow::on_infoButton_clicked() {
     newDialog.exec();
 }
 
-void EmployeeWindow::on_infoButton_pressed() {
-    /* change the background */
-    ui->infoButton->setStyleSheet("text-align: center; background: '#8a1546'; border: 3px solid '#bfbfbf'; color: '#ebebeb';");
-}
-
-
-void EmployeeWindow::on_infoButton_released() {
-    /* reset the background */
-    ui->infoButton->setStyleSheet(infoBtnStyleSheet);
-}
-
 /* Add Product Button */
 void EmployeeWindow::on_addProdBtn_clicked() {
+    AddProductDialog addProdWindow;
 
+    addProdWindow.setModal(true);
+    addProdWindow.exec();
 }
 
 /* Remove Product Button */

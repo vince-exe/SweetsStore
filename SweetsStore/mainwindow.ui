@@ -13,14 +13,22 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+	background-color: rgb(102, 16, 53);
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="titleLabel">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>0</y>
+      <x>390</x>
+      <y>30</y>
       <width>511</width>
-      <height>121</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="font">
@@ -29,6 +37,19 @@
       <pointsize>56</pointsize>
       <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+background-color: rgb(102, 16, 53);
+color: rgb(209, 209, 209);
+border: 5px solid '#000000';
+border-radius: 16px;
+padding-bottom: 4px;
+}
+
+QLabel::hover {
+background-color: rgb(84, 13, 43);
+}</string>
     </property>
     <property name="text">
      <string>Sweets   Store</string>
@@ -63,7 +84,21 @@
      <bool>false</bool>
     </property>
     <property name="autoFillBackground">
-     <bool>false</bool>
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit {
+border: 3px solid '#000000';
+ text-align: center;
+ border-radius:10px;
+ padding-top: 5px;
+ background: '#661035';
+color: rgb(209, 209, 209);
+}
+
+QTextEdit::hover {
+border: 4px solid '#000000';
+}</string>
     </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -83,7 +118,7 @@ hr { height: 1px; border-width: 0; }
      <number>1</number>
     </property>
     <property name="placeholderText">
-     <string>youremail@gmail.com</string>
+     <string>    youremai@gmail.com</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="passTextBox">
@@ -105,6 +140,23 @@ hr { height: 1px; border-width: 0; }
     <property name="acceptDrops">
      <bool>false</bool>
     </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit {
+border: 3px solid '#000000'; 
+text-align: center;
+ border-radius:10px;
+ padding-top: 5px; 
+background: '#661035';
+color: rgb(209, 209, 209);
+}
+
+QTextEdit::hover {
+border: 4px solid '#000000';
+}</string>
+    </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
@@ -120,13 +172,13 @@ hr { height: 1px; border-width: 0; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="placeholderText">
-     <string>*********</string>
+     <string>         *********</string>
     </property>
    </widget>
    <widget class="QLabel" name="citationLabel">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>400</y>
       <width>721</width>
       <height>51</height>
@@ -138,6 +190,11 @@ hr { height: 1px; border-width: 0; }
       <pointsize>20</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+color: rgb(209, 209, 209);
+}</string>
     </property>
     <property name="text">
      <string>&quot; Everything is better with a donut in the mounth &quot;</string>
@@ -163,8 +220,20 @@ hr { height: 1px; border-width: 0; }
     <property name="cursor">
      <cursorShape>ArrowCursor</cursorShape>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QPushButton {
+background: '#661035'; 
+color: rgb(209, 209, 209);
+ border: 4px solid '#000000';
+ border-radius: 10px;
+}
+
+QPushButton::hover {
+	background-color: rgb(84, 13, 43);
+}</string>
     </property>
     <property name="text">
      <string>Sign In</string>
@@ -189,6 +258,18 @@ hr { height: 1px; border-width: 0; }
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#661035';
+color: rgb(209, 209, 209);
+border: 4px solid '#000000';
+ border-radius: 10px;
+}
+
+QPushButton::hover {
+	background-color: rgb(84, 13, 43);
+}</string>
+    </property>
     <property name="text">
      <string>Sign Up</string>
     </property>
@@ -209,8 +290,14 @@ hr { height: 1px; border-width: 0; }
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+color: rgb(219, 219, 219);
+}
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>Copyright © 2022 vince-exe. All rights reserved</string>
     </property>
    </widget>
   </widget>

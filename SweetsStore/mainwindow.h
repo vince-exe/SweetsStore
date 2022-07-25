@@ -21,14 +21,6 @@ private slots:
 
     void on_signInButton_clicked();
 
-    void on_signInButton_pressed();
-
-    void on_signInButton_released();
-
-    void on_signUpButton_pressed();
-
-    void on_signUpButton_released();
-
     void on_emailTextBox_textChanged();
 
     void on_passTextBox_textChanged();

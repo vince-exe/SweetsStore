@@ -20,17 +20,21 @@
    <string>MainWindow</string>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QMainWindow {
+	background-color: rgb(102, 16, 53);
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">QWidget {
+background-color: rgb(102, 16, 53);
+}</string>
    </property>
    <widget class="QLabel" name="infoLabel">
     <property name="geometry">
@@ -77,7 +81,9 @@ color: #ebebeb;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QLabel {
+color: '#ebebeb';
+}</string>
     </property>
     <property name="text">
      <string>Sweets Store</string>
@@ -99,6 +105,18 @@ color: #ebebeb;
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+text-align: center; 
+background: '#661035'; 
+border: 3px solid '#1a1818';
+color: rgb(209, 209, 209);
+}
+
+QPushButton::hover {
+border: 4px solid '#000000';
+}</string>
+    </property>
     <property name="text">
      <string>Me</string>
     </property>
@@ -118,6 +136,18 @@ color: #ebebeb;
       <pointsize>22</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QLabel::hover {
+background-color: rgb(84, 13, 43);
+}
+</string>
     </property>
     <property name="text">
      <string/>
@@ -140,7 +170,15 @@ color: #ebebeb;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
     </property>
     <property name="text">
      <string>Add Product</string>
@@ -162,6 +200,17 @@ color: #ebebeb;
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+    </property>
     <property name="text">
      <string>Remove Product</string>
     </property>
@@ -181,6 +230,17 @@ color: #ebebeb;
       <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
     </property>
     <property name="text">
      <string>Search Product</string>
@@ -202,6 +262,17 @@ color: #ebebeb;
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+    </property>
     <property name="text">
      <string>Modify Product</string>
     </property>
@@ -221,6 +292,17 @@ color: #ebebeb;
       <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
     </property>
     <property name="text">
      <string>Add Employee</string>
@@ -242,6 +324,17 @@ color: #ebebeb;
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+    </property>
     <property name="text">
      <string>Remove Employee</string>
     </property>
@@ -261,6 +354,17 @@ color: #ebebeb;
       <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
     </property>
     <property name="text">
      <string>Search Employee</string>
@@ -282,6 +386,17 @@ color: #ebebeb;
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+    </property>
     <property name="text">
      <string>Modify Employee</string>
     </property>
@@ -301,6 +416,17 @@ color: #ebebeb;
       <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
     </property>
     <property name="text">
      <string>Add Customer</string>
@@ -322,6 +448,17 @@ color: #ebebeb;
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+    </property>
     <property name="text">
      <string>Remove Customer</string>
     </property>
@@ -341,6 +478,16 @@ color: #ebebeb;
       <pointsize>16</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
     </property>
     <property name="text">
      <string>Search Customer</string>
@@ -362,6 +509,17 @@ color: #ebebeb;
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+    </property>
     <property name="text">
      <string>Modify Customer</string>
     </property>
@@ -373,7 +531,7 @@ color: #ebebeb;
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>32</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

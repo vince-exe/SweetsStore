@@ -11,16 +11,6 @@ AboutMeDialog::AboutMeDialog(QWidget *parent) :
     this->setGeometry(100, 100, 589, 574);
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
 
-    /* background*/
-    QPalette backgroundPalette;
-    backgroundPalette.setColor(QPalette::Window, "#661035");
-
-    this->setAutoFillBackground(true);
-    this->setPalette(backgroundPalette);
-
-    /* title label */
-    ui->titleLabel->setStyleSheet("color: '#ebebeb';");
-
     /* set First Name */
     ui->firstNameLabel->setText(QString::fromUtf8(currentEmployee.getFirstName().c_str()));
     /* set Last Name */

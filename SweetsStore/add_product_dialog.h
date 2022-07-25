@@ -2,6 +2,27 @@
 #define ADD_PRODUCT_DIALOG_H
 
 #include <QDialog>
+#include <QLineEdit>
+#include <QSpinBox>
+#include <QDateEdit>
+
+#include <iostream>
+#include <string>
+
+/* check if the input boxes are empties */
+bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *thirdInput, QSpinBox *spinBox);
+
+/* check if the given date is valid */
+bool checkDate(QDateEdit* dateEdit);
+
+/* add a product to the system product file */
+bool addProduct(const char* filePath, std::string& tmpBuffer);
+
+/* transform a string into a lower string */
+std::string lowerStr(std::string& string);
+
+/* clear the widgets */
+void clearInputFields(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QSpinBox* f4, QDateEdit* f5);
 
 namespace Ui {
 class AddProductDialog;
@@ -14,6 +35,15 @@ class AddProductDialog : public QDialog
 public:
     explicit AddProductDialog(QWidget *parent = nullptr);
     ~AddProductDialog();
+
+private slots:
+    void on_prodNameBox_textChanged(const QString &arg1);
+
+    void on_brandBox_textChanged(const QString &arg1);
+
+    void on_priceBox_textChanged(const QString &arg1);
+
+    void on_saveButton_clicked();
 
 private:
     Ui::AddProductDialog *ui;

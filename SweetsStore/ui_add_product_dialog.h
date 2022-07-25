@@ -15,6 +15,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 
 QT_BEGIN_NAMESPACE
@@ -28,17 +29,24 @@ public:
     QLabel *label_2;
     QDateEdit *dateWidget;
     QLabel *label_3;
-    QLineEdit *prodNameBox_2;
+    QLineEdit *brandBox;
     QLabel *label_4;
-    QLineEdit *prodNameBox_3;
+    QLineEdit *priceBox;
     QLabel *label_5;
-    QSpinBox *spinBox;
+    QSpinBox *qntyBox;
+    QPushButton *saveButton;
+    QLabel *label_6;
 
     void setupUi(QDialog *AddProductDialog)
     {
         if (AddProductDialog->objectName().isEmpty())
             AddProductDialog->setObjectName(QString::fromUtf8("AddProductDialog"));
         AddProductDialog->resize(579, 612);
+        AddProductDialog->setAutoFillBackground(false);
+        AddProductDialog->setStyleSheet(QString::fromUtf8("QDialog {\n"
+"	background-color: rgb(102, 16, 53);\n"
+"}\n"
+""));
         titleLabel = new QLabel(AddProductDialog);
         titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
         titleLabel->setGeometry(QRect(160, 20, 241, 71));
@@ -47,6 +55,17 @@ public:
         font.setPointSize(30);
         font.setBold(true);
         titleLabel->setFont(font);
+        titleLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"color: '#ebebeb';\n"
+" background: '#75103c';\n"
+" color: '#e8e8e8';\n"
+" border: 4px solid '#1a1818';\n"
+" border-radius: 15px;\n"
+"}\n"
+"\n"
+"QLabel::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
+"}"));
         label = new QLabel(AddProductDialog);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 150, 221, 51));
@@ -56,7 +75,7 @@ public:
         font1.setBold(true);
         label->setFont(font1);
         label->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(209, 209, 209);\n"
 "}"));
         prodNameBox = new QLineEdit(AddProductDialog);
         prodNameBox->setObjectName(QString::fromUtf8("prodNameBox"));
@@ -67,14 +86,14 @@ public:
 "	border-radius: 10px;\n"
 "	padding-left: 10px;\n"
 "	background: rgb(117, 16, 60);\n"
-"	color: rgb(223, 223, 223);\n"
+"	color: rgb(209, 209, 209);\n"
 "}"));
         label_2 = new QLabel(AddProductDialog);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(10, 240, 101, 51));
         label_2->setFont(font1);
         label_2->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(209, 209, 209);\n"
 "}"));
         dateWidget = new QDateEdit(AddProductDialog);
         dateWidget->setObjectName(QString::fromUtf8("dateWidget"));
@@ -87,43 +106,43 @@ public:
 "	padding-bottom: 4px;\n"
 "	font: 700 16pt \"Roboto\";\n"
 "	background: rgb(117, 16, 60);\n"
-"	color: rgb(223, 223, 223);\n"
+"	color: rgb(209, 209, 209);\n"
 "}"));
         label_3 = new QLabel(AddProductDialog);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(10, 330, 91, 51));
         label_3->setFont(font1);
         label_3->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(209, 209, 209);\n"
 "}"));
-        prodNameBox_2 = new QLineEdit(AddProductDialog);
-        prodNameBox_2->setObjectName(QString::fromUtf8("prodNameBox_2"));
-        prodNameBox_2->setGeometry(QRect(100, 337, 221, 41));
-        prodNameBox_2->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
+        brandBox = new QLineEdit(AddProductDialog);
+        brandBox->setObjectName(QString::fromUtf8("brandBox"));
+        brandBox->setGeometry(QRect(100, 337, 221, 41));
+        brandBox->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
 "	font: 16pt \"HP Simpified Jpan\";\n"
 "	border: 4px solid rgb(26, 24, 24);\n"
 "	border-radius: 10px;\n"
 "	padding-left: 10px;\n"
 "	background: rgb(117, 16, 60);\n"
-"	color: rgb(223, 223, 223);\n"
+"	color: rgb(209, 209, 209);\n"
 "}"));
         label_4 = new QLabel(AddProductDialog);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(10, 420, 81, 51));
         label_4->setFont(font1);
         label_4->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+"color: rgb(209, 209, 209);\n"
 "}"));
-        prodNameBox_3 = new QLineEdit(AddProductDialog);
-        prodNameBox_3->setObjectName(QString::fromUtf8("prodNameBox_3"));
-        prodNameBox_3->setGeometry(QRect(90, 428, 121, 41));
-        prodNameBox_3->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
+        priceBox = new QLineEdit(AddProductDialog);
+        priceBox->setObjectName(QString::fromUtf8("priceBox"));
+        priceBox->setGeometry(QRect(90, 428, 121, 41));
+        priceBox->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
 "	font: 16pt \"HP Simpified Jpan\";\n"
 "	border: 4px solid rgb(26, 24, 24);\n"
 "	border-radius: 10px;\n"
 "	padding-left: 25px;\n"
 "	background: rgb(117, 16, 60);\n"
-"	color: rgb(223, 223, 223);\n"
+"	color: rgb(209, 209, 209);\n"
 "}"));
         label_5 = new QLabel(AddProductDialog);
         label_5->setObjectName(QString::fromUtf8("label_5"));
@@ -132,9 +151,43 @@ public:
         label_5->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "color: rgb(235, 235, 235)\n"
 "}"));
-        spinBox = new QSpinBox(AddProductDialog);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setGeometry(QRect(150, 510, 81, 51));
+        qntyBox = new QSpinBox(AddProductDialog);
+        qntyBox->setObjectName(QString::fromUtf8("qntyBox"));
+        qntyBox->setGeometry(QRect(130, 510, 101, 51));
+        qntyBox->setStyleSheet(QString::fromUtf8("QSpinBox {\n"
+"	border: 4px solid rgb(26, 24, 24);   \n"
+"	border-radius: 18px;\n"
+"	padding-left: 25px;\n"
+"	padding-top: 4px;\n"
+"	padding-bottom: 4px;\n"
+"	font: 700 16pt \"Roboto\";\n"
+"	background: rgb(117, 16, 60);\n"
+"	color: rgb(209, 209, 209);\n"
+"}"));
+        saveButton = new QPushButton(AddProductDialog);
+        saveButton->setObjectName(QString::fromUtf8("saveButton"));
+        saveButton->setGeometry(QRect(440, 540, 121, 61));
+        saveButton->setFont(font1);
+        saveButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background: '#75103c';\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"border: 5px solid '#1a1818';\n"
+"background-color: rgb(84, 13, 43);\n"
+"}"));
+        label_6 = new QLabel(AddProductDialog);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(10, 580, 251, 31));
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
+        font2.setPointSize(15);
+        label_6->setFont(font2);
+        label_6->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"color: rgb(209, 209, 209);\n"
+"}"));
 
         retranslateUi(AddProductDialog);
 
@@ -150,6 +203,8 @@ public:
         label_3->setText(QCoreApplication::translate("AddProductDialog", "Brand", nullptr));
         label_4->setText(QCoreApplication::translate("AddProductDialog", "Price", nullptr));
         label_5->setText(QCoreApplication::translate("AddProductDialog", "Quantity", nullptr));
+        saveButton->setText(QCoreApplication::translate("AddProductDialog", "Save", nullptr));
+        label_6->setText(QCoreApplication::translate("AddProductDialog", "Save your informations", nullptr));
     } // retranslateUi
 
 };
