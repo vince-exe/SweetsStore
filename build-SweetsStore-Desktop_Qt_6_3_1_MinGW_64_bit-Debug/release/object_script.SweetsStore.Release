@@ -1,0 +1,14 @@
+release/about_me_dialog.o
+release/add_product_dialog.o
+release/database.o
+release/employee.o
+release/employeewindow.o
+release/main.o
+release/mainWindowUtilities.o
+release/mainwindow.o
+release/person.o
+release/product.o
+release/moc_about_me_dialog.o
+release/moc_add_product_dialog.o
+release/moc_employeewindow.o
+release/moc_mainwindow.o
