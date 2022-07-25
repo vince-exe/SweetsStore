@@ -1,6 +1,8 @@
 #include "add_product_dialog.h"
 #include "ui_add_product_dialog.h"
 
+const int maxStrLen = 15;
+
 AddProductDialog::AddProductDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddProductDialog) {
