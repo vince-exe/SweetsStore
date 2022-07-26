@@ -89,6 +89,10 @@ public:
 "\n"
 "QTextEdit::hover {\n"
 "border: 4px solid '#000000';\n"
+"}\n"
+"\n"
+"QTextEdit::focus {\n"
+"border: 4px solid '#000000';\n"
 "}"));
         emailTextBox->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         emailTextBox->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -109,6 +113,10 @@ public:
 "}\n"
 "\n"
 "QTextEdit::hover {\n"
+"border: 4px solid '#000000';\n"
+"}\n"
+"\n"
+"QTextEdit::focus {\n"
 "border: 4px solid '#000000';\n"
 "}"));
         passTextBox->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

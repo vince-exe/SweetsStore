@@ -4,7 +4,6 @@ debug/database.o
 debug/employee.o
 debug/employeewindow.o
 debug/main.o
-debug/mainWindowUtilities.o
 debug/mainwindow.o
 debug/person.o
 debug/product.o

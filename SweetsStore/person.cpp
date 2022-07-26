@@ -22,11 +22,11 @@ int Person::getAge() {
     return this->age;
 }
 
-void Person::setFirstName(std::string &firstName) {
+void Person::setFirstName(std::string firstName) {
     this->firstName = firstName;
 }
 
-void Person::setLastName(std::string &lastName) {
+void Person::setLastName(std::string lastName) {
     this->lastName = lastName;
 }
 

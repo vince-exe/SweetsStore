@@ -18,10 +18,10 @@ void Employee::setSalary(float salary) {
     this->salary = salary;
 }
 
-void Employee::setEmail(std::string &email) {
+void Employee::setEmail(std::string email) {
     this->email = email;
 }
 
-void Employee::setPassword(std::string &password) {
+void Employee::setPassword(std::string password) {
     this->password = password;
 };

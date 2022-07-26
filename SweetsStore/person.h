@@ -27,9 +27,9 @@ public:
 
     int getAge();
 
-    void setFirstName(std::string& firstName);
+    void setFirstName(std::string firstName);
 
-    void setLastName(std::string& lastName);
+    void setLastName(std::string lastName);
 
     void setSex(char& sex);
 

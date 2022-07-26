@@ -5,6 +5,23 @@
 
 #include "employeewindow.h"
 
+#include "employee.h"
+
+/* load the employees file */
+bool loadEmployeesFile(const char *filePath, std::map<std::string, Employee>* employeeDatabase);
+
+/* check the credentials for the SignIn */
+bool checkSignInEmployee(std::string email, std::string password, std::map<std::string, Employee>* employeeDatabase);
+
+/* check the email */
+bool checkEmail(std::string email);
+
+/* check the password */
+bool checkPassowrd(std::string password);
+
+/* check the credentials */
+bool checkCredentials(std::string email, std::string password);
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

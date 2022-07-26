@@ -2,12 +2,14 @@
 #include "ui_employeewindow.h"
 #include "add_product_dialog.h"
 
+#include <QMessageBox>
 #include <iostream>
 #include <string>
 #include <stdio.h>
 #include <time.h>
 
 #include "database.h"
+#include "product.h"
 #include "about_me_dialog.h"
 
 /* function to get the current time */
@@ -34,6 +36,22 @@ EmployeeWindow::EmployeeWindow(QWidget *parent) :
     ui->infoLabel->setText("Welcome:   " + QString::fromUtf8(currentEmployee.getFirstName()));
     /* set the time label */
     ui->dateLabel->setText("Current Date:  " + QString::fromUtf8(currentDateTime().c_str()));
+
+    /* try to open the products file ( reading mode ) */
+    FILE* file = fopen("files/products.txt", "r");
+    /* check if the fail opened correctly */
+    if(!file) {
+        QMessageBox messageBox;
+        messageBox.critical(0, "Fatal Error", "The application failed to open the system files");
+        messageBox.setFixedSize(550,300);
+
+        exit(-1);
+    }
+    /* restore the cursor of the file at the start */
+    fseek(file, 0, SEEK_SET);
+    storeProductsInformations(file, &productsDatabase);
+    /* close the file */
+    fclose(file);
 }
 
 EmployeeWindow::~EmployeeWindow()
@@ -109,3 +127,7 @@ void EmployeeWindow::on_modCstmrBtn_clicked() {
 
 }
 
+/* save all the informations */
+void EmployeeWindow::on_addProdBtn_2_clicked() {
+
+}

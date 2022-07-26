@@ -15,9 +15,6 @@ bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *t
 /* check if the given date is valid */
 bool checkDate(QDateEdit* dateEdit);
 
-/* add a product to the system product file */
-bool addProduct(const char* filePath, std::string& tmpBuffer);
-
 /* transform a string into a lower string */
 std::string lowerStr(std::string& string);
 

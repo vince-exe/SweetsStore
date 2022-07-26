@@ -17,7 +17,6 @@ SOURCES += \
     employee.cpp \
     employeewindow.cpp \
     main.cpp \
-    mainWindowUtilities.cpp \
     mainwindow.cpp \
     person.cpp \
     product.cpp
@@ -28,7 +27,6 @@ HEADERS += \
     database.h \
     employee.h \
     employeewindow.h \
-    mainWindowUtilities.h \
     mainwindow.h \
     person.h \
     product.h

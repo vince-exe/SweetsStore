@@ -40,6 +40,7 @@ public:
     QPushButton *rmvCstmrBtn;
     QPushButton *srcCstmrBtn;
     QPushButton *modCstmrBtn;
+    QPushButton *addProdBtn_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -95,13 +96,13 @@ public:
         infoButton->setFont(font3);
         infoButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "text-align: center; \n"
-"background: '#661035'; \n"
-"border: 3px solid '#1a1818';\n"
+"background: '#75103c';\n"
+"border: 4px solid '#1a1818';\n"
 "color: rgb(209, 209, 209);\n"
 "}\n"
 "\n"
 "QPushButton::hover {\n"
-"border: 4px solid '#000000';\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
         dateLabel = new QLabel(centralwidget);
         dateLabel->setObjectName(QString::fromUtf8("dateLabel"));
@@ -276,6 +277,19 @@ public:
 "QPushButton::hover {\n"
 "background-color: rgb(84, 13, 43);\n"
 "}"));
+        addProdBtn_2 = new QPushButton(centralwidget);
+        addProdBtn_2->setObjectName(QString::fromUtf8("addProdBtn_2"));
+        addProdBtn_2->setGeometry(QRect(150, 30, 151, 51));
+        addProdBtn_2->setFont(font4);
+        addProdBtn_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background: '#75103c';\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
+"}"));
         EmployeeWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(EmployeeWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -309,6 +323,7 @@ public:
         rmvCstmrBtn->setText(QCoreApplication::translate("EmployeeWindow", "Remove Customer", nullptr));
         srcCstmrBtn->setText(QCoreApplication::translate("EmployeeWindow", "Search Customer", nullptr));
         modCstmrBtn->setText(QCoreApplication::translate("EmployeeWindow", "Modify Customer", nullptr));
+        addProdBtn_2->setText(QCoreApplication::translate("EmployeeWindow", "Save | Exit", nullptr));
     } // retranslateUi
 
 };

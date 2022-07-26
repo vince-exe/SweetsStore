@@ -98,6 +98,10 @@ color: rgb(209, 209, 209);
 
 QTextEdit::hover {
 border: 4px solid '#000000';
+}
+
+QTextEdit::focus {
+border: 4px solid '#000000';
 }</string>
     </property>
     <property name="verticalScrollBarPolicy">
@@ -154,6 +158,10 @@ color: rgb(209, 209, 209);
 }
 
 QTextEdit::hover {
+border: 4px solid '#000000';
+}
+
+QTextEdit::focus {
 border: 4px solid '#000000';
 }</string>
     </property>

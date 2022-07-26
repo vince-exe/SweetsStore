@@ -108,13 +108,13 @@ color: '#ebebeb';
     <property name="styleSheet">
      <string notr="true">QPushButton {
 text-align: center; 
-background: '#661035'; 
-border: 3px solid '#1a1818';
+background: '#75103c';
+border: 4px solid '#1a1818';
 color: rgb(209, 209, 209);
 }
 
 QPushButton::hover {
-border: 4px solid '#000000';
+background-color: rgb(84, 13, 43);
 }</string>
     </property>
     <property name="text">
@@ -522,6 +522,37 @@ background-color: rgb(84, 13, 43);
     </property>
     <property name="text">
      <string>Modify Customer</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addProdBtn_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>30</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>HP Simplified Jpan</family>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+    </property>
+    <property name="text">
+     <string>Save | Exit</string>
     </property>
    </widget>
   </widget>

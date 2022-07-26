@@ -4,34 +4,14 @@
 #include <QMessageBox>
 
 #include <iostream>
-#include <fstream>
 #include <string>
+
+#include "database.h"
+#include "product.h"
 
 const int prodNameLen = 30;
 const int brandLen = 20;
 const int PriceLen = 4;
-
-const char* prodFilePath = "files/products.txt";
-
-/* function to add a product */
-bool addProduct(const char* filePath, std::string& tmpBuffer) {
-    /* open the file in reading mode (to check if exist )*/
-    std::fstream checkFile(filePath, std::fstream::in);
-    /* check if the file exist */
-    if(!checkFile) { return false; }
-
-    checkFile.close();
-
-    std::fstream file(filePath, std::fstream::app);
-    if(!file) { return false; }
-
-    /* write in the file */
-    file << tmpBuffer;
-    /* close the file */
-    file.close();
-
-    return true;
-}
 
 std::string lowerStr(std::string& string) {
     std::for_each(string.begin(), string.end(), [](char & c) {
@@ -129,34 +109,40 @@ void AddProductDialog::on_saveButton_clicked() {
         messageBox.setFixedSize(550,300);
         return;
     }
-    /* create the temp buffer to store informations */
-    std::string tmpBuffer;
+    /* create the product object */
+    Product product;
 
-    /* append the informations */
-    tmpBuffer.append(ui->prodNameBox->text().toStdString() + "\n");
-    tmpBuffer.append(ui->dateWidget->text().toStdString() + "\n");
-    tmpBuffer.append(ui->brandBox->text().toStdString() + "\n");
-    tmpBuffer.append(ui->priceBox->text().toStdString() + "\n");
-    tmpBuffer.append(ui->qntyBox->text().toStdString() + "\n");
+    /* set the name */
+    product.setName(ui->prodNameBox->text().toStdString());
+    /* set the expire date */
+    product.setExpiry(ui->dateWidget->text().toStdString());
+    /* set the brand */
+    product.setBrand(ui->brandBox->text().toStdString());
+    /* set the price */
+    product.setPrice(std::stof(ui->priceBox->text().toStdString()));
+    /* set the quantity */
+    product.setQuantity(std::stoi(ui->qntyBox->text().toStdString()));
 
-    /* failed to add the product */
-    if(!addProduct(prodFilePath, tmpBuffer)) {
+    /* check if the product already exist */
+    auto it = productsDatabase.find(product.getName());
+
+    /* doesn't exist */
+    if(it == productsDatabase.end()) {
+        /* insert the product inside the map */
+        productsDatabase.insert(std::pair<std::string, Product>(product.getName(), product));
+
         QMessageBox messageBox;
-        messageBox.critical(0,"Product Error", "The application failed to add the new product");
+        messageBox.information(0, "Success", "Successfully added the product");
         messageBox.setFixedSize(550,300);
-
-        /* clear the widgets content */
-        clearInputFields(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
-        return;
     }
-    /* successfully added the product */
+    /* exist */
     else {
         QMessageBox messageBox;
-        messageBox.information(0, "Product Added", "Product added successfully");
-        messageBox.setFixedSize(550, 300);
-
-        /* clear the widgets content */
-        clearInputFields(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
-        return;
+        QString warningMessage = "There is already a product named [ " + QString::fromStdString(product.getName().c_str()) + " ]";
+        messageBox.warning(0, "Fail", warningMessage);
+        messageBox.setFixedSize(550,300);
     }
+
+    /* clear the inputs */
+    clearInputFields(ui->prodNameBox, ui->priceBox, ui->brandBox, ui->qntyBox, ui->dateWidget);
 }

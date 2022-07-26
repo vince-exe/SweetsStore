@@ -25,9 +25,9 @@ public:
 
     void setSalary(float salary);
 
-    void setEmail(std::string& email);
+    void setEmail(std::string email);
 
-    void setPassword(std::string& password);
+    void setPassword(std::string password);
 };
 
 #endif // EMPLOYEE_H

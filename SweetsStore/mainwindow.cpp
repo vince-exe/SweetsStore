@@ -5,7 +5,6 @@
 #include <map>
 #include <QMessageBox>
 
-#include "mainWindowUtilities.h"
 #include "employee.h"
 #include "employeewindow.h"
 #include "database.h"
@@ -13,6 +12,47 @@
 const int MaxEmailBoxLen = 30;
 const int MaxPassBoxLen = 16;
 
+bool checkSignInEmployee(std::string email, std::string password, std::map<std::string, Employee>* employeeDatabase) {
+    /* get the key */
+    auto key = employeeDatabase->find(email);
+    /* if the key doesn't exist */
+    if(key == employeeDatabase->end()) { return false; }
+
+    /* check if the password is correct */
+    if(key->second.getPassword() == password) {
+        /* fill the current employee variable */
+        currentEmployee = key->second;
+
+        return true;
+    }
+
+    return false;
+}
+
+bool checkEmail(std::string email) {
+    const std::string check = "@gmail.com";
+
+    if(!email.length() or email.length() <= check.length()) { return false; }
+
+    size_t start = email.find("@");
+    if(start == email.npos) { return false; }
+
+    if(email.compare(start, check.length(), check) != 0) { return false; };
+
+    return true;
+}
+
+bool checkPassowrd(std::string password) {
+    if(!password.length() or password.length() < 8) { return false; }
+
+    return true;
+}
+
+bool checkCredentials(std::string email, std::string password) {
+    if(!checkEmail(email) or !checkPassowrd(password)) { return false; }
+
+    return true;
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,14 +68,20 @@ MainWindow::MainWindow(QWidget *parent)
     /* Pass Box */
     ui->passTextBox->setAlignment(Qt::AlignCenter);
 
+    /* open the employee file in reading mode */
+    FILE* file = fopen("files/employees.txt", "r");
+
     /* check if the software failed to load the employees file */
-    if(!loadEmployeesFile("files/employees.txt", &employeeDatabase)) {
+    if(!file) {
         /* create a message box */
         QMessageBox messageBox;
         messageBox.critical(0,"Fatal Error","The software failed to load the application files :/");
         messageBox.setFixedSize(550,300);
         exit(-1);
     }
+
+    /* store the informations in the map */
+    storeEmployeesInformations(file, &employeeDatabase);
 }
 
 MainWindow::~MainWindow()
