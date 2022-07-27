@@ -13,15 +13,6 @@ const int prodNameLen = 30;
 const int brandLen = 20;
 const int PriceLen = 4;
 
-std::string lowerStr(std::string& string) {
-    std::for_each(string.begin(), string.end(), [](char & c) {
-        c = ::tolower(c);
-    });
-
-    return string;
-}
-
-
 bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *thirdInput, QSpinBox *spinBox) {
     if(!firstInput->text().length() or !secondInput->text().length() or !thirdInput->text().length()) {
         return false;
@@ -113,13 +104,24 @@ void AddProductDialog::on_saveButton_clicked() {
     Product product;
 
     /* set the name */
-    product.setName(ui->prodNameBox->text().toStdString());
+    product.setName(lowerStr(ui->prodNameBox->text().toStdString()));
     /* set the expire date */
-    product.setExpiry(ui->dateWidget->text().toStdString());
+    product.setExpiry(lowerStr(ui->dateWidget->text().toStdString()));
     /* set the brand */
-    product.setBrand(ui->brandBox->text().toStdString());
-    /* set the price */
-    product.setPrice(std::stof(ui->priceBox->text().toStdString()));
+    product.setBrand(lowerStr(ui->brandBox->text().toStdString()));
+    try {
+        /* set the price */
+        product.setPrice(std::stof(ui->priceBox->text().toStdString()));
+    }
+    catch(std::invalid_argument) {
+        QMessageBox messageBox;
+        messageBox.critical(0, "Price Error", "The price has to be a number");
+        messageBox.setFixedSize(550,300);
+        /* clear the input fields */
+        clearInputFields(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
+        return;
+    }
+
     /* set the quantity */
     product.setQuantity(std::stoi(ui->qntyBox->text().toStdString()));
 
@@ -130,6 +132,7 @@ void AddProductDialog::on_saveButton_clicked() {
     if(it == productsDatabase.end()) {
         /* insert the product inside the map */
         productsDatabase.insert(std::pair<std::string, Product>(product.getName(), product));
+        newChanges = true;
 
         QMessageBox messageBox;
         messageBox.information(0, "Success", "Successfully added the product");

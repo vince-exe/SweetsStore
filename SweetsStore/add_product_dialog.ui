@@ -231,7 +231,7 @@ color: rgb(209, 209, 209);
 	font: 16pt &quot;HP Simpified Jpan&quot;;
 	border: 4px solid rgb(26, 24, 24);
 	border-radius: 10px;
-	padding-left: 25px;
+	padding-left: 34px;
 	background: rgb(117, 16, 60);
 	color: rgb(209, 209, 209);
 }</string>

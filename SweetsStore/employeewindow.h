@@ -4,13 +4,9 @@
 #include <QMainWindow>
 
 #include "about_me_dialog.h"
-#include "product.h"
 
-/* check if the file is empty */
-bool is_empty(FILE* file);
-
-/* read informations from the file and save it in the products map */
-void storeInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
+/* get the current date */
+const std::string currentDateTime();
 
 namespace Ui {
 class EmployeeWindow;

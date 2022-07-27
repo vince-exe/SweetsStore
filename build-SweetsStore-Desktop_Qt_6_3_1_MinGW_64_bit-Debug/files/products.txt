@@ -1,0 +1,2 @@
+banana;27/07/2024;valle verde;25.00;1
+cavolfiore;27/07/2023;valle verde;4.00;2

@@ -15,9 +15,6 @@ bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *t
 /* check if the given date is valid */
 bool checkDate(QDateEdit* dateEdit);
 
-/* transform a string into a lower string */
-std::string lowerStr(std::string& string);
-
 /* clear the widgets */
 void clearInputFields(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QSpinBox* f4, QDateEdit* f5);
 

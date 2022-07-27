@@ -81,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     /* store the informations in the map */
-    storeEmployeesInformations(file, &employeeDatabase);
+    readEmployeesInformations(file, &employeeDatabase);
 }
 
 MainWindow::~MainWindow()
@@ -92,7 +92,7 @@ MainWindow::~MainWindow()
 /* SignInButton clicked */
 void MainWindow::on_signInButton_clicked() {
     /* save the email and the password from the text boxes */
-    std::string email = ui->emailTextBox->toPlainText().toStdString();
+    std::string email = lowerStr(ui->emailTextBox->toPlainText().toStdString());
     std::string password = ui->passTextBox->toPlainText().toStdString();
 
     /* clear the text boxes */

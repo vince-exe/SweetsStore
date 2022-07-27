@@ -18,10 +18,19 @@ extern std::map<std::string, Product> productsDatabase;
 /* define the current employee */
 extern Employee currentEmployee;
 
-/* store informations in the products map */
-void storeProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
+/* read informations in the products map */
+void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
 
-/* store informations in the employees map */
-void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase);
+/* read informations in the employees map */
+void readEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase);
+
+/* store the informations in the products map */
+void storeProductInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
+
+/* defining a variable that check if there are new changes in the application */
+extern bool newChanges;
+
+/* transform a string into a lower string */
+std::string lowerStr(std::string string);
 
 #endif // DATABASE_H

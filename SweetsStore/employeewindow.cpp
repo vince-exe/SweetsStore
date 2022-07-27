@@ -49,7 +49,8 @@ EmployeeWindow::EmployeeWindow(QWidget *parent) :
     }
     /* restore the cursor of the file at the start */
     fseek(file, 0, SEEK_SET);
-    storeProductsInformations(file, &productsDatabase);
+    /* read the informations from the product file and store it in the map */
+    readProductsInformations(file, &productsDatabase);
     /* close the file */
     fclose(file);
 }
@@ -129,5 +130,45 @@ void EmployeeWindow::on_modCstmrBtn_clicked() {
 
 /* save all the informations */
 void EmployeeWindow::on_addProdBtn_2_clicked() {
+    /* check if there aren't new changes to save */
+    if(!newChanges) {
+        QMessageBox messageBox;
+        messageBox.warning(0, "No Changes", "There aren't new changes to save");
+        messageBox.setFixedSize(550, 300);
+        return;
+    }
 
+    /* open the file in reading mode to check if exist */
+    FILE* file = fopen("files/products.txt", "r");
+
+    if(!file) {
+        QMessageBox messageBox;
+        messageBox.critical(0, "Fatal Error", "The application failed to save the changes");
+        messageBox.setFixedSize(550,300);
+
+        exit(-1);
+    }
+    fclose(file);
+
+    /* open it in write mode */
+    file = fopen("files/products.txt", "w");
+    /* store the informations in the file */
+    storeProductInformations(file, &productsDatabase);
+    /* close the product file */
+    fclose(file);
+
+    QMessageBox messageBox;
+    messageBox.setText(tr("The application has successfully save the changes"));
+
+    QAbstractButton* exitButton = messageBox.addButton(tr("Exit"), QMessageBox::YesRole);
+    QAbstractButton* continueButton = messageBox.addButton(tr("Continue"), QMessageBox::NoRole);
+
+    messageBox.exec();
+
+    if(messageBox.clickedButton() == exitButton) { exit(0); }
+
+    if(messageBox.clickedButton() == continueButton) {
+        newChanges = false;
+        return;
+    }
 }

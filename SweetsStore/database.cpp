@@ -7,6 +7,9 @@
 /* defining the costant token character */
 const char* tokenCharacter = ";";
 
+/* defining a variable that check if there are new changes in the application */
+bool newChanges = false;
+
 /* defining the employee map */
 std::map<std::string, Employee> employeeDatabase;
 
@@ -16,8 +19,8 @@ std::map<std::string, Product> productsDatabase;
 /* defining the current employee variable */
 Employee currentEmployee;
 
-/* store informations in the products map */
-void storeProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase) {
+/* read informations in the products map */
+void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase) {
     char buffer[1024];
     char* token = NULL;
     Product product;
@@ -50,8 +53,18 @@ void storeProductsInformations(FILE* f, std::map<std::string, Product>* products
     }
 }
 
-/* store informations in the employees map */
-void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase) {
+/* store the informations in the products map */
+void storeProductInformations(FILE* f, std::map<std::string, Product>* productsDatabase) {
+    char buffer[1024];
+
+    for(auto it = productsDatabase->begin(); it != productsDatabase->end(); it++) {
+        sprintf(buffer, "%s;%s;%s;%0.2f;%d\n", it->second.getName().c_str(), it->second.getExpiry().c_str(), it->second.getBrand().c_str(), it->second.getPrice(), it->second.getQuantity());
+        fprintf(f, buffer);
+    }
+}
+
+/* read informations in the employees map */
+void readEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase) {
     char buffer[1024];
     char* token = NULL;
     Employee employee;
@@ -87,4 +100,13 @@ void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employ
             employeesDatabase->insert(std::pair<std::string, Employee>(employee.getEmail(), employee));
         }
     }
+}
+
+/* transform a std::string into lower */
+std::string lowerStr(std::string string) {
+    std::for_each(string.begin(), string.end(), [](char & c) {
+        c = ::tolower(c);
+    });
+
+    return string;
 }

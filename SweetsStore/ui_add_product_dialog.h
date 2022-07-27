@@ -140,7 +140,7 @@ public:
 "	font: 16pt \"HP Simpified Jpan\";\n"
 "	border: 4px solid rgb(26, 24, 24);\n"
 "	border-radius: 10px;\n"
-"	padding-left: 25px;\n"
+"	padding-left: 34px;\n"
 "	background: rgb(117, 16, 60);\n"
 "	color: rgb(209, 209, 209);\n"
 "}"));
