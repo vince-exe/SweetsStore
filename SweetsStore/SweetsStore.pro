@@ -13,29 +13,32 @@ UI_DIR = $$PWD
 SOURCES += \
     about_me_dialog.cpp \
     add_product_dialog.cpp \
-    database.cpp \
     employee.cpp \
     employeewindow.cpp \
     main.cpp \
     mainwindow.cpp \
     person.cpp \
-    product.cpp
+    product.cpp \
+    utilities.cpp \
+    view_products_dialog.cpp
 
 HEADERS += \
     about_me_dialog.h \
     add_product_dialog.h \
-    database.h \
     employee.h \
     employeewindow.h \
     mainwindow.h \
     person.h \
-    product.h
+    product.h \
+    utilities.h \
+    view_products_dialog.h
 
 FORMS += \
     aboutmedialog.ui \
     add_product_dialog.ui \
     employeewindow.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    viewproductsdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

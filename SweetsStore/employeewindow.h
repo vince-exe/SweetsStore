@@ -5,9 +5,6 @@
 
 #include "about_me_dialog.h"
 
-/* get the current date */
-const std::string currentDateTime();
-
 namespace Ui {
 class EmployeeWindow;
 }

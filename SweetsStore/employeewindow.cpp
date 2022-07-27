@@ -8,20 +8,9 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "database.h"
+#include "utilities.h"
 #include "product.h"
 #include "about_me_dialog.h"
-
-/* function to get the current time */
-const std::string currentDateTime() {
-    time_t now = time(0);
-    struct tm tstruct;
-    char buf[80];
-    tstruct = *localtime(&now);
-    strftime(buf, sizeof(buf), "%d-%m-%Y", &tstruct);
-
-    return buf;
-}
 
 EmployeeWindow::EmployeeWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -80,7 +69,7 @@ void EmployeeWindow::on_rmProdBtn_clicked() {
 
 }
 
-/* Search Product Button */
+/* View Products Button */
 void EmployeeWindow::on_srcProdBtn_clicked() {
 
 }
@@ -100,7 +89,7 @@ void EmployeeWindow::on_rmEmplyBtn_clicked() {
 
 }
 
-/* Search Employee Button */
+/* View Employees Button */
 void EmployeeWindow::on_srchEmplyBtn_clicked() {
 }
 
@@ -118,7 +107,7 @@ void EmployeeWindow::on_addCstmrBtn_clicked() {
 void EmployeeWindow::on_rmvCstmrBtn_clicked() {
 }
 
-/* Search Customer Button */
+/* View Customers Button */
 void EmployeeWindow::on_srcCstmrBtn_clicked() {
 
 }

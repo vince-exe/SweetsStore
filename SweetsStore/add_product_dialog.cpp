@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "database.h"
+#include "utilities.h"
 #include "product.h"
 
 const int prodNameLen = 30;

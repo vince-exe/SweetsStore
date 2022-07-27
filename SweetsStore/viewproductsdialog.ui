@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ViewProductsDialog</class>
+ <widget class="QDialog" name="ViewProductsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+	background-color: rgb(102, 16, 53);
+}</string>
+  </property>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>20</y>
+     <width>611</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>30</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+background-color: rgb(102, 16, 53);
+color: rgb(209, 209, 209);
+border: 4px solid  '#1a1818';
+border-radius: 16px;
+padding-bottom: 4px;
+}
+
+QLabel::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>                      Products List</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>185</x>
+     <y>170</y>
+     <width>851</width>
+     <height>511</height>
+    </rect>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableView {
+background-color: rgb(102, 16, 53);
+border: 6px solid  '#1a1818';
+gridline-color: rgb(26, 24, 24);
+}
+QHeaderView::section {
+border-color: rgb(26, 24, 24);
+color: rgb(209, 209, 209);
+font: 20pt &quot;HP Simplified Jpan&quot;;
+background-color: rgb(102, 16, 53);
+height: 55px;
+}
+
+QHeaderView::section::hover {
+background-color: rgb(102, 16, 53);
+}
+
+QTableView::item{
+background-color: rgb(102, 16, 53);
+font: 13pt &quot;HP Simplified Jpan&quot;;
+color: rgb(209, 209, 209);
+}
+
+QTableView::item:selected {
+background-color: rgb(102, 16, 53);
+}</string>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::DashLine</enum>
+   </property>
+   <property name="cornerButtonEnabled">
+    <bool>false</bool>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>159</number>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QPushButton" name="addProdBtn_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>25</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>Save | Exit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dateLabel">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>20</y>
+     <width>201</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>22</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+border-radius: 10px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

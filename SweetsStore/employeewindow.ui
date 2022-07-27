@@ -243,7 +243,7 @@ background-color: rgb(84, 13, 43);
 }</string>
     </property>
     <property name="text">
-     <string>Search Product</string>
+     <string>View Products</string>
     </property>
    </widget>
    <widget class="QPushButton" name="modProdBtn">
@@ -367,7 +367,7 @@ background-color: rgb(84, 13, 43);
 }</string>
     </property>
     <property name="text">
-     <string>Search Employee</string>
+     <string>View Employees</string>
     </property>
    </widget>
    <widget class="QPushButton" name="modEmplyBtn">
@@ -490,7 +490,7 @@ background-color: rgb(84, 13, 43);
 }</string>
     </property>
     <property name="text">
-     <string>Search Customer</string>
+     <string>View Customers</string>
     </property>
    </widget>
    <widget class="QPushButton" name="modCstmrBtn">

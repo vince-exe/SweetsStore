@@ -1,13 +1,15 @@
 debug/about_me_dialog.o
 debug/add_product_dialog.o
-debug/database.o
 debug/employee.o
 debug/employeewindow.o
 debug/main.o
 debug/mainwindow.o
 debug/person.o
 debug/product.o
+debug/utilities.o
+debug/view_products_dialog.o
 debug/moc_about_me_dialog.o
 debug/moc_add_product_dialog.o
 debug/moc_employeewindow.o
 debug/moc_mainwindow.o
+debug/moc_view_products_dialog.o

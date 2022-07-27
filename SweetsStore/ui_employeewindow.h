@@ -313,15 +313,15 @@ public:
         dateLabel->setText(QString());
         addProdBtn->setText(QCoreApplication::translate("EmployeeWindow", "Add Product", nullptr));
         rmProdBtn->setText(QCoreApplication::translate("EmployeeWindow", "Remove Product", nullptr));
-        srcProdBtn->setText(QCoreApplication::translate("EmployeeWindow", "Search Product", nullptr));
+        srcProdBtn->setText(QCoreApplication::translate("EmployeeWindow", "View Products", nullptr));
         modProdBtn->setText(QCoreApplication::translate("EmployeeWindow", "Modify Product", nullptr));
         addEmplyBtn->setText(QCoreApplication::translate("EmployeeWindow", "Add Employee", nullptr));
         rmEmplyBtn->setText(QCoreApplication::translate("EmployeeWindow", "Remove Employee", nullptr));
-        srchEmplyBtn->setText(QCoreApplication::translate("EmployeeWindow", "Search Employee", nullptr));
+        srchEmplyBtn->setText(QCoreApplication::translate("EmployeeWindow", "View Employees", nullptr));
         modEmplyBtn->setText(QCoreApplication::translate("EmployeeWindow", "Modify Employee", nullptr));
         addCstmrBtn->setText(QCoreApplication::translate("EmployeeWindow", "Add Customer", nullptr));
         rmvCstmrBtn->setText(QCoreApplication::translate("EmployeeWindow", "Remove Customer", nullptr));
-        srcCstmrBtn->setText(QCoreApplication::translate("EmployeeWindow", "Search Customer", nullptr));
+        srcCstmrBtn->setText(QCoreApplication::translate("EmployeeWindow", "View Customers", nullptr));
         modCstmrBtn->setText(QCoreApplication::translate("EmployeeWindow", "Modify Customer", nullptr));
         addProdBtn_2->setText(QCoreApplication::translate("EmployeeWindow", "Save | Exit", nullptr));
     } // retranslateUi

@@ -1,7 +1,7 @@
 #include "about_me_dialog.h"
 #include "ui_aboutmedialog.h"
 
-#include "database.h"
+#include "utilities.h"
 
 AboutMeDialog::AboutMeDialog(QWidget *parent) :
     QDialog(parent),

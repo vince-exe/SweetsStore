@@ -7,7 +7,7 @@
 
 #include "employee.h"
 #include "employeewindow.h"
-#include "database.h"
+#include "utilities.h"
 
 const int MaxEmailBoxLen = 30;
 const int MaxPassBoxLen = 16;
