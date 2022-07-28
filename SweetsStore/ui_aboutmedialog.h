@@ -13,169 +13,149 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_AboutMeDialog
 {
 public:
-    QLabel *titleLabel;
-    QLabel *label;
-    QLabel *label_2;
-    QLabel *label_3;
-    QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLabel *label_7;
     QLabel *label_8;
-    QLabel *firstNameLabel;
-    QLabel *lastNameLabel;
-    QLabel *sexLabel;
-    QLabel *ageLabel;
-    QLabel *salaryLabel;
-    QLabel *emailLabel;
-    QLabel *passwordLabel;
+    QPushButton *firstNameBtn;
+    QPushButton *lastNameBtn;
+    QPushButton *sexBtn;
+    QPushButton *ageBtn;
+    QPushButton *salaryBtn;
+    QPushButton *emailBtn;
+    QPushButton *passwordBtn;
 
     void setupUi(QDialog *AboutMeDialog)
     {
         if (AboutMeDialog->objectName().isEmpty())
             AboutMeDialog->setObjectName(QString::fromUtf8("AboutMeDialog"));
-        AboutMeDialog->resize(589, 574);
+        AboutMeDialog->resize(451, 567);
         AboutMeDialog->setStyleSheet(QString::fromUtf8("QDialog {\n"
 "	background-color: rgb(102, 16, 53);\n"
 "}"));
-        titleLabel = new QLabel(AboutMeDialog);
-        titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
-        titleLabel->setGeometry(QRect(190, 10, 201, 61));
-        QFont font;
-        font.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
-        font.setPointSize(28);
-        font.setBold(true);
-        titleLabel->setFont(font);
-        titleLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(209, 209, 209);\n"
-"border: 5px solid '#1a1818';\n"
-"border-radius: 16px;\n"
-"padding: 4px;\n"
-"}\n"
-"\n"
-"QLabel::hover {\n"
-"background-color: rgb(84, 13, 43);\n"
-"}"));
-        label = new QLabel(AboutMeDialog);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(20, 90, 211, 71));
-        QFont font1;
-        font1.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
-        font1.setPointSize(25);
-        label->setFont(font1);
-        label->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(191, 191, 191)\n"
-"}"));
-        label_2 = new QLabel(AboutMeDialog);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(20, 160, 211, 71));
-        label_2->setFont(font1);
-        label_2->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(191, 191, 191)\n"
-"}"));
-        label_3 = new QLabel(AboutMeDialog);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(20, 220, 81, 71));
-        label_3->setFont(font1);
-        label_3->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(191, 191, 191)\n"
-"}"));
-        label_4 = new QLabel(AboutMeDialog);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(20, 280, 81, 71));
-        label_4->setFont(font1);
-        label_4->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(191, 191, 191)\n"
-"}"));
-        label_5 = new QLabel(AboutMeDialog);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(20, 340, 131, 71));
-        label_5->setFont(font1);
-        label_5->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(191, 191, 191)\n"
-"}"));
-        label_6 = new QLabel(AboutMeDialog);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(20, 400, 121, 71));
-        label_6->setFont(font1);
-        label_6->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(191, 191, 191)\n"
-"}"));
-        label_7 = new QLabel(AboutMeDialog);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setGeometry(QRect(20, 460, 211, 71));
-        label_7->setFont(font1);
-        label_7->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(191, 191, 191)\n"
-"}"));
         label_8 = new QLabel(AboutMeDialog);
         label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setGeometry(QRect(320, 540, 431, 31));
-        QFont font2;
-        font2.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
-        font2.setPointSize(14);
-        font2.setBold(true);
-        label_8->setFont(font2);
+        label_8->setGeometry(QRect(180, 530, 431, 31));
+        QFont font;
+        font.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
+        font.setPointSize(14);
+        font.setBold(true);
+        label_8->setFont(font);
         label_8->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "color: rgb(191, 191, 191)\n"
 "}"));
-        firstNameLabel = new QLabel(AboutMeDialog);
-        firstNameLabel->setObjectName(QString::fromUtf8("firstNameLabel"));
-        firstNameLabel->setGeometry(QRect(220, 90, 311, 71));
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
-        font3.setPointSize(16);
-        firstNameLabel->setFont(font3);
-        firstNameLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+        firstNameBtn = new QPushButton(AboutMeDialog);
+        firstNameBtn->setObjectName(QString::fromUtf8("firstNameBtn"));
+        firstNameBtn->setGeometry(QRect(70, 40, 301, 61));
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("Microsoft PhagsPa")});
+        font1.setPointSize(17);
+        font1.setBold(true);
+        firstNameBtn->setFont(font1);
+        firstNameBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: rgb(84, 13, 43);\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"letter-spacing: 1px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
-        lastNameLabel = new QLabel(AboutMeDialog);
-        lastNameLabel->setObjectName(QString::fromUtf8("lastNameLabel"));
-        lastNameLabel->setGeometry(QRect(210, 160, 311, 71));
-        lastNameLabel->setFont(font3);
-        lastNameLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+        lastNameBtn = new QPushButton(AboutMeDialog);
+        lastNameBtn->setObjectName(QString::fromUtf8("lastNameBtn"));
+        lastNameBtn->setGeometry(QRect(70, 140, 301, 61));
+        lastNameBtn->setFont(font1);
+        lastNameBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: rgb(84, 13, 43);\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"letter-spacing: 1px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
-        sexLabel = new QLabel(AboutMeDialog);
-        sexLabel->setObjectName(QString::fromUtf8("sexLabel"));
-        sexLabel->setGeometry(QRect(130, 220, 31, 71));
-        sexLabel->setFont(font3);
-        sexLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+        sexBtn = new QPushButton(AboutMeDialog);
+        sexBtn->setObjectName(QString::fromUtf8("sexBtn"));
+        sexBtn->setGeometry(QRect(160, 240, 121, 61));
+        sexBtn->setFont(font1);
+        sexBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: rgb(84, 13, 43);\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"letter-spacing: 1px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
-        ageLabel = new QLabel(AboutMeDialog);
-        ageLabel->setObjectName(QString::fromUtf8("ageLabel"));
-        ageLabel->setGeometry(QRect(110, 280, 131, 71));
-        ageLabel->setFont(font3);
-        ageLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+        ageBtn = new QPushButton(AboutMeDialog);
+        ageBtn->setObjectName(QString::fromUtf8("ageBtn"));
+        ageBtn->setGeometry(QRect(20, 240, 121, 61));
+        ageBtn->setFont(font1);
+        ageBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: rgb(84, 13, 43);\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"letter-spacing: 1px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
-        salaryLabel = new QLabel(AboutMeDialog);
-        salaryLabel->setObjectName(QString::fromUtf8("salaryLabel"));
-        salaryLabel->setGeometry(QRect(160, 340, 401, 71));
-        salaryLabel->setFont(font3);
-        salaryLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235);\n"
+        salaryBtn = new QPushButton(AboutMeDialog);
+        salaryBtn->setObjectName(QString::fromUtf8("salaryBtn"));
+        salaryBtn->setGeometry(QRect(310, 240, 121, 61));
+        salaryBtn->setFont(font1);
+        salaryBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: rgb(84, 13, 43);\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"letter-spacing: 1px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
-        emailLabel = new QLabel(AboutMeDialog);
-        emailLabel->setObjectName(QString::fromUtf8("emailLabel"));
-        emailLabel->setGeometry(QRect(140, 400, 211, 71));
-        emailLabel->setFont(font3);
-        emailLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+        emailBtn = new QPushButton(AboutMeDialog);
+        emailBtn->setObjectName(QString::fromUtf8("emailBtn"));
+        emailBtn->setGeometry(QRect(70, 340, 301, 61));
+        emailBtn->setFont(font1);
+        emailBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: rgb(84, 13, 43);\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"letter-spacing: 1px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
-        passwordLabel = new QLabel(AboutMeDialog);
-        passwordLabel->setObjectName(QString::fromUtf8("passwordLabel"));
-        passwordLabel->setGeometry(QRect(200, 460, 211, 71));
-        passwordLabel->setFont(font3);
-        passwordLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"color: rgb(235, 235, 235)\n"
+        passwordBtn = new QPushButton(AboutMeDialog);
+        passwordBtn->setObjectName(QString::fromUtf8("passwordBtn"));
+        passwordBtn->setGeometry(QRect(70, 440, 301, 61));
+        passwordBtn->setFont(font1);
+        passwordBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: rgb(84, 13, 43);\n"
+"color: rgb(209, 209, 209);\n"
+"border: 4px solid '#1a1818';\n"
+"letter-spacing: 1px;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"background-color: rgb(84, 13, 43);\n"
 "}"));
 
         retranslateUi(AboutMeDialog);
@@ -186,22 +166,14 @@ public:
     void retranslateUi(QDialog *AboutMeDialog)
     {
         AboutMeDialog->setWindowTitle(QCoreApplication::translate("AboutMeDialog", "Dialog", nullptr));
-        titleLabel->setText(QCoreApplication::translate("AboutMeDialog", "About You", nullptr));
-        label->setText(QCoreApplication::translate("AboutMeDialog", "First Name: ", nullptr));
-        label_2->setText(QCoreApplication::translate("AboutMeDialog", "Last Name:", nullptr));
-        label_3->setText(QCoreApplication::translate("AboutMeDialog", "Sex:", nullptr));
-        label_4->setText(QCoreApplication::translate("AboutMeDialog", "Age:", nullptr));
-        label_5->setText(QCoreApplication::translate("AboutMeDialog", "Salary:", nullptr));
-        label_6->setText(QCoreApplication::translate("AboutMeDialog", "Email:", nullptr));
-        label_7->setText(QCoreApplication::translate("AboutMeDialog", "Password:", nullptr));
         label_8->setText(QCoreApplication::translate("AboutMeDialog", "Keep your informations private.", nullptr));
-        firstNameLabel->setText(QString());
-        lastNameLabel->setText(QString());
-        sexLabel->setText(QString());
-        ageLabel->setText(QString());
-        salaryLabel->setText(QString());
-        emailLabel->setText(QString());
-        passwordLabel->setText(QString());
+        firstNameBtn->setText(QString());
+        lastNameBtn->setText(QString());
+        sexBtn->setText(QString());
+        ageBtn->setText(QString());
+        salaryBtn->setText(QString());
+        emailBtn->setText(QString());
+        passwordBtn->setText(QString());
     } // retranslateUi
 
 };

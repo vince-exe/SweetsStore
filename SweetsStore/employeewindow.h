@@ -18,34 +18,9 @@ public:
     ~EmployeeWindow();
 
 private slots:
-
     void on_infoButton_clicked();
 
-    void on_addProdBtn_clicked();
-
-    void on_rmProdBtn_clicked();
-
-    void on_srcProdBtn_clicked();
-
-    void on_modProdBtn_clicked();
-
-    void on_addEmplyBtn_clicked();
-
-    void on_rmEmplyBtn_clicked();
-
-    void on_srchEmplyBtn_clicked();
-
-    void on_modEmplyBtn_clicked();
-
-    void on_addCstmrBtn_clicked();
-
-    void on_rmvCstmrBtn_clicked();
-
-    void on_srcCstmrBtn_clicked();
-
-    void on_modCstmrBtn_clicked();
-
-    void on_addProdBtn_2_clicked();
+    void on_prodMenuBtn_clicked();
 
 private:
     Ui::EmployeeWindow *ui;

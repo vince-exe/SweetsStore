@@ -21,7 +21,7 @@
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>152</x>
+     <x>40</x>
      <y>160</y>
      <width>971</width>
      <height>511</height>
@@ -30,7 +30,7 @@
    <property name="font">
     <font>
      <family>Source Code Pro</family>
-     <pointsize>18</pointsize>
+     <pointsize>15</pointsize>
      <bold>true</bold>
      <stylestrategy>PreferDefault</stylestrategy>
     </font>
@@ -93,7 +93,7 @@ padding-left: 10px;
     <rect>
      <x>40</x>
      <y>25</y>
-     <width>151</width>
+     <width>161</width>
      <height>51</height>
     </rect>
    </property>
@@ -116,7 +116,7 @@ background-color: rgb(84, 13, 43);
 }</string>
    </property>
    <property name="text">
-    <string>Exit</string>
+    <string>Save | Exit</string>
    </property>
   </widget>
   <widget class="QPushButton" name="timeButton">
@@ -151,29 +151,28 @@ background: '#75103c';
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="addProdBtn_3">
+  <widget class="QPushButton" name="addProdBtn_4">
    <property name="geometry">
     <rect>
-     <x>305</x>
-     <y>20</y>
-     <width>611</width>
-     <height>81</height>
+     <x>1070</x>
+     <y>210</y>
+     <width>171</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>HP Simplified Jpan</family>
-     <pointsize>30</pointsize>
+     <pointsize>16</pointsize>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-background-color: rgb(102, 16, 53);
+background: '#75103c';
 color: rgb(209, 209, 209);
-border: 4px solid  '#1a1818';
-border-radius: 16px;
-padding-bottom: 4px;
+border: 4px solid '#1a1818';
+letter-spacing: 2px;
 }
 
 QPushButton::hover {
@@ -181,7 +180,101 @@ background-color: rgb(84, 13, 43);
 }</string>
    </property>
    <property name="text">
-    <string>Products List</string>
+    <string>ADD</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addProdBtn_5">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>370</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+letter-spacing: 2px;
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>UPDATE</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addProdBtn_6">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>530</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+letter-spacing: 2px;
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>REMOVE</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="prodNameBox">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>25</y>
+     <width>331</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simpified Jpan</family>
+     <pointsize>19</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	font: 19pt &quot;HP Simpified Jpan&quot;;
+	border: 4px solid rgb(26, 24, 24);
+	padding-left: 14px;
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>Search Product</string>
    </property>
   </widget>
  </widget>

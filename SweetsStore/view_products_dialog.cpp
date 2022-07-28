@@ -2,9 +2,12 @@
 #include "ui_viewproductsdialog.h"
 
 #include <QStandardItemModel>
+#include <QScrollBar>
 
 #include "utilities.h"
 #include "product.h"
+
+void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsMap, QTableView* table);
 
 ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     QDialog(parent),
@@ -32,13 +35,22 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     model->setVerticalHeaderLabels(verticalHeader);
     /* table settings */
     ui->tableView->verticalHeader()->setVisible(false);
-    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableView->setSelectionMode(QAbstractItemView::NoSelection);
     ui->tableView->verticalHeader()->setDefaultSectionSize(50);
+    ui->tableView->verticalScrollBar()->setStyleSheet("background-color: #75103c;" "alternate-background-color: #540d2b;");
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    /* print the table */
+    printTable(model, &productsDatabase, ui->tableView);
+}
 
+ViewProductsDialog::~ViewProductsDialog() {
+    delete ui;
+}
+
+void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsDatabase, QTableView* table) {
     int i = 0;
     /* fill the table with the informations */
-    for(auto& value : productsDatabase) {
+    for(auto& value : *productsDatabase) {
         model->setItem(i, 0, new QStandardItem(QString::fromStdString(value.second.getName())));
         model->setItem(i, 1, new QStandardItem(QString::fromStdString(value.second.getExpiry())));
         model->setItem(i, 2, new QStandardItem(QString::fromStdString(value.second.getBrand())));
@@ -47,9 +59,5 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
         i++;
     }
     /* set the model to the table */
-    ui->tableView->setModel(model);
-}
-
-ViewProductsDialog::~ViewProductsDialog() {
-    delete ui;
+    table->setModel(model);
 }
