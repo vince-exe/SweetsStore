@@ -32,6 +32,10 @@ public:
     QPushButton *signInButton;
     QPushButton *signUpButton;
     QLabel *copyrightLabel;
+    QLabel *imageLabel;
+    QLabel *imageLabel_2;
+    QLabel *imageLabel_3;
+    QLabel *imageLabel_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -184,6 +188,18 @@ public:
 "color: rgb(219, 219, 219);\n"
 "}\n"
 ""));
+        imageLabel = new QLabel(centralwidget);
+        imageLabel->setObjectName(QString::fromUtf8("imageLabel"));
+        imageLabel->setGeometry(QRect(70, 20, 231, 151));
+        imageLabel_2 = new QLabel(centralwidget);
+        imageLabel_2->setObjectName(QString::fromUtf8("imageLabel_2"));
+        imageLabel_2->setGeometry(QRect(1000, 30, 231, 151));
+        imageLabel_3 = new QLabel(centralwidget);
+        imageLabel_3->setObjectName(QString::fromUtf8("imageLabel_3"));
+        imageLabel_3->setGeometry(QRect(50, 470, 161, 131));
+        imageLabel_4 = new QLabel(centralwidget);
+        imageLabel_4->setObjectName(QString::fromUtf8("imageLabel_4"));
+        imageLabel_4->setGeometry(QRect(1040, 540, 231, 151));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -220,6 +236,10 @@ public:
         signInButton->setText(QCoreApplication::translate("MainWindow", "Sign In", nullptr));
         signUpButton->setText(QCoreApplication::translate("MainWindow", "Sign Up", nullptr));
         copyrightLabel->setText(QCoreApplication::translate("MainWindow", "Copyright \302\251 2022 vince-exe. All rights reserved", nullptr));
+        imageLabel->setText(QString());
+        imageLabel_2->setText(QString());
+        imageLabel_3->setText(QString());
+        imageLabel_4->setText(QString());
     } // retranslateUi
 
 };

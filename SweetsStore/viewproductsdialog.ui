@@ -18,63 +18,42 @@
 	background-color: rgb(102, 16, 53);
 }</string>
   </property>
-  <widget class="QLabel" name="titleLabel">
+  <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>305</x>
-     <y>20</y>
-     <width>611</width>
-     <height>71</height>
+     <x>152</x>
+     <y>160</y>
+     <width>971</width>
+     <height>511</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>HP Simplified Jpan</family>
-     <pointsize>30</pointsize>
+     <family>Source Code Pro</family>
+     <pointsize>18</pointsize>
      <bold>true</bold>
+     <stylestrategy>PreferDefault</stylestrategy>
     </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel {
-background-color: rgb(102, 16, 53);
-color: rgb(209, 209, 209);
-border: 4px solid  '#1a1818';
-border-radius: 16px;
-padding-bottom: 4px;
-}
-
-QLabel::hover {
-background-color: rgb(84, 13, 43);
-}</string>
-   </property>
-   <property name="text">
-    <string>                      Products List</string>
-   </property>
-  </widget>
-  <widget class="QTableView" name="tableView">
-   <property name="geometry">
-    <rect>
-     <x>185</x>
-     <y>170</y>
-     <width>851</width>
-     <height>511</height>
-    </rect>
    </property>
    <property name="mouseTracking">
     <bool>true</bool>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
    </property>
    <property name="styleSheet">
     <string notr="true">QTableView {
 background-color: rgb(102, 16, 53);
 border: 6px solid  '#1a1818';
-gridline-color: rgb(26, 24, 24);
+gridline-color: black;
+selection-background-color: rgb(102, 16, 53);
 }
 QHeaderView::section {
 border-color: rgb(26, 24, 24);
 color: rgb(209, 209, 209);
 font: 20pt &quot;HP Simplified Jpan&quot;;
 background-color: rgb(102, 16, 53);
-height: 55px;
+height: 65px;
 }
 
 QHeaderView::section::hover {
@@ -83,13 +62,12 @@ background-color: rgb(102, 16, 53);
 
 QTableView::item{
 background-color: rgb(102, 16, 53);
-font: 13pt &quot;HP Simplified Jpan&quot;;
 color: rgb(209, 209, 209);
-}
-
-QTableView::item:selected {
-background-color: rgb(102, 16, 53);
+padding-left: 10px;
 }</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
    </property>
    <property name="showGrid">
     <bool>true</bool>
@@ -138,10 +116,10 @@ background-color: rgb(84, 13, 43);
 }</string>
    </property>
    <property name="text">
-    <string>Save | Exit</string>
+    <string>Exit</string>
    </property>
   </widget>
-  <widget class="QLabel" name="dateLabel">
+  <widget class="QPushButton" name="timeButton">
    <property name="geometry">
     <rect>
      <x>1040</x>
@@ -153,21 +131,57 @@ background-color: rgb(84, 13, 43);
    <property name="font">
     <font>
      <family>HP Simplified Jpan</family>
-     <pointsize>22</pointsize>
+     <pointsize>16</pointsize>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel {
+    <string notr="true">QPushButton {
 background: '#75103c';
 color: rgb(209, 209, 209);
 border: 4px solid '#1a1818';
 border-radius: 10px;
 }
-</string>
+
+QPushButton::hover {
+background: '#75103c';
+}</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addProdBtn_3">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>20</y>
+     <width>611</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>30</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background-color: rgb(102, 16, 53);
+color: rgb(209, 209, 209);
+border: 4px solid  '#1a1818';
+border-radius: 16px;
+padding-bottom: 4px;
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>Products List</string>
    </property>
   </widget>
  </widget>

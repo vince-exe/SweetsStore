@@ -10,7 +10,9 @@
 
 #include "utilities.h"
 #include "product.h"
+/* forms */
 #include "about_me_dialog.h"
+#include "view_products_dialog.h"
 
 EmployeeWindow::EmployeeWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -71,7 +73,9 @@ void EmployeeWindow::on_rmProdBtn_clicked() {
 
 /* View Products Button */
 void EmployeeWindow::on_srcProdBtn_clicked() {
-
+    ViewProductsDialog viewProductsWindow;
+    viewProductsWindow.setModal(true);
+    viewProductsWindow.exec();
 }
 
 /* Modify Product Button */

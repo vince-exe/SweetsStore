@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <map>
+
+#include <QPixmap>
 #include <QMessageBox>
 
 #include "employee.h"
@@ -67,6 +69,27 @@ MainWindow::MainWindow(QWidget *parent)
     ui->emailTextBox->setAlignment(Qt::AlignCenter);
     /* Pass Box */
     ui->passTextBox->setAlignment(Qt::AlignCenter);
+    /* declare the pixmap pointers */
+    QPixmap* pixmap = new QPixmap("images/donut.png");
+    QPixmap* p2 = new QPixmap("images/donut2.png");
+    QPixmap* p3 = new QPixmap("images/donut3.png");
+    QPixmap* p4 = new QPixmap("images/donut4.png");
+    /* set the label1 image */
+    ui->imageLabel->setPixmap(*pixmap);
+    ui->imageLabel->setScaledContents(true);
+    ui->imageLabel->show();
+    /* set the label2 image */
+    ui->imageLabel_2->setPixmap(*p2);
+    ui->imageLabel_2->setScaledContents(true);
+    ui->imageLabel_2->show();
+    /* set the label3 image */
+    ui->imageLabel_3->setPixmap(*p3);
+    ui->imageLabel_3->setScaledContents(true);
+    ui->imageLabel_3->show();
+    /* set the label4 image */
+    ui->imageLabel_4->setPixmap(*p4);
+    ui->imageLabel_4->setScaledContents(true);
+    ui->imageLabel_4->show();
 
     /* open the employee file in reading mode */
     FILE* file = fopen("files/employees.txt", "r");
