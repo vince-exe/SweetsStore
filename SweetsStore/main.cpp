@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     //ViewProductsDialog mainWindow;
     MainWindow mainWindow;
     //EmployeeWindow mainWindow;
+
     mainWindow.show();
     //mainWindow.exec();
 

@@ -15,6 +15,11 @@ public:
     explicit ViewProductsDialog(QWidget *parent = nullptr);
     ~ViewProductsDialog();
 
+private slots:
+    void on_addProdBtn_4_clicked();
+
+    void on_addProdBtn_2_clicked();
+
 private:
     Ui::ViewProductsDialog *ui;
 };

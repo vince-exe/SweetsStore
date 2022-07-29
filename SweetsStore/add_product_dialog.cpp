@@ -65,6 +65,10 @@ AddProductDialog::AddProductDialog(QWidget *parent) :
 
     /* set the current date */
     ui->dateWidget->setDate(QDate::currentDate());
+    /* modify the input boxes */
+    ui->prodNameBox->setAlignment(Qt::AlignCenter);
+    ui->brandBox->setAlignment(Qt::AlignCenter);
+    ui->priceBox->setAlignment(Qt::AlignCenter);
 }
 
 AddProductDialog::~AddProductDialog() {
@@ -121,7 +125,6 @@ void AddProductDialog::on_saveButton_clicked() {
         clearInputFields(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
         return;
     }
-
     /* set the quantity */
     product.setQuantity(std::stoi(ui->qntyBox->text().toStdString()));
 
@@ -130,8 +133,19 @@ void AddProductDialog::on_saveButton_clicked() {
 
     /* doesn't exist */
     if(it == productsDatabase.end()) {
+        /* check if he wants to save the chages or exit without saving */
+        QMessageBox confirmBox;
+        confirmBox.setText(tr("The application will proceed with saving the product, are you sure you want to continue?"));
+        confirmBox.addButton(tr("Save"), QMessageBox::YesRole);
+        QAbstractButton* dontsave = confirmBox.addButton(tr("Don't Save"), QMessageBox::YesRole);
+        /* show the message box */
+        confirmBox.exec();
+        /* if the user doesn't want to save the product, close */
+        if(confirmBox.clickedButton() == dontsave) { this->close(); return; }
+
         /* insert the product inside the map */
         productsDatabase.insert(std::pair<std::string, Product>(product.getName(), product));
+        /* set the new changes variable to true */
         newChanges = true;
 
         QMessageBox messageBox;
