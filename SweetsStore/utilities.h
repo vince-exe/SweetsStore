@@ -18,6 +18,9 @@ extern std::map<std::string, Product> productsDatabase;
 /* define the current employee */
 extern Employee currentEmployee;
 
+/* save the name (key) of the selected product */
+extern Product* selectedProduct;
+
 /* read informations in the products map */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
 

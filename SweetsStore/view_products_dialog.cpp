@@ -13,6 +13,15 @@
 
 void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsMap, QTableView* table);
 
+/* return an item pointer with the text aligned */
+QStandardItem* getItem(QString string) {
+    QStandardItem* item = new QStandardItem;
+    item->setTextAlignment(Qt::AlignCenter);
+    item->setText(string);
+
+    return item;
+}
+
 /* create the model */
 QStandardItemModel *model = new QStandardItemModel();
 
@@ -43,6 +52,7 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     ui->tableView->verticalHeader()->setDefaultSectionSize(50);
     ui->tableView->verticalScrollBar()->setStyleSheet("background-color: #75103c;" "alternate-background-color: #540d2b;");
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
     /* print the table */
     printTable(model, &productsDatabase, ui->tableView);
 }
@@ -55,11 +65,11 @@ void printTable(QStandardItemModel* model, std::map<std::string, Product>* produ
     int i = 0;
     /* fill the table with the informations */
     for(auto& value : *productsDatabase) {
-        model->setItem(i, 0, new QStandardItem(QString::fromStdString(value.second.getName())));
-        model->setItem(i, 1, new QStandardItem(QString::fromStdString(value.second.getExpiry())));
-        model->setItem(i, 2, new QStandardItem(QString::fromStdString(value.second.getBrand())));
-        model->setItem(i, 3, new QStandardItem(QString::number(value.second.getPrice())));
-        model->setItem(i, 4, new QStandardItem(QString::number(value.second.getQuantity())));
+        model->setItem(i, 0, getItem(QString::fromStdString(value.second.getName())));
+        model->setItem(i, 1, getItem(QString::fromStdString(value.second.getExpiry())));
+        model->setItem(i, 2, getItem(QString::fromStdString(value.second.getBrand())));
+        model->setItem(i, 3, getItem(QString::number(value.second.getPrice())));
+        model->setItem(i, 4, getItem(QString::number(value.second.getQuantity())));
         i++;
     }
     /* set the model to the table */
@@ -117,5 +127,29 @@ void ViewProductsDialog::on_addProdBtn_2_clicked() {
     messageBox.exec();
 
     if(messageBox.clickedButton() == exitButton) { this->close(); return; }
+}
+
+
+void ViewProductsDialog::on_tableView_doubleClicked(const QModelIndex &index) {
+    /* alloc the memory for the product */
+    selectedProduct = new Product;
+
+    /* get the product name*/
+    QString prodName = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 0)).toString();
+    /* get the expire date */
+    QString expireDate = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 1)).toString();
+    /* get the brand name */
+    QString brandName = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 2)).toString();
+    /* get the price */
+    float price = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 3)).toFloat();
+    /* get the quantity */
+    int qnt = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 4)).toInt();
+
+    /* set the product */
+    selectedProduct->setName(prodName.toStdString());
+    selectedProduct->setBrand(brandName.toStdString());
+    selectedProduct->setExpiry(expireDate.toStdString());
+    selectedProduct->setPrice(price);
+    selectedProduct->setQuantity(qnt);
 }
 

@@ -9,7 +9,7 @@
 #include "utilities.h"
 #include "product.h"
 
-const int prodNameLen = 30;
+const int prodNameLen = 20;
 const int brandLen = 20;
 const int PriceLen = 4;
 
@@ -65,6 +65,7 @@ AddProductDialog::AddProductDialog(QWidget *parent) :
 
     /* set the current date */
     ui->dateWidget->setDate(QDate::currentDate());
+    ui->dateWidget->setAlignment(Qt::AlignCenter);
     /* modify the input boxes */
     ui->prodNameBox->setAlignment(Qt::AlignCenter);
     ui->brandBox->setAlignment(Qt::AlignCenter);
@@ -81,7 +82,7 @@ void AddProductDialog::on_prodNameBox_textChanged(const QString &arg1) {
 }
 
 void AddProductDialog::on_brandBox_textChanged(const QString &arg1) {
-    if(arg1.toStdString().length() > brandLen) { ui->brandBox->backspace(); }
+ if(arg1.toStdString().length() > brandLen) { ui->brandBox->backspace(); }
 }
 
 void AddProductDialog::on_priceBox_textChanged(const QString &arg1) {

@@ -19,6 +19,7 @@ SOURCES += \
     mainwindow.cpp \
     person.cpp \
     product.cpp \
+    update_product_dialog.cpp \
     utilities.cpp \
     view_products_dialog.cpp
 
@@ -30,6 +31,7 @@ HEADERS += \
     mainwindow.h \
     person.h \
     product.h \
+    update_product_dialog.h \
     utilities.h \
     view_products_dialog.h
 
@@ -38,6 +40,7 @@ FORMS += \
     add_product_dialog.ui \
     employeewindow.ui \
     mainwindow.ui \
+    update_product_dialog.ui \
     viewproductsdialog.ui
 
 # Default rules for deployment.

@@ -19,6 +19,9 @@ std::map<std::string, Product> productsDatabase;
 /* defining the current employee variable */
 Employee currentEmployee;
 
+/* save the name (key) of the selected product */
+Product* selectedProduct = nullptr;
+
 /* read informations in the products map */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase) {
     char buffer[1024];

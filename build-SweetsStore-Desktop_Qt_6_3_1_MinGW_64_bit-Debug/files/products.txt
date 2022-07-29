@@ -1,1 +1,2 @@
 banana;29/07/2024;valle frutta;0.99;10
+cavolfiore;29/07/2024;bella marca;2.50;5

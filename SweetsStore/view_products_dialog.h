@@ -2,6 +2,10 @@
 #define VIEW_PRODUCTS_DIALOG_H
 
 #include <QDialog>
+#include <QStandardItem>
+
+/* return an item with the text aligned */
+QStandardItem* getItem(QString string);
 
 namespace Ui {
 class ViewProductsDialog;
@@ -19,6 +23,8 @@ private slots:
     void on_addProdBtn_4_clicked();
 
     void on_addProdBtn_2_clicked();
+
+    void on_tableView_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::ViewProductsDialog *ui;
