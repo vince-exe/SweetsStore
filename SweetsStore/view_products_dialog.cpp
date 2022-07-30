@@ -18,26 +18,6 @@ const int prodNameLen = 20;
 QStandardItemModel *model = new QStandardItemModel();
 QStandardItemModel* searchModel = new QStandardItemModel();
 
-/* check if a string has at least the given number of characters equals in the other string */
-int inside(std::string dest, std::string src) {
-    int c = 0;
-    std::string tmp;
-
-    if(dest.length() < src.length()) {
-        tmp = dest;
-        dest = src;
-        src = tmp;
-    }
-
-    for(int i = 0; i < int(dest.length()); i++) {
-        for(int j = 0; j < int(src.length()); j++) {
-            if(dest[i] == src[j]) c++;
-        }
-    }
-
-    return c >= 4;
-}
-
 void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsDatabase, QTableView* table) {
     int i = 0;
     /* fill the table with the informations */
@@ -68,7 +48,7 @@ void printsearchedProduct(std::map<std::string, Product>* productsMap, QTableVie
 
     int i = 0;
     for(auto& value : *productsMap) {
-        if(inside(value.second.getName(), searchedProduct)) {
+        if(value.second.getName() == searchedProduct) {
             searchModel->setItem(i, 0, getItem(QString::fromStdString(value.second.getName())));
             searchModel->setItem(i, 1, getItem(QString::fromStdString(value.second.getExpiry())));
             searchModel->setItem(i, 2, getItem(QString::fromStdString(value.second.getBrand())));

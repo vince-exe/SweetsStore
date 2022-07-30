@@ -16,9 +16,6 @@ void printTable(QStandardItemModel* model, std::map<std::string, Product>* produ
 /* print the searched product in the table */
 void printsearchedProduct(std::map<std::string, Product>* productsMap, QTableView* table, std::string searchedProduct);
 
-/* check if a string has at least the given number of characters equals in the other string */
-int inside(std::string dest, std::string src);
-
 namespace Ui {
 class ViewProductsDialog;
 }
