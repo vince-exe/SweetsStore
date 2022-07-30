@@ -25,6 +25,10 @@ public:
 private slots:
     void on_srchEmplyBox_textChanged(const QString &arg1);
 
+    void on_infoBtn_clicked();
+
+    void on_addProdBtn_4_clicked();
+
 private:
     Ui::ViewEmployeesDialog *ui;
 };

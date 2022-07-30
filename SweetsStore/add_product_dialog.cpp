@@ -11,7 +11,7 @@
 
 const int prodNameLen = 20;
 const int brandLen = 20;
-const int PriceLen = 4;
+const int PriceLen = 10;
 
 AddProductDialog::AddProductDialog(QWidget *parent) :
     QDialog(parent),
@@ -34,15 +34,17 @@ AddProductDialog::~AddProductDialog() {
     delete ui;
 }
 
+/* check if the user is passing the limit of characters for the prod name */
 void AddProductDialog::on_prodNameBox_textChanged(const QString &arg1) {
-    /* check if the user is passing the limit of characters */
     if(arg1.toStdString().length() > prodNameLen) { ui->prodNameBox->backspace(); }
 }
 
+/* check if the user is passing the limit of characters for the brand name */
 void AddProductDialog::on_brandBox_textChanged(const QString &arg1) {
  if(arg1.toStdString().length() > brandLen) { ui->brandBox->backspace(); }
 }
 
+/* check if the user is passing the limit of characters for the price */
 void AddProductDialog::on_priceBox_textChanged(const QString &arg1) {
     if(arg1.toStdString().length() > PriceLen) { ui->priceBox->backspace(); }
 }

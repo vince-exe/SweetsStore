@@ -3,6 +3,7 @@
 #include <QApplication>
 /* temp includes */
 #include "view_employees_dialog.h"
+#include "add_employee_dialog.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -10,11 +11,12 @@ int main(int argc, char *argv[]) {
     /* print the application path */
     qDebug() << "App path : " << qApp->applicationDirPath();
 
-    MainWindow mainWindow;
+    AddEmployeeDialog mainWindow;
+    //MainWindow mainWindow;
     //ViewEmployeesDialog mainWindow;
 
     mainWindow.show();
-    //mainWindow.exec();
+    mainWindow.exec();
 
-    return a.exec();
+    //return a.exec();
 }

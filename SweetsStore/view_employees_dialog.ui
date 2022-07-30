@@ -310,10 +310,10 @@ background-color: rgb(84, 13, 43);
 }</string>
    </property>
    <property name="text">
-    <string>Search Employee</string>
+    <string/>
    </property>
    <property name="placeholderText">
-    <string>Search Product</string>
+    <string>Search Employee</string>
    </property>
   </widget>
   <widget class="QPushButton" name="infoBtn">

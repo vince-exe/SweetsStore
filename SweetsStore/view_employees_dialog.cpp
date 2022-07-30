@@ -20,7 +20,6 @@ ViewEmployeesDialog::ViewEmployeesDialog(QWidget *parent) :
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
     /* set the date */
     ui->timeButton->setText(QString::fromStdString(currentDateTime().c_str()));
-    ui->srchEmplyBox->setPlaceholderText("Search Employee");
 
     QStringList horizontalHeader;
     QStringList verticalHeader;
@@ -67,6 +66,18 @@ void printEmployeesTable(QStandardItemModel* model, std::map<std::string, Employ
 }
 
 void ViewEmployeesDialog::on_srchEmplyBox_textChanged(const QString &arg1) {
+
+}
+
+
+void ViewEmployeesDialog::on_infoBtn_clicked() {
+    QMessageBox messageBox;
+    messageBox.information(0, "Info", "To update / remove an employee, select with a double-click the employee row, and then use the buttons");
+    messageBox.setFixedSize(550, 300);
+}
+
+/* add an employee to the employee database ( not in the employees file ) */
+void ViewEmployeesDialog::on_addProdBtn_4_clicked() {
 
 }
 

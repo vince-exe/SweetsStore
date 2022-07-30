@@ -1,4 +1,5 @@
 debug/about_me_dialog.o
+debug/add_employee_dialog.o
 debug/add_product_dialog.o
 debug/employee.o
 debug/employeewindow.o
@@ -11,6 +12,7 @@ debug/utilities.o
 debug/view_employees_dialog.o
 debug/view_products_dialog.o
 debug/moc_about_me_dialog.o
+debug/moc_add_employee_dialog.o
 debug/moc_add_product_dialog.o
 debug/moc_employeewindow.o
 debug/moc_mainwindow.o
