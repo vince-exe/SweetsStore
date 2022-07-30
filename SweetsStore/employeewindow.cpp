@@ -15,6 +15,28 @@
 #include "about_me_dialog.h"
 #include "view_products_dialog.h"
 
+/* open the products file */
+bool openProductsFile(const char *pathFile) {
+    /* try to open the products file ( reading mode ) */
+    FILE* file = fopen(pathFile, "r");
+    /* check if the fail opened correctly */
+    if(!file) {
+        QMessageBox messageBox;
+        messageBox.critical(0, "Fatal Error", "The application failed to open the system files");
+        messageBox.setFixedSize(550,300);
+
+        return false;
+    }
+    /* restore the cursor of the file at the start */
+    fseek(file, 0, SEEK_SET);
+    /* read the informations from the product file and store it in the map */
+    readProductsInformations(file, &productsDatabase);
+    /* close the file */
+    fclose(file);
+
+    return true;
+}
+
 EmployeeWindow::EmployeeWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::EmployeeWindow) {
@@ -24,22 +46,8 @@ EmployeeWindow::EmployeeWindow(QWidget *parent) :
     this->setGeometry(100, 50, 590, 640);
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
 
-    /* try to open the products file ( reading mode ) */
-    FILE* file = fopen("files/products.txt", "r");
-    /* check if the fail opened correctly */
-    if(!file) {
-        QMessageBox messageBox;
-        messageBox.critical(0, "Fatal Error", "The application failed to open the system files");
-        messageBox.setFixedSize(550,300);
-
-        exit(-1);
-    }
-    /* restore the cursor of the file at the start */
-    fseek(file, 0, SEEK_SET);
-    /* read the informations from the product file and store it in the map */
-    readProductsInformations(file, &productsDatabase);
-    /* close the file */
-    fclose(file);
+    /* open the products file and store the informations in the proucts map */
+    if(!openProductsFile("files/products.txt")) { exit(-1); }
 }
 
 EmployeeWindow::~EmployeeWindow() {

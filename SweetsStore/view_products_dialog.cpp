@@ -12,7 +12,75 @@
 #include "add_product_dialog.h"
 #include "update_product_dialog.h"
 
-void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsMap, QTableView* table);
+const int prodNameLen = 20;
+
+/* create the models */
+QStandardItemModel *model = new QStandardItemModel();
+QStandardItemModel* searchModel = new QStandardItemModel();
+
+/* check if a string has at least the given number of characters equals in the other string */
+int inside(std::string dest, std::string src) {
+    int c = 0;
+    std::string tmp;
+
+    if(dest.length() < src.length()) {
+        tmp = dest;
+        dest = src;
+        src = tmp;
+    }
+
+    for(int i = 0; i < int(dest.length()); i++) {
+        for(int j = 0; j < int(src.length()); j++) {
+            if(dest[i] == src[j]) c++;
+        }
+    }
+
+    return c >= 4;
+}
+
+void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsDatabase, QTableView* table) {
+    int i = 0;
+    /* fill the table with the informations */
+    for(auto& value : *productsDatabase) {
+        model->setItem(i, 0, getItem(QString::fromStdString(value.second.getName())));
+        model->setItem(i, 1, getItem(QString::fromStdString(value.second.getExpiry())));
+        model->setItem(i, 2, getItem(QString::fromStdString(value.second.getBrand())));
+        model->setItem(i, 3, getItem(QString::number(value.second.getPrice())));
+        model->setItem(i, 4, getItem(QString::number(value.second.getQuantity())));
+        i++;
+    }
+    /* set the model to the table */
+    table->setModel(model);
+}
+
+void printsearchedProduct(std::map<std::string, Product>* productsMap, QTableView* table, std::string searchedProduct) {
+    QStringList horizontalHeader;
+    QStringList verticalHeader;
+    /* create the columns */
+    horizontalHeader.append("Name");
+    horizontalHeader.append("Expire Date");
+    horizontalHeader.append("Brand");
+    horizontalHeader.append("Price");
+    horizontalHeader.append("Quantity");
+    /* set the model */
+    searchModel->setHorizontalHeaderLabels(horizontalHeader);
+    searchModel->setVerticalHeaderLabels(verticalHeader);
+
+    int i = 0;
+    for(auto& value : *productsMap) {
+        if(inside(value.second.getName(), searchedProduct)) {
+            searchModel->setItem(i, 0, getItem(QString::fromStdString(value.second.getName())));
+            searchModel->setItem(i, 1, getItem(QString::fromStdString(value.second.getExpiry())));
+            searchModel->setItem(i, 2, getItem(QString::fromStdString(value.second.getBrand())));
+            searchModel->setItem(i, 3, getItem(QString::number(value.second.getPrice())));
+            searchModel->setItem(i, 4, getItem(QString::number(value.second.getQuantity())));
+            i++;
+        }
+
+    }
+    /* set the model to the table */
+    table->setModel(searchModel);
+}
 
 /* return an item pointer with the text aligned */
 QStandardItem* getItem(QString string) {
@@ -22,9 +90,6 @@ QStandardItem* getItem(QString string) {
 
     return item;
 }
-
-/* create the model */
-QStandardItemModel *model = new QStandardItemModel();
 
 ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     QDialog(parent),
@@ -60,21 +125,6 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
 
 ViewProductsDialog::~ViewProductsDialog() {
     delete ui;
-}
-
-void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsDatabase, QTableView* table) {
-    int i = 0;
-    /* fill the table with the informations */
-    for(auto& value : *productsDatabase) {
-        model->setItem(i, 0, getItem(QString::fromStdString(value.second.getName())));
-        model->setItem(i, 1, getItem(QString::fromStdString(value.second.getExpiry())));
-        model->setItem(i, 2, getItem(QString::fromStdString(value.second.getBrand())));
-        model->setItem(i, 3, getItem(QString::number(value.second.getPrice())));
-        model->setItem(i, 4, getItem(QString::number(value.second.getQuantity())));
-        i++;
-    }
-    /* set the model to the table */
-    table->setModel(model);
 }
 
 /* add a product to the database ( but doesn't save it in the file ) */
@@ -120,14 +170,9 @@ void ViewProductsDialog::on_addProdBtn_2_clicked() {
     newChanges = false;
 
     QMessageBox messageBox;
-    messageBox.setText(tr("The application has successfully saved the changes"));
-
-    messageBox.addButton(tr("Continue"), QMessageBox::YesRole);
-    QAbstractButton* exitButton = messageBox.addButton(tr("Exit"), QMessageBox::NoRole);
-
-    messageBox.exec();
-
-    if(messageBox.clickedButton() == exitButton) { this->close(); return; }
+    messageBox.information(0, "Success", "The application has successfully saved the changes");
+    messageBox.setFixedSize(550,300);
+    messageBox.show();
 }
 
 void ViewProductsDialog::on_tableView_activated(const QModelIndex &index) {
@@ -162,7 +207,6 @@ void ViewProductsDialog::on_addProdBtn_5_clicked() {
     updateDialog.exec();
     /* print the table */
     printTable(model, &productsDatabase, ui->tableView);
-    newChanges = true;
     selectedProductCheck = false;
 }
 
@@ -204,5 +248,31 @@ void ViewProductsDialog::on_rmProdBtn_clicked() {
     selectedProductCheck = false;
 
     /* reprint the table */
+    printTable(model, &productsDatabase, ui->tableView);
+}
+
+/* make sure that the user doesn't pass the limit of characters */
+void ViewProductsDialog::on_prodNameBox_textChanged(const QString &arg1) {
+    if(arg1.toStdString().length() > prodNameLen) { ui->prodNameBox->backspace(); }
+}
+
+/* search a product */
+void ViewProductsDialog::on_srchButton_clicked() {
+   /* get the text */
+   std::string productSearched = lowerStr(ui->prodNameBox->text().toStdString());
+   /* clear the input search */
+   ui->prodNameBox->clear();
+
+   if(!productSearched.length()) {
+       printTable(model, &productsDatabase, ui->tableView);
+       return;
+   }
+
+   /* print the searched model */
+    printsearchedProduct(&productsDatabase, ui->tableView, productSearched);
+}
+
+void ViewProductsDialog::on_resetBtn_clicked() {
+    ui->prodNameBox->clear();
     printTable(model, &productsDatabase, ui->tableView);
 }

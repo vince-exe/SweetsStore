@@ -1,1 +1,3 @@
-succo alla mela;30/07/2025;valle frutta;0.99;10
+cavolfiore;30/07/2024;valle verde;0.99;50
+ciambella;30/07/2025;valle verde;1.99;10
+succo alla pera;30/07/2025;valle frutta;0.99;10

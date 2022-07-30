@@ -3,9 +3,21 @@
 
 #include <QDialog>
 #include <QStandardItem>
+#include <QTableView>
+
+#include "product.h"
 
 /* return an item with the text aligned */
 QStandardItem* getItem(QString string);
+
+/* print the table */
+void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsMap, QTableView* table);
+
+/* print the searched product in the table */
+void printsearchedProduct(std::map<std::string, Product>* productsMap, QTableView* table, std::string searchedProduct);
+
+/* check if a string has at least the given number of characters equals in the other string */
+int inside(std::string dest, std::string src);
 
 namespace Ui {
 class ViewProductsDialog;
@@ -31,6 +43,12 @@ private slots:
     void on_rmProdBtn_clicked();
 
     void on_tableView_activated(const QModelIndex &index);
+
+    void on_prodNameBox_textChanged(const QString &arg1);
+
+    void on_srchButton_clicked();
+
+    void on_resetBtn_clicked();
 
 private:
     Ui::ViewProductsDialog *ui;

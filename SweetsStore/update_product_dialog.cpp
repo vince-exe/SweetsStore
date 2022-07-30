@@ -87,6 +87,17 @@ void UpdateProductDialog::on_saveButton_clicked() {
     /* set the quantity */
     product.setQuantity(std::stoi(ui->qntyBox->text().toStdString()));
 
+    /* check if he already exist */
+    if(productsDatabase.find(product.getName()) != productsDatabase.end()) {
+        QMessageBox messageBox;
+        QString warningMessage = "There is already a product named [ " + QString::fromStdString(product.getName().c_str()) + " ]";
+        messageBox.warning(0, "Warning", warningMessage);
+        messageBox.setFixedSize(550,300);
+
+        /* clear the input fields */
+        clearInputFields(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
+        return;
+    }
     /* check if he wants to save the chages or exit without saving */
     QMessageBox confirmBox;
     confirmBox.setText(tr("The application will proceed with updating the product, are you sure you want to continue?"));
@@ -120,6 +131,7 @@ void UpdateProductDialog::on_saveButton_clicked() {
     messageBox.setFixedSize(550, 300);
     /* close the dialog and return */
     this->close();
+    newChanges = true;
     return;
 }
 
