@@ -9,15 +9,6 @@
 #include <iostream>
 #include <string>
 
-/* check if the input boxes are empties */
-bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *thirdInput, QSpinBox *spinBox);
-
-/* check if the given date is valid */
-bool checkDate(QDateEdit* dateEdit);
-
-/* clear the widgets */
-void clearInputFields(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QSpinBox* f4, QDateEdit* f5);
-
 namespace Ui {
 class AddProductDialog;
 }

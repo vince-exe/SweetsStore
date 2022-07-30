@@ -10,6 +10,7 @@
 
 /* forms */
 #include "add_product_dialog.h"
+#include "update_product_dialog.h"
 
 void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsMap, QTableView* table);
 
@@ -129,11 +130,8 @@ void ViewProductsDialog::on_addProdBtn_2_clicked() {
     if(messageBox.clickedButton() == exitButton) { this->close(); return; }
 }
 
-
-void ViewProductsDialog::on_tableView_doubleClicked(const QModelIndex &index) {
-    /* alloc the memory for the product */
-    selectedProduct = new Product;
-
+void ViewProductsDialog::on_tableView_activated(const QModelIndex &index) {
+    selectedProductCheck = true;
     /* get the product name*/
     QString prodName = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 0)).toString();
     /* get the expire date */
@@ -146,10 +144,65 @@ void ViewProductsDialog::on_tableView_doubleClicked(const QModelIndex &index) {
     int qnt = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 4)).toInt();
 
     /* set the product */
-    selectedProduct->setName(prodName.toStdString());
-    selectedProduct->setBrand(brandName.toStdString());
-    selectedProduct->setExpiry(expireDate.toStdString());
-    selectedProduct->setPrice(price);
-    selectedProduct->setQuantity(qnt);
+    selectedProduct.setName(prodName.toStdString());
+    selectedProduct.setBrand(brandName.toStdString());
+    selectedProduct.setExpiry(expireDate.toStdString());
+    selectedProduct.setPrice(price);
+    selectedProduct.setQuantity(qnt);
 }
 
+/* update prod button */
+void ViewProductsDialog::on_addProdBtn_5_clicked() {
+    /* if no row has been clicked, doesn't open the update UI */
+    if(!selectedProductCheck) { return; }
+
+    UpdateProductDialog updateDialog;
+    updateDialog.setModal(true);
+    updateDialog.show();
+    updateDialog.exec();
+    /* print the table */
+    printTable(model, &productsDatabase, ui->tableView);
+    newChanges = true;
+    selectedProductCheck = false;
+}
+
+/* show an info message box */
+void ViewProductsDialog::on_infoBtn_clicked() {
+    QMessageBox messageBox;
+    messageBox.information(0, "Info", "To update / delete a product, you have to select with a click the product row in the table");
+    messageBox.show();
+}
+
+/* remove a product */
+void ViewProductsDialog::on_rmProdBtn_clicked() {
+    /* if no row has been clicked, return */
+    if(!selectedProductCheck) { return; }
+
+    QMessageBox confirmBox;
+    confirmBox.setText(tr("The application will proceed with deleting the product, are you sure you want to continue?"));
+    confirmBox.addButton(tr("Yes"), QMessageBox::YesRole);
+    QAbstractButton* noBtn = confirmBox.addButton(tr("No"), QMessageBox::NoRole);
+    /* show the message box */
+    confirmBox.exec();
+    /* if the user doesn't want to delete the product, close */
+    if(confirmBox.clickedButton() == noBtn) { return; }
+
+    /* erase the selected element from the map */
+    productsDatabase.erase(selectedProduct.getName());
+    /* print the success message box */
+    QMessageBox messageBox;
+    messageBox.information(0, "Success", "Successfully removed the product");
+    messageBox.setFixedSize(550, 300);
+    messageBox.show();
+
+    /* get the index of the selected row */
+    QModelIndex index = ui->tableView->selectionModel()->currentIndex();
+    /* use the model to remove the row */
+    model->removeRow(index.row(), index.parent());
+
+    newChanges = true;
+    selectedProductCheck = false;
+
+    /* reprint the table */
+    printTable(model, &productsDatabase, ui->tableView);
+}

@@ -2,6 +2,11 @@
 #define UPDATE_PRODUCT_DIALOG_H
 
 #include <QDialog>
+#include <QLineEdit>
+#include <QDateEdit>
+#include <QSpinBox>
+
+void setInputBoxes(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QSpinBox* f4, QDateEdit* f5);
 
 namespace Ui {
 class UpdateProductDialog;
@@ -21,6 +26,8 @@ private slots:
     void on_brandBox_textChanged(const QString &arg1);
 
     void on_priceBox_textChanged(const QString &arg1);
+
+    void on_saveButton_clicked();
 
 private:
     Ui::UpdateProductDialog *ui;

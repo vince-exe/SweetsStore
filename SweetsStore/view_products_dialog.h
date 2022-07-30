@@ -24,7 +24,13 @@ private slots:
 
     void on_addProdBtn_2_clicked();
 
-    void on_tableView_doubleClicked(const QModelIndex &index);
+    void on_addProdBtn_5_clicked();
+
+    void on_infoBtn_clicked();
+
+    void on_rmProdBtn_clicked();
+
+    void on_tableView_activated(const QModelIndex &index);
 
 private:
     Ui::ViewProductsDialog *ui;

@@ -6,6 +6,9 @@
 #include <string>
 #include <fstream>
 
+#include <QDateEdit>
+#include <QSpinBox>
+
 #include "employee.h"
 #include "product.h"
 
@@ -19,7 +22,9 @@ extern std::map<std::string, Product> productsDatabase;
 extern Employee currentEmployee;
 
 /* save the name (key) of the selected product */
-extern Product* selectedProduct;
+extern Product selectedProduct;
+/* check if a row has been clicked */
+extern bool selectedProductCheck;
 
 /* read informations in the products map */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
@@ -38,5 +43,14 @@ std::string lowerStr(std::string string);
 
 /* get the current date */
 const std::string currentDateTime();
+
+/* check the current date */
+bool checkDate(QDateEdit *dateEdit);
+
+/* check if the input boxes are empties */
+bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *thirdInput, QSpinBox *spinBox);
+
+/* clear the widgets */
+void clearInputFields(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QSpinBox* f4, QDateEdit* f5);
 
 #endif // UTILITIES_H

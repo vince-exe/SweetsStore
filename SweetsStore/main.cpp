@@ -13,12 +13,12 @@ int main(int argc, char *argv[]) {
     qDebug() << "App path : " << qApp->applicationDirPath();
 
     //ViewProductsDialog mainWindow;
-    //MainWindow mainWindow;
+    MainWindow mainWindow;
     //EmployeeWindow mainWindow;
-    UpdateProductDialog mainWindow;
+    //UpdateProductDialog mainWindow;
 
     mainWindow.show();
-    mainWindow.exec();
+    //mainWindow.exec();
 
-    //return a.exec();
+    return a.exec();
 }

@@ -2,7 +2,10 @@
 
 #include <stdio.h>
 #include <string.h>
+
 #include <QDebug>
+#include <QDateEdit>
+#include <QLineEdit>
 
 /* defining the costant token character */
 const char* tokenCharacter = ";";
@@ -20,7 +23,9 @@ std::map<std::string, Product> productsDatabase;
 Employee currentEmployee;
 
 /* save the name (key) of the selected product */
-Product* selectedProduct = nullptr;
+Product selectedProduct;
+/* check if a row has been clicked */
+bool selectedProductCheck = false;
 
 /* read informations in the products map */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase) {
@@ -123,4 +128,46 @@ const std::string currentDateTime() {
     strftime(buf, sizeof(buf), "%d-%m-%Y", &tstruct);
 
     return buf;
+}
+
+bool checkDate(QDateEdit *dateEdit) {
+    int dayEdit, monthEdit, yearEdit;
+    /* save the informations in the variables */
+    dateEdit->date().getDate(&yearEdit, &monthEdit, &dayEdit);
+
+    int currDay, currMonth, currYear;
+    QDate::currentDate().getDate(&currYear, &currMonth, &currDay);
+
+    /* simple case (year) */
+    if(yearEdit < currYear) { return false; }
+
+    if(yearEdit == currYear) {
+        if(monthEdit < currMonth ) { return false; }
+
+        else if(monthEdit > currMonth) { return true; }
+
+        if(dayEdit <= currDay) { return false; }
+    }
+
+    return true;
+}
+
+bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *thirdInput, QSpinBox *spinBox) {
+    if(!firstInput->text().length() or !secondInput->text().length() or !thirdInput->text().length()) {
+        return false;
+    }
+
+    if(spinBox->text().toStdString() == "0") { return false; }
+
+    return true;
+}
+
+void clearInputFields(QLineEdit *f1, QLineEdit *f2, QLineEdit *f3, QSpinBox *f4, QDateEdit *f5) {
+    /* clear the widgets */
+    f1->clear();
+    f2->clear();
+    f3->clear();
+    f4->clear();
+
+    f5->setDate(QDate::currentDate());
 }

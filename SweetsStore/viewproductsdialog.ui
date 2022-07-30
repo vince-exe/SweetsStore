@@ -224,7 +224,7 @@ background-color: rgb(84, 13, 43);
     <string>UPDATE</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="addProdBtn_6">
+  <widget class="QPushButton" name="rmProdBtn">
    <property name="geometry">
     <rect>
      <x>1070</x>
@@ -259,7 +259,7 @@ background-color: rgb(84, 13, 43);
   <widget class="QLineEdit" name="prodNameBox">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>440</x>
      <y>25</y>
      <width>331</width>
      <height>51</height>
@@ -284,6 +284,37 @@ background-color: rgb(84, 13, 43);
    </property>
    <property name="placeholderText">
     <string>Search Product</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="infoBtn">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>25</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>Info</string>
    </property>
   </widget>
  </widget>
