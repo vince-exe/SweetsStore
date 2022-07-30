@@ -25,7 +25,7 @@ public:
     QWidget *centralwidget;
     QPushButton *infoButton;
     QPushButton *prodMenuBtn;
-    QPushButton *srcProdBtn_2;
+    QPushButton *emplyMenuBtn;
     QPushButton *srcProdBtn_3;
     QPushButton *pushButton;
     QMenuBar *menubar;
@@ -86,11 +86,11 @@ public:
 "QPushButton::hover {\n"
 "background-color: rgb(84, 13, 43);\n"
 "}"));
-        srcProdBtn_2 = new QPushButton(centralwidget);
-        srcProdBtn_2->setObjectName(QString::fromUtf8("srcProdBtn_2"));
-        srcProdBtn_2->setGeometry(QRect(140, 300, 301, 81));
-        srcProdBtn_2->setFont(font2);
-        srcProdBtn_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        emplyMenuBtn = new QPushButton(centralwidget);
+        emplyMenuBtn->setObjectName(QString::fromUtf8("emplyMenuBtn"));
+        emplyMenuBtn->setGeometry(QRect(140, 300, 301, 81));
+        emplyMenuBtn->setFont(font2);
+        emplyMenuBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background: '#75103c';\n"
 "color: rgb(209, 209, 209);\n"
 "border: 4px solid '#1a1818';\n"
@@ -147,7 +147,7 @@ public:
         EmployeeWindow->setWindowTitle(QCoreApplication::translate("EmployeeWindow", "MainWindow", nullptr));
         infoButton->setText(QCoreApplication::translate("EmployeeWindow", "Me", nullptr));
         prodMenuBtn->setText(QCoreApplication::translate("EmployeeWindow", "Products Menu", nullptr));
-        srcProdBtn_2->setText(QCoreApplication::translate("EmployeeWindow", "Employees Menu", nullptr));
+        emplyMenuBtn->setText(QCoreApplication::translate("EmployeeWindow", "Employees Menu", nullptr));
         srcProdBtn_3->setText(QCoreApplication::translate("EmployeeWindow", "Customers Menu", nullptr));
         pushButton->setText(QCoreApplication::translate("EmployeeWindow", "Sweets Store", nullptr));
     } // retranslateUi

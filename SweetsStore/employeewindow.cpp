@@ -14,6 +14,7 @@
 /* forms */
 #include "about_me_dialog.h"
 #include "view_products_dialog.h"
+#include "view_employees_dialog.h"
 
 /* open the products file */
 bool openProductsFile(const char *pathFile) {
@@ -65,5 +66,12 @@ void EmployeeWindow::on_prodMenuBtn_clicked() {
     ViewProductsDialog viewProductsWindow;
     viewProductsWindow.setModal(true);
     viewProductsWindow.exec();
+}
+
+
+void EmployeeWindow::on_emplyMenuBtn_clicked() {
+    ViewEmployeesDialog viewEmployeeWindow;
+    viewEmployeeWindow.setModal(true);
+    viewEmployeeWindow.exec();
 }
 

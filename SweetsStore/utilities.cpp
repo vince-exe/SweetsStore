@@ -171,3 +171,12 @@ void clearInputFields(QLineEdit *f1, QLineEdit *f2, QLineEdit *f3, QSpinBox *f4,
 
     f5->setDate(QDate::currentDate());
 }
+
+/* return an item pointer with the text aligned */
+QStandardItem* getItem(QString string) {
+    QStandardItem* item = new QStandardItem;
+    item->setTextAlignment(Qt::AlignCenter);
+    item->setText(string);
+
+    return item;
+}

@@ -8,6 +8,7 @@
 
 #include <QDateEdit>
 #include <QSpinBox>
+#include <QStandardItem>
 
 #include "employee.h"
 #include "product.h"
@@ -52,5 +53,8 @@ bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *t
 
 /* clear the widgets */
 void clearInputFields(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QSpinBox* f4, QDateEdit* f5);
+
+/* return an item with the text aligned */
+QStandardItem* getItem(QString string);
 
 #endif // UTILITIES_H

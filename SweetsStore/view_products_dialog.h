@@ -7,9 +7,6 @@
 
 #include "product.h"
 
-/* return an item with the text aligned */
-QStandardItem* getItem(QString string);
-
 /* print the table */
 void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsMap, QTableView* table);
 

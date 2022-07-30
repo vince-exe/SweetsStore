@@ -100,7 +100,7 @@ background-color: rgb(84, 13, 43);
      <string>Products Menu</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="srcProdBtn_2">
+   <widget class="QPushButton" name="emplyMenuBtn">
     <property name="geometry">
      <rect>
       <x>140</x>

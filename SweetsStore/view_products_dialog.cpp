@@ -15,7 +15,7 @@
 const int prodNameLen = 20;
 
 /* create the models */
-QStandardItemModel *model = new QStandardItemModel();
+QStandardItemModel *productsModel = new QStandardItemModel();
 QStandardItemModel* searchModel = new QStandardItemModel();
 
 void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsDatabase, QTableView* table) {
@@ -62,15 +62,6 @@ void printsearchedProduct(std::map<std::string, Product>* productsMap, QTableVie
     table->setModel(searchModel);
 }
 
-/* return an item pointer with the text aligned */
-QStandardItem* getItem(QString string) {
-    QStandardItem* item = new QStandardItem;
-    item->setTextAlignment(Qt::AlignCenter);
-    item->setText(string);
-
-    return item;
-}
-
 ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ViewProductsDialog) {
@@ -90,8 +81,8 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     horizontalHeader.append("Price");
     horizontalHeader.append("Quantity");
     /* set the model */
-    model->setHorizontalHeaderLabels(horizontalHeader);
-    model->setVerticalHeaderLabels(verticalHeader);
+    productsModel->setHorizontalHeaderLabels(horizontalHeader);
+    productsModel->setVerticalHeaderLabels(verticalHeader);
     /* table settings */
     ui->tableView->verticalHeader()->setVisible(false);
     ui->tableView->setSelectionMode(QAbstractItemView::NoSelection);
@@ -100,7 +91,7 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     /* print the table */
-    printTable(model, &productsDatabase, ui->tableView);
+    printTable(productsModel, &productsDatabase, ui->tableView);
 }
 
 ViewProductsDialog::~ViewProductsDialog() {
@@ -115,7 +106,7 @@ void ViewProductsDialog::on_addProdBtn_4_clicked() {
 
     addWindow.exec();
     /* reprint the table */
-    printTable(model, &productsDatabase, ui->tableView);
+    printTable(productsModel, &productsDatabase, ui->tableView);
 }
 
 /* save the products database in the products file */
@@ -186,14 +177,14 @@ void ViewProductsDialog::on_addProdBtn_5_clicked() {
     updateDialog.show();
     updateDialog.exec();
     /* print the table */
-    printTable(model, &productsDatabase, ui->tableView);
+    printTable(productsModel, &productsDatabase, ui->tableView);
     selectedProductCheck = false;
 }
 
 /* show an info message box */
 void ViewProductsDialog::on_infoBtn_clicked() {
     QMessageBox messageBox;
-    messageBox.information(0, "Info", "To update / delete a product, you have to select with a click the product row in the table");
+    messageBox.information(0, "Info", "To update / delete a product, you have to select with a double-click the product row in the table");
     messageBox.show();
 }
 
@@ -222,13 +213,13 @@ void ViewProductsDialog::on_rmProdBtn_clicked() {
     /* get the index of the selected row */
     QModelIndex index = ui->tableView->selectionModel()->currentIndex();
     /* use the model to remove the row */
-    model->removeRow(index.row(), index.parent());
+    productsModel->removeRow(index.row(), index.parent());
 
     newChanges = true;
     selectedProductCheck = false;
 
     /* reprint the table */
-    printTable(model, &productsDatabase, ui->tableView);
+    printTable(productsModel, &productsDatabase, ui->tableView);
 }
 
 /* make sure that the user doesn't pass the limit of characters */
@@ -238,13 +229,14 @@ void ViewProductsDialog::on_prodNameBox_textChanged(const QString &arg1) {
 
 /* search a product */
 void ViewProductsDialog::on_srchButton_clicked() {
+
    /* get the text */
    std::string productSearched = lowerStr(ui->prodNameBox->text().toStdString());
    /* clear the input search */
    ui->prodNameBox->clear();
 
    if(!productSearched.length()) {
-       printTable(model, &productsDatabase, ui->tableView);
+       printTable(productsModel, &productsDatabase, ui->tableView);
        return;
    }
 
@@ -254,5 +246,5 @@ void ViewProductsDialog::on_srchButton_clicked() {
 
 void ViewProductsDialog::on_resetBtn_clicked() {
     ui->prodNameBox->clear();
-    printTable(model, &productsDatabase, ui->tableView);
+    printTable(productsModel, &productsDatabase, ui->tableView);
 }
