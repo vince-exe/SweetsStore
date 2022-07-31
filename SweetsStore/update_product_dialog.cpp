@@ -6,11 +6,20 @@
 #include <QLineEdit>
 
 #include "utilities.h"
+#include "product_utilities.h"
 
-/* global variables */
-const int prodNameLen = 20;
-const int brandLen = 20;
-const int PriceLen = 4;
+void setInputBoxes(QLineEdit *f1, QLineEdit *f2, QLineEdit *f3, QSpinBox *f4, QDateEdit *f5) {
+    /* set the QLineEdit boxes */
+    f1->setText(QString::fromStdString(selectedProduct.getName()));
+    f2->setText(QString::fromStdString(selectedProduct.getBrand()));
+    f3->setText(QString::number(selectedProduct.getPrice()));
+    /* set the qnty edit */
+    f4->setValue(selectedProduct.getQuantity());
+    /* set the date */
+    QString dateString = QString::fromStdString(selectedProduct.getExpiry());
+    QDate date = QDate::fromString(dateString, "dd/MM/yyyy");
+    f5->setDate(date);
+}
 
 UpdateProductDialog::UpdateProductDialog(QWidget *parent) :
     QDialog(parent),
@@ -55,6 +64,8 @@ void UpdateProductDialog::on_saveButton_clicked() {
         QMessageBox messageBox;
         messageBox.critical(0,"Error","Input box can't be empty");
         messageBox.setFixedSize(550,300);
+
+        setInputBoxes(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
         return;
     }
     /* check if the expire date is valid */
@@ -62,6 +73,8 @@ void UpdateProductDialog::on_saveButton_clicked() {
         QMessageBox messageBox;
         messageBox.critical(0,"Error","Enter a valid expire date");
         messageBox.setFixedSize(550,300);
+
+        setInputBoxes(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
         return;
     }
     /* create the product */
@@ -81,22 +94,25 @@ void UpdateProductDialog::on_saveButton_clicked() {
         messageBox.critical(0, "Price Error", "The price has to be a number");
         messageBox.setFixedSize(550,300);
         /* clear the input fields */
-        clearInputFields(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
+        setInputBoxes(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
         return;
     }
     /* set the quantity */
     product.setQuantity(std::stoi(ui->qntyBox->text().toStdString()));
 
-    /* check if he already exist */
-    if(productsDatabase.find(product.getName()) != productsDatabase.end()) {
-        QMessageBox messageBox;
-        QString warningMessage = "There is already a product named [ " + QString::fromStdString(product.getName().c_str()) + " ]";
-        messageBox.warning(0, "Warning", warningMessage);
-        messageBox.setFixedSize(550,300);
+    /* if he changed the name */
+    if(product.getName() != selectedProduct.getName()) {
+        /* check if he already exist */
+        if(productsDatabase.find(product.getName()) != productsDatabase.end()) {
+            QMessageBox messageBox;
+            QString warningMessage = "There is already a product named [ " + QString::fromStdString(product.getName().c_str()) + " ]";
+            messageBox.warning(0, "Warning", warningMessage);
+            messageBox.setFixedSize(550,300);
 
-        /* clear the input fields */
-        clearInputFields(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
-        return;
+            /* clear the input fields */
+            setInputBoxes(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
+            return;
+        }
     }
     /* check if he wants to save the chages or exit without saving */
     QMessageBox confirmBox;
@@ -133,17 +149,4 @@ void UpdateProductDialog::on_saveButton_clicked() {
     this->close();
     newChanges = true;
     return;
-}
-
-void setInputBoxes(QLineEdit *f1, QLineEdit *f2, QLineEdit *f3, QSpinBox *f4, QDateEdit *f5) {
-    /* set the QLineEdit boxes */
-    f1->setText(QString::fromStdString(selectedProduct.getName()));
-    f2->setText(QString::fromStdString(selectedProduct.getBrand()));
-    f3->setText(QString::number(selectedProduct.getPrice()));
-    /* set the qnty edit */
-    f4->setValue(selectedProduct.getQuantity());
-    /* set the date */
-    QString dateString = QString::fromStdString(selectedProduct.getExpiry());
-    QDate date = QDate::fromString(dateString, "dd/MM/yyyy");
-    f5->setDate(date);
 }

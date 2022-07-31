@@ -62,9 +62,6 @@ bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *t
 /* check the email */
 bool checkEmail(std::string email, const char* check);
 
-/* clear the widgets */
-void clearInputFields(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QSpinBox* f4, QDateEdit* f5);
-
 /* return an item with the text aligned */
 QStandardItem* getItem(QString string);
 

@@ -73,7 +73,6 @@ void ViewEmployeesDialog::on_srchEmplyBox_textChanged(const QString &arg1) {
 
 }
 
-
 void ViewEmployeesDialog::on_infoBtn_clicked() {
     QMessageBox messageBox;
     messageBox.information(0, "Info", "To update / remove an employee, select with a double-click the employee row, and then use the buttons");
@@ -90,7 +89,6 @@ void ViewEmployeesDialog::on_addProdBtn_4_clicked() {
     /* print the employees table */
     printEmployeesTable(employeeModel, &employeeDatabase, ui->tableView);
 }
-
 
 void ViewEmployeesDialog::on_saveBtn_clicked() {
     /* check if there aren't new changes to save */
@@ -167,5 +165,6 @@ void ViewEmployeesDialog::on_updtBtn_clicked() {
     UpdateEmployeeWindow.exec();
 
     selectedEmployeCheck = false;
+    printEmployeesTable(employeeModel, &employeeDatabase, ui->tableView);
 }
 

@@ -7,36 +7,7 @@
 
 #include "utilities.h"
 #include "employee.h"
-
-/* limits */
-const int maxFirstNameLen = 15;
-const int maxLastNameLen = 15;
-const int maxEmailLen = 45;
-const int maxPassLen = 20;
-const int maxSalaryLen = 10;
-
-/* check if the boxes are empty */
-bool checkEmptyBoxes2(QLineEdit *f1, QLineEdit *f2, QLineEdit *f3, QLineEdit *f4, QLineEdit *f5, QSpinBox *s1) {
-    if(!f1->text().length() || !f2->text().length() || !f3->text().length() || !f4->text().length() || !f5->text().length()) {
-        return false;
-    }
-
-    if(s1->text() == "0") { return false; }
-
-    return true;
-}
-
-/* clear the given boxes */
-void clearBoxesEmployee(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QLineEdit* f4, QLineEdit* f5, QSpinBox* s1, QCheckBox* c1, QCheckBox* c2) {
-    f1->clear();
-    f2->clear();
-    f3->clear();
-    f4->clear();
-    f5->clear();
-    s1->setValue(0);
-    c1->setCheckState(Qt::CheckState::Unchecked);
-    c2->setCheckState(Qt::CheckState::Unchecked);
-}
+#include "employee_utilities.h"
 
 AddEmployeeDialog::AddEmployeeDialog(QWidget *parent) :
     QDialog(parent),
@@ -130,7 +101,7 @@ void AddEmployeeDialog::on_saveBtn_clicked() {
     /* check if there is already an employee */
     if(employeeDatabase.find(employee.getEmail()) != employeeDatabase.end()) {
         QMessageBox messageBox;
-        messageBox.critical(0, "Warning", "There is already an employee with that email");
+        messageBox.warning(0, "Warning", "There is already an employee with the selected email");
         messageBox.setFixedSize(550, 300);
 
         clearBoxesEmployee(ui->firstNameBox, ui->lastNameBox, ui->emailBox, ui->passBox, ui->salaryBox, ui->ageBox, ui->maleBox, ui->femaleBox);

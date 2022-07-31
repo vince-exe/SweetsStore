@@ -8,10 +8,7 @@
 
 #include "utilities.h"
 #include "product.h"
-
-const int prodNameLen = 20;
-const int brandLen = 20;
-const int PriceLen = 10;
+#include "product_utilities.h"
 
 AddProductDialog::AddProductDialog(QWidget *parent) :
     QDialog(parent),

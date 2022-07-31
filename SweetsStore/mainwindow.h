@@ -19,6 +19,9 @@ bool checkPassowrd(std::string password);
 /* check the credentials */
 bool checkCredentials(std::string email, std::string password);
 
+/* open the employees file */
+bool openEmployeeFile(const char *pathFile);
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

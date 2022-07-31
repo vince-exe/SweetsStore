@@ -43,6 +43,27 @@ bool checkCredentials(std::string email, std::string password) {
     return true;
 }
 
+bool openEmployeeFile(const char *pathFile) {
+    /* try to open the employees file ( reading mode ) */
+    FILE* file = fopen(pathFile, "r");
+    /* check if the fail opened correctly */
+    if(!file) {
+        QMessageBox messageBox;
+        messageBox.critical(0, "Fatal Error", "The application failed to open the system files");
+        messageBox.setFixedSize(550,300);
+
+        return false;
+    }
+    /* restore the cursor of the file at the start */
+    fseek(file, 0, SEEK_SET);
+    /* read the informations from the product file and store it in the map */
+    readEmployeesInformations(file, &employeeDatabase);
+    /* close the file */
+    fclose(file);
+
+    return true;
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -78,20 +99,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->imageLabel_4->setScaledContents(true);
     ui->imageLabel_4->show();
 
-    /* open the employee file in reading mode */
-    FILE* file = fopen("files/employees.txt", "r");
-
-    /* check if the software failed to load the employees file */
-    if(!file) {
-        /* create a message box */
-        QMessageBox messageBox;
-        messageBox.critical(0,"Fatal Error","The software failed to load the application files :/");
-        messageBox.setFixedSize(550,300);
-        exit(-1);
-    }
-
-    /* store the informations in the map */
-    readEmployeesInformations(file, &employeeDatabase);
+    if(!openEmployeeFile("files/employees.txt")) { exit(-1); }
 }
 
 MainWindow::~MainWindow()

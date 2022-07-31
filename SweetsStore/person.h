@@ -31,7 +31,7 @@ public:
 
     void setLastName(std::string lastName);
 
-    void setSex(char& sex);
+    void setSex(char sex);
 
     void setAge(int age);
 };

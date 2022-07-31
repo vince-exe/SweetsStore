@@ -15,11 +15,13 @@ SOURCES += \
     add_employee_dialog.cpp \
     add_product_dialog.cpp \
     employee.cpp \
+    employee_utilities.cpp \
     employeewindow.cpp \
     main.cpp \
     mainwindow.cpp \
     person.cpp \
     product.cpp \
+    product_utilities.cpp \
     update_employee_dialog.cpp \
     update_product_dialog.cpp \
     utilities.cpp \
@@ -31,10 +33,12 @@ HEADERS += \
     add_employee_dialog.h \
     add_product_dialog.h \
     employee.h \
+    employee_utilities.h \
     employeewindow.h \
     mainwindow.h \
     person.h \
     product.h \
+    product_utilities.h \
     update_employee_dialog.h \
     update_product_dialog.h \
     utilities.h \

@@ -75,4 +75,3 @@ void EmployeeWindow::on_emplyMenuBtn_clicked() {
     viewEmployeeWindow.setModal(true);
     viewEmployeeWindow.exec();
 }
-

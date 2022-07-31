@@ -30,7 +30,7 @@ void Person::setLastName(std::string lastName) {
     this->lastName = lastName;
 }
 
-void Person::setSex(char &sex) {
+void Person::setSex(char sex) {
     this->sex = sex;
 }
 
