@@ -29,6 +29,12 @@ private slots:
 
     void on_addProdBtn_4_clicked();
 
+    void on_saveBtn_clicked();
+
+    void on_tableView_activated(const QModelIndex &index);
+
+    void on_updtBtn_clicked();
+
 private:
     Ui::ViewEmployeesDialog *ui;
 };

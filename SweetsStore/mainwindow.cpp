@@ -31,19 +31,6 @@ bool checkSignInEmployee(std::string email, std::string password, std::map<std::
     return false;
 }
 
-bool checkEmail(std::string email) {
-    const std::string check = "@gmail.com";
-
-    if(!email.length() or email.length() <= check.length()) { return false; }
-
-    size_t start = email.find("@");
-    if(start == email.npos) { return false; }
-
-    if(email.compare(start, check.length(), check) != 0) { return false; };
-
-    return true;
-}
-
 bool checkPassowrd(std::string password) {
     if(!password.length() or password.length() < 8) { return false; }
 
@@ -51,7 +38,7 @@ bool checkPassowrd(std::string password) {
 }
 
 bool checkCredentials(std::string email, std::string password) {
-    if(!checkEmail(email) or !checkPassowrd(password)) { return false; }
+    if(!checkEmail(email, "@gmail.com") or !checkPassowrd(password)) { return false; }
 
     return true;
 }

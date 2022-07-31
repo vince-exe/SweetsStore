@@ -61,6 +61,7 @@ void EmployeeWindow::on_infoButton_clicked() {
     newDialog.setModal(true);
     newDialog.exec();
 }
+
 /* Open the products Menu */
 void EmployeeWindow::on_prodMenuBtn_clicked() {
     ViewProductsDialog viewProductsWindow;
@@ -68,7 +69,7 @@ void EmployeeWindow::on_prodMenuBtn_clicked() {
     viewProductsWindow.exec();
 }
 
-
+/* open the employee menu */
 void EmployeeWindow::on_emplyMenuBtn_clicked() {
     ViewEmployeesDialog viewEmployeeWindow;
     viewEmployeeWindow.setModal(true);

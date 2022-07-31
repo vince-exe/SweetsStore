@@ -22,6 +22,11 @@ extern std::map<std::string, Product> productsDatabase;
 /* define the current employee */
 extern Employee currentEmployee;
 
+/* save the email ( key ) of the selected employee */
+extern Employee selectedEmployee;
+/* check if a row has been cliced ( employee ) */
+extern bool selectedEmployeCheck;
+
 /* save the name (key) of the selected product */
 extern Product selectedProduct;
 /* check if a row has been clicked */
@@ -33,8 +38,11 @@ void readProductsInformations(FILE* f, std::map<std::string, Product>* productsD
 /* read informations in the employees map */
 void readEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase);
 
-/* store the informations in the products map */
+/* store the informations in the products file */
 void storeProductInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
+
+/* store the informations in the employees file */
+void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase);
 
 /* defining a variable that check if there are new changes in the application */
 extern bool newChanges;
@@ -50,6 +58,9 @@ bool checkDate(QDateEdit *dateEdit);
 
 /* check if the input boxes are empties */
 bool checkEmptiesBox(QLineEdit *firstInput, QLineEdit *secondInput, QLineEdit *thirdInput, QSpinBox *spinBox);
+
+/* check the email */
+bool checkEmail(std::string email, const char* check);
 
 /* clear the widgets */
 void clearInputFields(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QSpinBox* f4, QDateEdit* f5);

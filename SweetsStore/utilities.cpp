@@ -22,9 +22,14 @@ std::map<std::string, Product> productsDatabase;
 /* defining the current employee variable */
 Employee currentEmployee;
 
+/* save the email ( key ) of the selected employee */
+Employee selectedEmployee;
+/* check if a row has been cliced ( employee ) */
+bool selectedEmployeCheck = false;
+
 /* save the name (key) of the selected product */
 Product selectedProduct;
-/* check if a row has been clicked */
+/* check if a row has been clicked ( product ) */
 bool selectedProductCheck = false;
 
 /* read informations in the products map */
@@ -67,6 +72,16 @@ void storeProductInformations(FILE* f, std::map<std::string, Product>* productsD
 
     for(auto it = productsDatabase->begin(); it != productsDatabase->end(); it++) {
         sprintf(buffer, "%s;%s;%s;%0.2f;%d\n", it->second.getName().c_str(), it->second.getExpiry().c_str(), it->second.getBrand().c_str(), it->second.getPrice(), it->second.getQuantity());
+        fprintf(f, buffer);
+    }
+}
+
+/* store the informations in the employees file */
+void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase) {
+    char buffer[1024];
+
+    for(auto it = employeesDatabase->begin(); it != employeesDatabase->end(); it++)  {
+        sprintf(buffer, "%s;%s;%c;%d;%0.2f;%s;%s\n", it->second.getFirstName().c_str(), it->second.getLastName().c_str(), it->second.getSex(), it->second.getAge(), it->second.getSalary(), it->second.getEmail().c_str(), it->second.getPassword().c_str());
         fprintf(f, buffer);
     }
 }
@@ -170,6 +185,17 @@ void clearInputFields(QLineEdit *f1, QLineEdit *f2, QLineEdit *f3, QSpinBox *f4,
     f4->clear();
 
     f5->setDate(QDate::currentDate());
+}
+
+bool checkEmail(std::string email, const char* check) {
+    if(!email.length() or email.length() <= std::strlen(check)) { return false; }
+
+    size_t start = email.find("@");
+    if(start == email.npos) { return false; }
+
+    if(email.compare(start, std::strlen(check), check) != 0) { return false; };
+
+    return true;
 }
 
 /* return an item pointer with the text aligned */

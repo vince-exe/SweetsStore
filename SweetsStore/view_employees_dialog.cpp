@@ -8,6 +8,10 @@
 
 #include "utilities.h"
 
+/* forms */
+#include "add_employee_dialog.h"
+#include "update_employee_dialog.h"
+
 QStandardItemModel *employeeModel = new QStandardItemModel();
 
 
@@ -78,6 +82,90 @@ void ViewEmployeesDialog::on_infoBtn_clicked() {
 
 /* add an employee to the employee database ( not in the employees file ) */
 void ViewEmployeesDialog::on_addProdBtn_4_clicked() {
+    AddEmployeeDialog addEmployeeWindow;
+    addEmployeeWindow.setModal(true);
+    addEmployeeWindow.show();
+    addEmployeeWindow.exec();
 
+    /* print the employees table */
+    printEmployeesTable(employeeModel, &employeeDatabase, ui->tableView);
+}
+
+
+void ViewEmployeesDialog::on_saveBtn_clicked() {
+    /* check if there aren't new changes to save */
+    if(!newChanges) {
+        QMessageBox messageBox;
+        messageBox.warning(0, "Warning", "There aren't new changes to save");
+        messageBox.setFixedSize(550, 300);
+        return;
+    }
+
+    /* open the file in reading mode to check if exist */
+    FILE* file = fopen("files/employees.txt", "r");
+
+    if(!file) {
+        QMessageBox messageBox;
+        messageBox.critical(0, "Fatal Error", "The application failed to save the changes");
+        messageBox.setFixedSize(550,300);
+
+        exit(-1);
+    }
+    fclose(file);
+
+    /* open it in write mode */
+    file = fopen("files/employees.txt", "w");
+    /* store the informations in the file */
+    storeEmployeesInformations(file, &employeeDatabase);
+    /* close the employees file */
+    fclose(file);
+    /* reset the new changes variable */
+    newChanges = false;
+
+    QMessageBox messageBox;
+    messageBox.information(0, "Success", "The application has successfully saved the changes");
+    messageBox.setFixedSize(550,300);
+    messageBox.show();
+}
+
+/* save the selected employee */
+void ViewEmployeesDialog::on_tableView_activated(const QModelIndex &index) {
+    selectedEmployeCheck = true;
+
+    /* get the First Name */
+    QString firstName = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 0)).toString();
+    /* get the Last Name */
+    QString lastName = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 1)).toString();
+    /* get the sex */
+    QString sex = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 2)).toString();
+    /* get the Age */
+    int age = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 3)).toInt();
+    /* get the salary */
+    float salary = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 4)).toFloat();
+    /* get the email */
+    QString email = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 5)).toString();
+    /* get the password */
+    QString password = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 6)).toString();
+
+    /* set the employee */
+    selectedEmployee.setFirstName(firstName.toStdString());
+    selectedEmployee.setLastName(lastName.toStdString());
+    selectedEmployee.setSex(sex.toStdString()[0]);
+    selectedEmployee.setAge(age);
+    selectedEmployee.setSalary(salary);
+    selectedEmployee.setEmail(email.toStdString());
+    selectedEmployee.setPassword(password.toStdString());
+}
+
+/* update an employee */
+void ViewEmployeesDialog::on_updtBtn_clicked() {
+    if(!selectedEmployeCheck) { return; }
+
+    UpdateEmployeeDialog UpdateEmployeeWindow;
+    UpdateEmployeeWindow.setModal(true);
+    UpdateEmployeeWindow.show();
+    UpdateEmployeeWindow.exec();
+
+    selectedEmployeCheck = false;
 }
 

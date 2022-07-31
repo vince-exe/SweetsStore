@@ -89,37 +89,35 @@ void AddProductDialog::on_saveButton_clicked() {
     /* set the quantity */
     product.setQuantity(std::stoi(ui->qntyBox->text().toStdString()));
 
-    /* check if the product already exist */
-    auto it = productsDatabase.find(product.getName());
-
-    /* doesn't exist */
-    if(it == productsDatabase.end()) {
-        /* check if he wants to save the chages or exit without saving */
-        QMessageBox confirmBox;
-        confirmBox.setText(tr("The application will proceed with saving the product, are you sure you want to continue?"));
-        confirmBox.addButton(tr("Save"), QMessageBox::YesRole);
-        QAbstractButton* dontsave = confirmBox.addButton(tr("Don't Save"), QMessageBox::YesRole);
-        /* show the message box */
-        confirmBox.exec();
-        /* if the user doesn't want to save the product, close */
-        if(confirmBox.clickedButton() == dontsave) { this->close(); return; }
-
-        /* insert the product inside the map */
-        productsDatabase.insert(std::pair<std::string, Product>(product.getName(), product));
-        /* set the new changes variable to true */
-        newChanges = true;
-
-        QMessageBox messageBox;
-        messageBox.information(0, "Success", "Successfully added the product");
-        messageBox.setFixedSize(550,300);
-    }
-    /* exist */
-    else {
+    /* if already exist */
+    if(productsDatabase.find(product.getName()) != productsDatabase.end()) {
         QMessageBox messageBox;
         QString warningMessage = "There is already a product named [ " + QString::fromStdString(product.getName().c_str()) + " ]";
         messageBox.warning(0, "Fail", warningMessage);
         messageBox.setFixedSize(550,300);
+
+        clearInputFields(ui->prodNameBox, ui->brandBox, ui->priceBox, ui->qntyBox, ui->dateWidget);
+        return;
     }
+
+    /* check if he wants to save the chages or exit without saving */
+    QMessageBox confirmBox;
+    confirmBox.setText(tr("The application will proceed with saving the product, are you sure you want to continue?"));
+    confirmBox.addButton(tr("Yes"), QMessageBox::YesRole);
+    QAbstractButton* noBtn = confirmBox.addButton(tr("No"), QMessageBox::YesRole);
+    /* show the message box */
+    confirmBox.exec();
+    /* if the user doesn't want to save the product, close */
+    if(confirmBox.clickedButton() == noBtn) { this->close(); return; }
+
+    /* insert the product inside the map */
+    productsDatabase.insert(std::pair<std::string, Product>(product.getName(), product));
+    /* set the new changes variable to true */
+    newChanges = true;
+
+    QMessageBox messageBox;
+    messageBox.information(0, "Success", "Successfully added the product");
+    messageBox.setFixedSize(550,300);
 
     /* clear the inputs */
     clearInputFields(ui->prodNameBox, ui->priceBox, ui->brandBox, ui->qntyBox, ui->dateWidget);
