@@ -14,10 +14,13 @@ SOURCES += \
     about_me_dialog.cpp \
     add_employee_dialog.cpp \
     add_product_dialog.cpp \
+    customer.cpp \
+    customer_menu_dialog.cpp \
     employee.cpp \
     employee_utilities.cpp \
     employeewindow.cpp \
     main.cpp \
+    main_window_utilities.cpp \
     mainwindow.cpp \
     person.cpp \
     product.cpp \
@@ -33,9 +36,12 @@ HEADERS += \
     about_me_dialog.h \
     add_employee_dialog.h \
     add_product_dialog.h \
+    customer.h \
+    customer_menu_dialog.h \
     employee.h \
     employee_utilities.h \
     employeewindow.h \
+    main_window_utilities.h \
     mainwindow.h \
     person.h \
     product.h \
@@ -51,6 +57,7 @@ FORMS += \
     aboutmedialog.ui \
     add_employee_dialog.ui \
     add_product_dialog.ui \
+    customer_menu_dialog.ui \
     employeewindow.ui \
     mainwindow.ui \
     sign_up_dialog.ui \

@@ -28,3 +28,8 @@ void clearBoxesEmployee(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QLineEdit* 
     c1->setCheckState(Qt::CheckState::Unchecked);
     c2->setCheckState(Qt::CheckState::Unchecked);
 }
+
+/* check if the checked at least one gender */
+bool checkCheckBox(QCheckBox *c1, QCheckBox *c2) {
+    return c1->isChecked() || c2->isChecked();
+}

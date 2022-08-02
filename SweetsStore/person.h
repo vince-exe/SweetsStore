@@ -19,6 +19,8 @@ public:
     /* default constructor */
     Person();
 
+    Person(std::string firstName, std::string lastName, char sex, int age);
+
     std::string getFirstName();
 
     std::string getLastName();

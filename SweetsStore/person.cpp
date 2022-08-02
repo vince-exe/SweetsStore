@@ -6,6 +6,13 @@
 /* default constructor */
 Person::Person() {}
 
+Person::Person(std::string firstName, std::string lastName, char sex, int age) {
+    this->firstName = firstName;
+    this->lastName = lastName;
+    this->sex = sex;
+    this->age = age;
+}
+
 std::string Person::getFirstName() {
     return this->firstName;
 }

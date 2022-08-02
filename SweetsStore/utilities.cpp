@@ -19,11 +19,18 @@ std::map<std::string, Employee> employeeDatabase;
 /* defining the products map */
 std::map<std::string, Product> productsDatabase;
 
+/* define a map that will contain all the customers */
+std::map<std::string, Customer> customersDatabase;
+
 /* defining the current employee variable */
 Employee currentEmployee;
 
+/* defining the current customer */
+Customer currentCustomer;
+
 /* save the email ( key ) of the selected employee */
 Employee selectedEmployee;
+
 /* check if a row has been cliced ( employee ) */
 bool selectedEmployeCheck = false;
 
@@ -86,6 +93,15 @@ void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employ
     }
 }
 
+void storeCustomersInformations(FILE *f, std::map<std::string, Customer> *customersDatabase) {
+    char buffer[1024];
+
+    for(auto it = customersDatabase->begin(); it != customersDatabase->end(); it++) {
+        sprintf(buffer, "%s;%s;%c;%d;%0.2f;%s;%s\n", it->second.getFirstName().c_str(), it->second.getLastName().c_str(), it->second.getSex(), it->second.getAge(), it->second.getMoney(), it->second.getEmail().c_str(), it->second.getPassword().c_str());
+        fprintf(f, buffer);
+    }
+}
+
 /* read informations in the employees map */
 void readEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase) {
     char buffer[1024];
@@ -121,6 +137,44 @@ void readEmployeesInformations(FILE* f, std::map<std::string, Employee>* employe
             employee.setPassword(token);
             /* insert the informations in the map */
             employeesDatabase->insert(std::pair<std::string, Employee>(employee.getEmail(), employee));
+        }
+    }
+}
+
+void readCustomersInformations(FILE *f, std::map<std::string, Customer> *customersDatabase) {
+    char buffer[1024];
+    char* token = NULL;
+    Customer customer;
+
+    while(fgets(buffer, 1024, f)) {
+        /* delete the \n from the buffer */
+        buffer[strlen(buffer) - 1] = '\0';
+
+        token = strtok(buffer, tokenCharacter);
+
+        if(token != NULL) {
+            /* set the First Name */
+            customer.setFirstName(token);
+            /* set the Last Name */
+            token = strtok(NULL, tokenCharacter);
+            customer.setLastName(token);
+            /* set the Sex */
+            token = strtok(NULL, tokenCharacter);
+            customer.setSex(token[0]);
+            /* set the Age */
+            token = strtok(NULL, tokenCharacter);
+            customer.setAge(atoi(token));
+            /* set the Salary */
+            token = strtok(NULL, tokenCharacter);
+            customer.setMoney(atof(token));
+            /* set the Email */
+            token = strtok(NULL, tokenCharacter);
+            customer.setEmail(token);
+            /* set the Password */
+            token = strtok(NULL, tokenCharacter);
+            customer.setPassword(token);
+            /* insert the informations in the map */
+            customersDatabase->insert(std::pair<std::string, Customer>(customer.getEmail(), customer));
         }
     }
 }

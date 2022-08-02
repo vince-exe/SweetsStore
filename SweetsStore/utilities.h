@@ -12,6 +12,7 @@
 
 #include "employee.h"
 #include "product.h"
+#include "customer.h"
 
 /* define the map that will contain all the employees */
 extern std::map<std::string, Employee> employeeDatabase;
@@ -19,8 +20,14 @@ extern std::map<std::string, Employee> employeeDatabase;
 /* define the map that will contain all the products */
 extern std::map<std::string, Product> productsDatabase;
 
+/* define a map that will contain all the customers */
+extern std::map<std::string, Customer> customersDatabase;
+
 /* define the current employee */
 extern Employee currentEmployee;
+
+/* define the current customer */
+extern Customer currentCustomer;
 
 /* save the email ( key ) of the selected employee */
 extern Employee selectedEmployee;
@@ -38,11 +45,17 @@ void readProductsInformations(FILE* f, std::map<std::string, Product>* productsD
 /* read informations in the employees map */
 void readEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase);
 
+/* read informations in the customers map */
+void readCustomersInformations(FILE* f, std::map<std::string, Customer>* customersDatabase);
+
 /* store the informations in the products file */
 void storeProductInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
 
 /* store the informations in the employees file */
 void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase);
+
+/* store the informations of the customers */
+void storeCustomersInformations(FILE *f, std::map<std::string, Customer> *customersDatabase);
 
 /* defining a variable that check if there are new changes in the application */
 extern bool newChanges;

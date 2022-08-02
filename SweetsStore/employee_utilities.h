@@ -16,4 +16,6 @@ bool checkEmptyBoxes2(QLineEdit *f1, QLineEdit *f2, QLineEdit *f3, QLineEdit *f4
 
 void clearBoxesEmployee(QLineEdit* f1, QLineEdit* f2, QLineEdit* f3, QLineEdit* f4, QLineEdit* f5, QSpinBox* s1, QCheckBox* c1, QCheckBox* c2);
 
+bool checkCheckBox(QCheckBox* c1, QCheckBox* c2);
+
 #endif // EMPLOYEE_UTILITIES_H

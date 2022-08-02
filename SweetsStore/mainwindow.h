@@ -4,23 +4,22 @@
 #include <QMainWindow>
 
 #include "employeewindow.h"
+#include "customer_menu_dialog.h"
 
 #include "employee.h"
+#include "customer.h"
 
-/* load the employees file */
-bool loadEmployeesFile(const char *filePath, std::map<std::string, Employee>* employeeDatabase);
-
-/* check the credentials for the SignIn */
+/* check the credentials for the SignIn ( employee ) */
 bool checkSignInEmployee(std::string email, std::string password, std::map<std::string, Employee>* employeeDatabase);
 
-/* check the password */
-bool checkPassowrd(std::string password);
+/* check the credentials for the SignIn ( customer ) */
+bool checkSignInCustomer(std::string email, std::string password, std::map<std::string, Customer>* customerDatabase);
 
-/* check the credentials */
-bool checkCredentials(std::string email, std::string password);
+/* open the employees file and store the information inside the employee database */
+bool openStoreEmployeeFile(const char *pathFile);
 
-/* open the employees file */
-bool openEmployeeFile(const char *pathFile);
+/* open the customers file and store the information inside the customers database */
+bool openStoreCustomerFile(const char* pathFile);
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -47,6 +46,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     EmployeeWindow* employeeWindow;
+    CustomerMenuDialog* customerWindow;
 };
 
 #endif // MAINWINDOW_H

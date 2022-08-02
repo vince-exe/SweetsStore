@@ -95,6 +95,15 @@ void UpdateEmployeeDialog::on_saveBtn_clicked() {
         resetInformations(ui->firstNameBox, ui->lastNameBox, ui->emailBox, ui->passBox, ui->salaryBox, ui->ageBox, ui->maleBox, ui->femaleBox);
         return;
     }
+    /* check if the selected at least one gender */
+    if(!checkCheckBox(ui->maleBox, ui->femaleBox)) {
+        QMessageBox messageBox;
+        messageBox.warning(0, "Warning", "Selected a gender please");
+        messageBox.setFixedSize(550, 300);
+
+        clearBoxesEmployee(ui->firstNameBox, ui->lastNameBox, ui->emailBox, ui->passBox, ui->salaryBox, ui->ageBox, ui->maleBox, ui->femaleBox);
+        return;
+    }
     Employee employee;
     /* set the employee */
     employee.setEmail(ui->emailBox->text().toStdString());
@@ -121,9 +130,10 @@ void UpdateEmployeeDialog::on_saveBtn_clicked() {
     /* if he changed the email */
     if(employee.getEmail() != selectedEmployee.getEmail()) {
         /* check if there is already an employee with that email*/
-        if(employeeDatabase.find(employee.getEmail()) != employeeDatabase.end()) {
+        /* check if the email already exist */
+        if(employeeDatabase.find(employee.getEmail()) != employeeDatabase.end() || customersDatabase.find(employee.getEmail()) != customersDatabase.end()) {
             QMessageBox messageBox;
-            messageBox.warning(0, "Warning", "There is already an employee with the selected email");
+            messageBox.warning(0, "Warning", "There is already an account with this email");
             messageBox.setFixedSize(550, 300);
 
             resetInformations(ui->firstNameBox, ui->lastNameBox, ui->emailBox, ui->passBox, ui->salaryBox, ui->ageBox, ui->maleBox, ui->femaleBox);

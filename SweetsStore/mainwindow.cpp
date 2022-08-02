@@ -9,13 +9,13 @@
 
 #include "employee.h"
 #include "employeewindow.h"
+
 #include "utilities.h"
+#include "employee_utilities.h"
+#include "main_window_utilities.h"
 
 /* forms */
 #include "sign_up_dialog.h"
-
-const int maxEmailLen = 45;
-const int maxPassLen = 20;
 
 bool checkSignInEmployee(std::string email, std::string password, std::map<std::string, Employee>* employeeDatabase) {
     /* get the key */
@@ -34,35 +34,45 @@ bool checkSignInEmployee(std::string email, std::string password, std::map<std::
     return false;
 }
 
-bool checkPassowrd(std::string password) {
-    if(!password.length() or password.length() < 8) { return false; }
+bool checkSignInCustomer(std::string email, std::string password, std::map<std::string, Customer>* customerDatabase) {
+    /* get the key */
+    auto key = customerDatabase->find(email);
+    /* if the key doesn't exist */
+    if(key == customerDatabase->end()) { return false; }
+    qDebug() << QString::fromStdString(key->second.getPassword());
+    /* check if the password is correct */
+    if(key->second.getPassword() == password) {
+        /* fill the current employee variable */
+        currentCustomer = key->second;
+        return true;
+    }
 
-    return true;
+    return false;
 }
 
-bool checkCredentials(std::string email, std::string password) {
-    if(!checkEmail(email, "@gmail.com") or !checkPassowrd(password)) { return false; }
-
-    return true;
-}
-
-bool openEmployeeFile(const char *pathFile) {
+bool openStoreEmployeeFile(const char *pathFile) {
     /* try to open the employees file ( reading mode ) */
     FILE* file = fopen(pathFile, "r");
     /* check if the fail opened correctly */
-    if(!file) {
-        QMessageBox messageBox;
-        messageBox.critical(0, "Fatal Error", "The application failed to open the system files");
-        messageBox.setFixedSize(550,300);
+    if(!file) { return false;  }
 
-        return false;
-    }
     /* restore the cursor of the file at the start */
     fseek(file, 0, SEEK_SET);
     /* read the informations from the product file and store it in the map */
     readEmployeesInformations(file, &employeeDatabase);
     /* close the file */
     fclose(file);
+
+    return true;
+}
+
+bool openStoreCustomerFile(const char* pathFile) {
+    FILE* f = fopen(pathFile, "r");
+    if(!f) { return false; }
+
+    fseek(f, 0, SEEK_SET);
+    readCustomersInformations(f, &customersDatabase);
+    fclose(f);
 
     return true;
 }
@@ -86,7 +96,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->titleLabel->setAlignment(Qt::AlignCenter);
 
     /* open the employee file */
-    if(!openEmployeeFile("files/employees.txt")) { exit(-1); }
+    if(!openStoreEmployeeFile("files/employees.txt") || !openStoreCustomerFile("files/customers.txt")) {
+        QMessageBox messageBox;
+        messageBox.critical(0, "Fatal Error", "The application failed to open the system files");
+        messageBox.setFixedSize(550,300);
+        exit(-1);
+    }
 }
 
 MainWindow::~MainWindow() {
@@ -118,6 +133,14 @@ void MainWindow::on_signInButton_clicked() {
 
         this->hide();
         this->employeeWindow->show();
+    }
+
+    /* check if he is a customer */
+    else if(checkSignInCustomer(email, password, &customersDatabase)) {
+        this->customerWindow = new CustomerMenuDialog(this);
+
+        this->hide();
+        this->customerWindow->show();
     }
 
     /* failed to login */
