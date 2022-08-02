@@ -18,6 +18,10 @@ const int prodNameLen = 20;
 QStandardItemModel *productsModel = new QStandardItemModel();
 QStandardItemModel* searchModel = new QStandardItemModel();
 
+/* define the StringList */
+QStringList horizontalHeaderProduct;
+QStringList verticalHeaderProduct;
+
 void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsDatabase, QTableView* table) {
     int i = 0;
     /* fill the table with the informations */
@@ -34,17 +38,9 @@ void printTable(QStandardItemModel* model, std::map<std::string, Product>* produ
 }
 
 void printsearchedProduct(std::map<std::string, Product>* productsMap, QTableView* table, std::string searchedProduct) {
-    QStringList horizontalHeader;
-    QStringList verticalHeader;
-    /* create the columns */
-    horizontalHeader.append("Name");
-    horizontalHeader.append("Expire Date");
-    horizontalHeader.append("Brand");
-    horizontalHeader.append("Price");
-    horizontalHeader.append("Quantity");
     /* set the model */
-    searchModel->setHorizontalHeaderLabels(horizontalHeader);
-    searchModel->setVerticalHeaderLabels(verticalHeader);
+    searchModel->setHorizontalHeaderLabels(horizontalHeaderProduct);
+    searchModel->setVerticalHeaderLabels(verticalHeaderProduct);
 
     int i = 0;
     for(auto& value : *productsMap) {
@@ -72,17 +68,15 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     /* set the date */
     ui->timeButton->setText(QString::fromStdString(currentDateTime().c_str()));
 
-    QStringList horizontalHeader;
-    QStringList verticalHeader;
     /* create the columns */
-    horizontalHeader.append("Name");
-    horizontalHeader.append("Expire Date");
-    horizontalHeader.append("Brand");
-    horizontalHeader.append("Price");
-    horizontalHeader.append("Quantity");
+    horizontalHeaderProduct.append("Name");
+    horizontalHeaderProduct.append("Expire Date");
+    horizontalHeaderProduct.append("Brand");
+    horizontalHeaderProduct.append("Price");
+    horizontalHeaderProduct.append("Quantity");
     /* set the model */
-    productsModel->setHorizontalHeaderLabels(horizontalHeader);
-    productsModel->setVerticalHeaderLabels(verticalHeader);
+    productsModel->setHorizontalHeaderLabels(horizontalHeaderProduct);
+    productsModel->setVerticalHeaderLabels(verticalHeaderProduct);
     /* table settings */
     ui->tableView->verticalHeader()->setVisible(false);
     ui->tableView->setSelectionMode(QAbstractItemView::NoSelection);

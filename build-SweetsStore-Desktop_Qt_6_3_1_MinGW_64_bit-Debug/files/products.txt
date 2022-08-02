@@ -1,3 +1,6 @@
+banana;02/08/2025;valle verde;0.99;50
 cavolfiore;30/07/2024;valle gialla;0.99;50
 ciambella;30/07/2025;valle verde;1.99;10
+succo alla mela;02/11/2026;valle verde;2.30;15
 succo alla pera;30/07/2025;valle frutta;0.99;10
+succo alla pesca;10/08/2023;valle verde;5.00;10

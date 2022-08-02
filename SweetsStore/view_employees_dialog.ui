@@ -158,7 +158,7 @@ background-color: rgb(84, 13, 43);
     <string>UPDATE</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="rmProdBtn">
+  <widget class="QPushButton" name="rmEmplyBtn">
    <property name="geometry">
     <rect>
      <x>1070</x>
@@ -224,7 +224,7 @@ background-color: rgb(84, 13, 43);
   <widget class="QPushButton" name="resetBtn">
    <property name="geometry">
     <rect>
-     <x>940</x>
+     <x>950</x>
      <y>25</y>
      <width>111</width>
      <height>51</height>

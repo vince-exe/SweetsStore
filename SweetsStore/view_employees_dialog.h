@@ -10,6 +10,9 @@
 /* print the employees table */
 void printEmployeesTable(QStandardItemModel* model, std::map<std::string, Employee>* employeeDatabase, QTableView* table);
 
+/* print the searched employee */
+void printSearchedEmployee(QStandardItemModel* model, std::map<std::string, Employee>* employeeDatabase, QTableView* table, std::string searchedEmply);
+
 namespace Ui {
 class ViewEmployeesDialog;
 }
@@ -34,6 +37,12 @@ private slots:
     void on_tableView_activated(const QModelIndex &index);
 
     void on_updtBtn_clicked();
+
+    void on_rmEmplyBtn_clicked();
+
+    void on_resetBtn_clicked();
+
+    void on_srchButton_clicked();
 
 private:
     Ui::ViewEmployeesDialog *ui;
