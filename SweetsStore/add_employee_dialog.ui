@@ -168,6 +168,9 @@ background-color: rgb(84, 13, 43);
 	color: rgb(209, 209, 209);
 }</string>
    </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
    <property name="placeholderText">
     <string>Password</string>
    </property>

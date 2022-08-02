@@ -22,6 +22,7 @@ SOURCES += \
     person.cpp \
     product.cpp \
     product_utilities.cpp \
+    sign_up_dialog.cpp \
     update_employee_dialog.cpp \
     update_product_dialog.cpp \
     utilities.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     person.h \
     product.h \
     product_utilities.h \
+    sign_up_dialog.h \
     update_employee_dialog.h \
     update_product_dialog.h \
     utilities.h \
@@ -51,6 +53,7 @@ FORMS += \
     add_product_dialog.ui \
     employeewindow.ui \
     mainwindow.ui \
+    sign_up_dialog.ui \
     update_employee_dialog.ui \
     update_product_dialog.ui \
     view_employees_dialog.ui \

@@ -11,8 +11,11 @@
 #include "employeewindow.h"
 #include "utilities.h"
 
-const int MaxEmailBoxLen = 30;
-const int MaxPassBoxLen = 16;
+/* forms */
+#include "sign_up_dialog.h"
+
+const int maxEmailLen = 45;
+const int maxPassLen = 20;
 
 bool checkSignInEmployee(std::string email, std::string password, std::map<std::string, Employee>* employeeDatabase) {
     /* get the key */
@@ -70,61 +73,40 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    this->setGeometry(50, 50, 1280, 720);
+    this->setGeometry(50, 50, 519, 514);
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
 
     /* Email Box */
-    ui->emailTextBox->setAlignment(Qt::AlignCenter);
+    ui->emailBox->setAlignment(Qt::AlignCenter);
     /* Pass Box */
-    ui->passTextBox->setAlignment(Qt::AlignCenter);
-    /* declare the pixmap pointers */
-    QPixmap* pixmap = new QPixmap("images/donut.png");
-    QPixmap* p2 = new QPixmap("images/donut2.png");
-    QPixmap* p3 = new QPixmap("images/donut3.png");
-    QPixmap* p4 = new QPixmap("images/donut4.png");
-    /* set the label1 image */
-    ui->imageLabel->setPixmap(*pixmap);
-    ui->imageLabel->setScaledContents(true);
-    ui->imageLabel->show();
-    /* set the label2 image */
-    ui->imageLabel_2->setPixmap(*p2);
-    ui->imageLabel_2->setScaledContents(true);
-    ui->imageLabel_2->show();
-    /* set the label3 image */
-    ui->imageLabel_3->setPixmap(*p3);
-    ui->imageLabel_3->setScaledContents(true);
-    ui->imageLabel_3->show();
-    /* set the label4 image */
-    ui->imageLabel_4->setPixmap(*p4);
-    ui->imageLabel_4->setScaledContents(true);
-    ui->imageLabel_4->show();
+    ui->passBox->setAlignment(Qt::AlignCenter);
+    /* align the citation label to the center */
+    ui->citationLabel->setAlignment(Qt::AlignCenter);
+    /* align the title label to the center */
+    ui->titleLabel->setAlignment(Qt::AlignCenter);
 
+    /* open the employee file */
     if(!openEmployeeFile("files/employees.txt")) { exit(-1); }
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
     delete ui;
 }
 
 /* SignInButton clicked */
 void MainWindow::on_signInButton_clicked() {
     /* save the email and the password from the text boxes */
-    std::string email = lowerStr(ui->emailTextBox->toPlainText().toStdString());
-    std::string password = ui->passTextBox->toPlainText().toStdString();
+    std::string email = lowerStr(ui->emailBox->text().toStdString());
+    std::string password = ui->passBox->text().toStdString();
 
     /* clear the text boxes */
-    ui->emailTextBox->clear();
-    ui->passTextBox->clear();
-    /* Email Box */
-    ui->emailTextBox->setAlignment(Qt::AlignCenter);
-    /* Pass Box */
-    ui->passTextBox->setAlignment(Qt::AlignCenter);
+    ui->emailBox->clear();
+    ui->passBox->clear();
 
     /* check if the given credentials are valid */
     if(!checkCredentials(email, password)) {
         QMessageBox messageBox;
-        messageBox.critical(0,"Login Error", "Invalid email or password");
+        messageBox.critical(0,"Invalid Credentials", "Email must be '@gmail.com', password must be at least 8 characters long.");
         messageBox.setFixedSize(550,300);
         return;
     }
@@ -144,28 +126,26 @@ void MainWindow::on_signInButton_clicked() {
         messageBox.critical(0,"Login Error","Email or password wrong");
         messageBox.setFixedSize(550,300);
 
-        /* clear the text boxes */
-        ui->emailTextBox->clear();
-        ui->passTextBox->clear();
-        /* Email Box */
-        ui->emailTextBox->setAlignment(Qt::AlignCenter);
-        /* Pass Box */
-        ui->passTextBox->setAlignment(Qt::AlignCenter);
+        ui->emailBox->clear();
+        ui->passBox->clear();
         return;
     }
 }
 
-void MainWindow::on_emailTextBox_textChanged() {
-    /* limit the amount of characters in the email text box */
-    if(ui->emailTextBox->toPlainText().length() > MaxEmailBoxLen) {
-        ui->emailTextBox->textCursor().deletePreviousChar();
-       }
+/* Sign Up button clicked */
+void MainWindow::on_signUpButton_clicked() {
+    SignUpDialog signUpWindow;
+    signUpWindow.setModal(true);
+    signUpWindow.show();
+    signUpWindow.exec();
 }
 
-void MainWindow::on_passTextBox_textChanged() {
-    /* limit the amount of characters in the pass text box */
-    if(ui->passTextBox->toPlainText().length() > MaxPassBoxLen) {
-        ui->passTextBox->textCursor().deletePreviousChar();
-    }
+/* make sure that the lenght of the email is lower then the max email len */
+void MainWindow::on_emailBox_textChanged(const QString &arg1) {
+    if(arg1.toStdString().length() > maxEmailLen) { ui->emailBox->backspace(); }
 }
 
+/* make sure that the lenght of the password is lower then the max pass len */
+void MainWindow::on_passBox_textChanged(const QString &arg1) {
+    if(arg1.toStdString().length() > maxPassLen) { ui->passBox->backspace(); }
+}

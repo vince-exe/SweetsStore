@@ -38,9 +38,11 @@ private slots:
 
     void on_signInButton_clicked();
 
-    void on_emailTextBox_textChanged();
+    void on_signUpButton_clicked();
 
-    void on_passTextBox_textChanged();
+    void on_emailBox_textChanged(const QString &arg1);
+
+    void on_passBox_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;

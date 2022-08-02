@@ -12,11 +12,11 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,16 +26,14 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QLabel *titleLabel;
-    QTextEdit *emailTextBox;
-    QTextEdit *passTextBox;
     QLabel *citationLabel;
     QPushButton *signInButton;
     QPushButton *signUpButton;
     QLabel *copyrightLabel;
-    QLabel *imageLabel;
     QLabel *imageLabel_2;
-    QLabel *imageLabel_3;
     QLabel *imageLabel_4;
+    QLineEdit *emailBox;
+    QLineEdit *passBox;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,7 +41,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(995, 631);
+        MainWindow->resize(519, 514);
         MainWindow->setAutoFillBackground(false);
         MainWindow->setStyleSheet(QString::fromUtf8("QMainWindow {\n"
 "	background-color: rgb(102, 16, 53);\n"
@@ -52,10 +50,10 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         titleLabel = new QLabel(centralwidget);
         titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
-        titleLabel->setGeometry(QRect(390, 30, 511, 91));
+        titleLabel->setGeometry(QRect(60, 20, 401, 61));
         QFont font;
         font.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
-        font.setPointSize(56);
+        font.setPointSize(30);
         font.setBold(false);
         titleLabel->setFont(font);
         titleLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
@@ -72,79 +70,26 @@ public:
         titleLabel->setScaledContents(false);
         titleLabel->setAlignment(Qt::AlignCenter);
         titleLabel->setWordWrap(false);
-        emailTextBox = new QTextEdit(centralwidget);
-        emailTextBox->setObjectName(QString::fromUtf8("emailTextBox"));
-        emailTextBox->setGeometry(QRect(130, 270, 400, 52));
-        QFont font1;
-        font1.setFamilies({QString::fromUtf8("Cascadia Mono")});
-        font1.setPointSize(18);
-        font1.setBold(true);
-        emailTextBox->setFont(font1);
-        emailTextBox->setAcceptDrops(false);
-        emailTextBox->setAutoFillBackground(true);
-        emailTextBox->setStyleSheet(QString::fromUtf8("QTextEdit {\n"
-"border: 3px solid '#000000';\n"
-" text-align: center;\n"
-" border-radius:10px;\n"
-" padding-top: 5px;\n"
-" background: '#661035';\n"
-"color: rgb(209, 209, 209);\n"
-"}\n"
-"\n"
-"QTextEdit::hover {\n"
-"border: 4px solid '#000000';\n"
-"}\n"
-"\n"
-"QTextEdit::focus {\n"
-"border: 4px solid '#000000';\n"
-"}"));
-        emailTextBox->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        emailTextBox->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        emailTextBox->setCursorWidth(1);
-        passTextBox = new QTextEdit(centralwidget);
-        passTextBox->setObjectName(QString::fromUtf8("passTextBox"));
-        passTextBox->setGeometry(QRect(740, 270, 400, 52));
-        passTextBox->setFont(font1);
-        passTextBox->setAcceptDrops(false);
-        passTextBox->setAutoFillBackground(true);
-        passTextBox->setStyleSheet(QString::fromUtf8("QTextEdit {\n"
-"border: 3px solid '#000000'; \n"
-"text-align: center;\n"
-" border-radius:10px;\n"
-" padding-top: 5px; \n"
-"background: '#661035';\n"
-"color: rgb(209, 209, 209);\n"
-"}\n"
-"\n"
-"QTextEdit::hover {\n"
-"border: 4px solid '#000000';\n"
-"}\n"
-"\n"
-"QTextEdit::focus {\n"
-"border: 4px solid '#000000';\n"
-"}"));
-        passTextBox->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        passTextBox->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         citationLabel = new QLabel(centralwidget);
         citationLabel->setObjectName(QString::fromUtf8("citationLabel"));
-        citationLabel->setGeometry(QRect(350, 400, 721, 51));
-        QFont font2;
-        font2.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
-        font2.setPointSize(20);
-        font2.setBold(true);
-        citationLabel->setFont(font2);
+        citationLabel->setGeometry(QRect(20, 120, 481, 31));
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
+        font1.setPointSize(14);
+        font1.setBold(false);
+        citationLabel->setFont(font1);
         citationLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "color: rgb(209, 209, 209);\n"
 "}"));
         signInButton = new QPushButton(centralwidget);
         signInButton->setObjectName(QString::fromUtf8("signInButton"));
-        signInButton->setGeometry(QRect(300, 500, 191, 71));
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Source Code Pro")});
-        font3.setPointSize(18);
-        font3.setBold(true);
-        font3.setItalic(false);
-        signInButton->setFont(font3);
+        signInButton->setGeometry(QRect(70, 380, 161, 61));
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Source Code Pro")});
+        font2.setPointSize(18);
+        font2.setBold(true);
+        font2.setItalic(false);
+        signInButton->setFont(font2);
         signInButton->setCursor(QCursor(Qt::ArrowCursor));
         signInButton->setAutoFillBackground(false);
         signInButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
@@ -160,12 +105,12 @@ public:
         signInButton->setAutoRepeatInterval(200);
         signUpButton = new QPushButton(centralwidget);
         signUpButton->setObjectName(QString::fromUtf8("signUpButton"));
-        signUpButton->setGeometry(QRect(770, 500, 191, 71));
-        QFont font4;
-        font4.setFamilies({QString::fromUtf8("Source Code Pro")});
-        font4.setPointSize(18);
-        font4.setBold(true);
-        signUpButton->setFont(font4);
+        signUpButton->setGeometry(QRect(280, 380, 161, 61));
+        QFont font3;
+        font3.setFamilies({QString::fromUtf8("Source Code Pro")});
+        font3.setPointSize(18);
+        font3.setBold(true);
+        signUpButton->setFont(font3);
         signUpButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background: '#661035';\n"
 "color: rgb(209, 209, 209);\n"
@@ -176,34 +121,78 @@ public:
 "QPushButton::hover {\n"
 "	background-color: rgb(84, 13, 43);\n"
 "}"));
+        signUpButton->setAutoRepeatInterval(200);
         copyrightLabel = new QLabel(centralwidget);
         copyrightLabel->setObjectName(QString::fromUtf8("copyrightLabel"));
         copyrightLabel->setGeometry(QRect(40, 685, 471, 15));
-        QFont font5;
-        font5.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
-        font5.setPointSize(10);
-        font5.setBold(true);
-        copyrightLabel->setFont(font5);
+        QFont font4;
+        font4.setFamilies({QString::fromUtf8("HP Simplified Jpan")});
+        font4.setPointSize(10);
+        font4.setBold(true);
+        copyrightLabel->setFont(font4);
         copyrightLabel->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "color: rgb(219, 219, 219);\n"
 "}\n"
 ""));
-        imageLabel = new QLabel(centralwidget);
-        imageLabel->setObjectName(QString::fromUtf8("imageLabel"));
-        imageLabel->setGeometry(QRect(70, 20, 231, 151));
         imageLabel_2 = new QLabel(centralwidget);
         imageLabel_2->setObjectName(QString::fromUtf8("imageLabel_2"));
         imageLabel_2->setGeometry(QRect(1000, 30, 231, 151));
-        imageLabel_3 = new QLabel(centralwidget);
-        imageLabel_3->setObjectName(QString::fromUtf8("imageLabel_3"));
-        imageLabel_3->setGeometry(QRect(50, 470, 161, 131));
         imageLabel_4 = new QLabel(centralwidget);
         imageLabel_4->setObjectName(QString::fromUtf8("imageLabel_4"));
         imageLabel_4->setGeometry(QRect(1040, 540, 231, 151));
+        emailBox = new QLineEdit(centralwidget);
+        emailBox->setObjectName(QString::fromUtf8("emailBox"));
+        emailBox->setGeometry(QRect(60, 190, 401, 51));
+        QFont font5;
+        font5.setFamilies({QString::fromUtf8("Cascadia Mono")});
+        font5.setPointSize(18);
+        font5.setBold(true);
+        font5.setItalic(false);
+        emailBox->setFont(font5);
+        emailBox->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
+"border: 3px solid '#000000';\n"
+" text-align: center;\n"
+" border-radius:10px;\n"
+" padding-top: 5px;\n"
+" background: '#661035';\n"
+"color: rgb(209, 209, 209);\n"
+"}\n"
+"\n"
+"QLineEdit::hover {\n"
+"border: 4px solid '#000000';\n"
+"}\n"
+"\n"
+"QLineEdit::focus {\n"
+"border: 4px solid '#000000';\n"
+"}"));
+        emailBox->setAlignment(Qt::AlignCenter);
+        passBox = new QLineEdit(centralwidget);
+        passBox->setObjectName(QString::fromUtf8("passBox"));
+        passBox->setGeometry(QRect(60, 280, 401, 51));
+        passBox->setFont(font5);
+        passBox->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
+"border: 3px solid '#000000';\n"
+" text-align: center;\n"
+" border-radius:10px;\n"
+" padding-top: 5px;\n"
+" background: '#661035';\n"
+"color: rgb(209, 209, 209);\n"
+"}\n"
+"\n"
+"QLineEdit::hover {\n"
+"border: 4px solid '#000000';\n"
+"}\n"
+"\n"
+"QLineEdit::focus {\n"
+"border: 4px solid '#000000';\n"
+"}"));
+        passBox->setInputMethodHints(Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData);
+        passBox->setEchoMode(QLineEdit::Password);
+        passBox->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 995, 25));
+        menubar->setGeometry(QRect(0, 0, 519, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -218,28 +207,14 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         titleLabel->setText(QCoreApplication::translate("MainWindow", "Sweets   Store", nullptr));
-        emailTextBox->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"</style></head><body style=\" font-family:'Cascadia Mono'; font-size:18pt; font-weight:700; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        emailTextBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "    youremai@gmail.com", nullptr));
-        passTextBox->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"</style></head><body style=\" font-family:'Cascadia Mono'; font-size:18pt; font-weight:700; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
-        passTextBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "         *********", nullptr));
         citationLabel->setText(QCoreApplication::translate("MainWindow", "\" Everything is better with a donut in the mounth \"", nullptr));
         signInButton->setText(QCoreApplication::translate("MainWindow", "Sign In", nullptr));
         signUpButton->setText(QCoreApplication::translate("MainWindow", "Sign Up", nullptr));
         copyrightLabel->setText(QCoreApplication::translate("MainWindow", "Copyright \302\251 2022 vince-exe. All rights reserved", nullptr));
-        imageLabel->setText(QString());
         imageLabel_2->setText(QString());
-        imageLabel_3->setText(QString());
         imageLabel_4->setText(QString());
+        emailBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "youremail@gmail.com", nullptr));
+        passBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "************", nullptr));
     } // retranslateUi
 
 };
