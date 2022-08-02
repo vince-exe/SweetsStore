@@ -36,8 +36,11 @@ bool selectedEmployeCheck = false;
 
 /* save the name (key) of the selected product */
 Product selectedProduct;
+
 /* check if a row has been clicked ( product ) */
 bool selectedProductCheck = false;
+
+bool loggedInAsCustomer = false;
 
 /* read informations in the products map */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase) {

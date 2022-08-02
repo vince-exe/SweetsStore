@@ -220,7 +220,7 @@ background-color: rgb(84, 13, 43);
    <property name="font">
     <font>
      <family>Microsoft PhagsPa</family>
-     <pointsize>17</pointsize>
+     <pointsize>10</pointsize>
      <bold>true</bold>
     </font>
    </property>

@@ -130,7 +130,11 @@ public:
         emailBtn = new QPushButton(AboutMeDialog);
         emailBtn->setObjectName(QString::fromUtf8("emailBtn"));
         emailBtn->setGeometry(QRect(70, 340, 301, 61));
-        emailBtn->setFont(font1);
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Microsoft PhagsPa")});
+        font2.setPointSize(10);
+        font2.setBold(true);
+        emailBtn->setFont(font2);
         emailBtn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background-color: rgb(84, 13, 43);\n"
 "color: rgb(209, 209, 209);\n"

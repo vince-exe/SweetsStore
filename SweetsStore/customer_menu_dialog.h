@@ -15,6 +15,9 @@ public:
     explicit CustomerMenuDialog(QWidget *parent = nullptr);
     ~CustomerMenuDialog();
 
+private slots:
+    void on_abtMeBtn_clicked();
+
 private:
     Ui::CustomerMenuDialog *ui;
 };

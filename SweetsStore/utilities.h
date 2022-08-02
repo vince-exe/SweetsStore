@@ -31,13 +31,18 @@ extern Customer currentCustomer;
 
 /* save the email ( key ) of the selected employee */
 extern Employee selectedEmployee;
+
 /* check if a row has been cliced ( employee ) */
 extern bool selectedEmployeCheck;
 
 /* save the name (key) of the selected product */
 extern Product selectedProduct;
+
 /* check if a row has been clicked */
 extern bool selectedProductCheck;
+
+/* take care of see if the user logged as customer */
+extern bool loggedInAsCustomer;
 
 /* read informations in the products map */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase);

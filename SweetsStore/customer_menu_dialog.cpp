@@ -5,6 +5,7 @@
 #include <QScrollBar>
 
 #include "view_products_dialog.h"
+#include "about_me_dialog.h"
 #include "utilities.h"
 
 /* create the models */
@@ -48,3 +49,11 @@ CustomerMenuDialog::CustomerMenuDialog(QWidget *parent) :
 CustomerMenuDialog::~CustomerMenuDialog() {
     delete ui;
 }
+
+void CustomerMenuDialog::on_abtMeBtn_clicked() {
+    AboutMeDialog aboutMeWindow;
+    aboutMeWindow.setModal(true);
+    aboutMeWindow.show();
+    aboutMeWindow.exec();
+}
+

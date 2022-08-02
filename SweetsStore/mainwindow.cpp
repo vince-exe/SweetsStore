@@ -128,17 +128,18 @@ void MainWindow::on_signInButton_clicked() {
 
     /* Successfully logged in as employee*/
     if(checkSignInEmployee(email, password, &employeeDatabase)) {
+        loggedInAsCustomer = false;
         /* open the employee window */
         this->employeeWindow = new EmployeeWindow(this);
-
         this->hide();
         this->employeeWindow->show();
     }
 
     /* check if he is a customer */
     else if(checkSignInCustomer(email, password, &customersDatabase)) {
+        loggedInAsCustomer = true;
+        /* open the customer window */
         this->customerWindow = new CustomerMenuDialog(this);
-
         this->hide();
         this->customerWindow->show();
     }
