@@ -90,6 +90,8 @@ ViewEmployeesDialog::ViewEmployeesDialog(QWidget *parent) :
 }
 
 ViewEmployeesDialog::~ViewEmployeesDialog() {
+    horizontalHeaderEmply.clear();
+    verticalHeaderEmply.clear();
     delete ui;
 }
 

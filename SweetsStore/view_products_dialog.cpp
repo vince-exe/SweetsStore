@@ -67,7 +67,6 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
     this->setWindowFlags(Qt::Window | Qt::MSWindowsFixedSizeDialogHint);
     /* set the date */
     ui->timeButton->setText(QString::fromStdString(currentDateTime().c_str()));
-
     /* create the columns */
     horizontalHeaderProduct.append("Name");
     horizontalHeaderProduct.append("Expire Date");
@@ -89,6 +88,8 @@ ViewProductsDialog::ViewProductsDialog(QWidget *parent) :
 }
 
 ViewProductsDialog::~ViewProductsDialog() {
+    horizontalHeaderProduct.clear();
+    verticalHeaderProduct.clear();
     delete ui;
 }
 

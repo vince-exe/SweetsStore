@@ -49,11 +49,11 @@ background-color: rgb(84, 13, 43);
     <string>Search</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="addProdBtn_4">
+  <widget class="QPushButton" name="addMoneyBtn">
    <property name="geometry">
     <rect>
      <x>1060</x>
-     <y>200</y>
+     <y>160</y>
      <width>191</width>
      <height>71</height>
     </rect>
@@ -78,7 +78,7 @@ background-color: rgb(84, 13, 43);
 }</string>
    </property>
    <property name="text">
-    <string>ADD MONEY</string>
+    <string>Add Money</string>
    </property>
   </widget>
   <widget class="QPushButton" name="resetBtn">
@@ -310,6 +310,134 @@ background-color: rgb(84, 13, 43);
    </property>
    <property name="text">
     <string>Info</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="viewOrdersBtn">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>270</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+letter-spacing: 2px;
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>View Orders</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buyNowBtn">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>380</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+letter-spacing: 2px;
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>Buy Now</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addCartBtn">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>490</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+letter-spacing: 2px;
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>Add To Cart</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addMoneyBtn_2">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>600</y>
+     <width>191</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+letter-spacing: 2px;
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>View Cart</string>
    </property>
   </widget>
  </widget>
