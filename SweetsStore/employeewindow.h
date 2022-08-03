@@ -5,9 +5,6 @@
 
 #include "about_me_dialog.h"
 
-/* open the products file */
-bool openProductsFile(const char* pathFile);
-
 namespace Ui {
 class EmployeeWindow;
 }

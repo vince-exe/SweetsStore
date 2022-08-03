@@ -11,6 +11,7 @@
 /* forms */
 #include "add_employee_dialog.h"
 #include "update_employee_dialog.h"
+#include "employee_utilities.h"
 
 QStandardItemModel *employeeModel = new QStandardItemModel();
 QStandardItemModel *searchModelEmply = new QStandardItemModel();
@@ -96,7 +97,7 @@ ViewEmployeesDialog::~ViewEmployeesDialog() {
 }
 
 void ViewEmployeesDialog::on_srchEmplyBox_textChanged(const QString &arg1) {
-
+    if(arg1.toStdString().length() > maxFirstNameLen) { ui->srchEmplyBox->backspace(); }
 }
 
 void ViewEmployeesDialog::on_infoBtn_clicked() {

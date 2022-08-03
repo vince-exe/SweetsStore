@@ -15,10 +15,13 @@ bool checkSignInEmployee(std::string email, std::string password, std::map<std::
 /* check the credentials for the SignIn ( customer ) */
 bool checkSignInCustomer(std::string email, std::string password, std::map<std::string, Customer>* customerDatabase);
 
-/* open the employees file and store the information inside the employee database */
+/* open the employees file and store the informations inside the employee database */
 bool openStoreEmployeeFile(const char *pathFile);
 
-/* open the customers file and store the information inside the customers database */
+/* open the products file and store the informations inside the products database */
+bool openStoreProductsFile(const char* pathFile);
+
+/* open the customers file and store the informations inside the customers database */
 bool openStoreCustomerFile(const char* pathFile);
 
 QT_BEGIN_NAMESPACE

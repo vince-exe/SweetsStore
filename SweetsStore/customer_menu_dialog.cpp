@@ -47,6 +47,8 @@ CustomerMenuDialog::CustomerMenuDialog(QWidget *parent) :
 }
 
 CustomerMenuDialog::~CustomerMenuDialog() {
+    horizontalHeaderCustomer.clear();
+    verticalHeaderCustomer.clear();
     delete ui;
 }
 

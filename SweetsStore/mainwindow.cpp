@@ -66,6 +66,21 @@ bool openStoreEmployeeFile(const char *pathFile) {
     return true;
 }
 
+bool openStoreProductsFile(const char *pathFile) {
+    /* try to open the products file ( reading mode ) */
+    FILE* file = fopen(pathFile, "r");
+    /* check if the fail opened correctly */
+    if(!file) { return false; }
+
+    /* restore the cursor of the file at the start */
+    fseek(file, 0, SEEK_SET);
+    /* read the informations from the product file and store it in the map */
+    readProductsInformations(file, &productsDatabase);
+    /* close the file */
+    fclose(file);
+
+    return true;
+}
 bool openStoreCustomerFile(const char* pathFile) {
     FILE* f = fopen(pathFile, "r");
     if(!f) { return false; }
@@ -95,8 +110,8 @@ MainWindow::MainWindow(QWidget *parent)
     /* align the title label to the center */
     ui->titleLabel->setAlignment(Qt::AlignCenter);
 
-    /* open the employee file */
-    if(!openStoreEmployeeFile("files/employees.txt") || !openStoreCustomerFile("files/customers.txt")) {
+    /* try to open all the system files */
+    if(!openStoreEmployeeFile("files/employees.txt") || !openStoreCustomerFile("files/customers.txt") || !openStoreProductsFile("files/products.txt")) {
         QMessageBox messageBox;
         messageBox.critical(0, "Fatal Error", "The application failed to open the system files");
         messageBox.setFixedSize(550,300);
