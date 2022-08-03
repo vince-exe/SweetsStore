@@ -18,6 +18,8 @@ public:
 private slots:
     void on_abtMeBtn_clicked();
 
+    void on_addMoneyBtn_clicked();
+
 private:
     Ui::CustomerMenuDialog *ui;
 };

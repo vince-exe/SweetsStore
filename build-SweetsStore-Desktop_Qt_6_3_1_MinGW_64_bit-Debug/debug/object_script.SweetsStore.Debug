@@ -1,5 +1,6 @@
 debug/about_me_dialog.o
 debug/add_employee_dialog.o
+debug/add_money_dialog.o
 debug/add_product_dialog.o
 debug/customer.o
 debug/customer_menu_dialog.o
@@ -20,6 +21,7 @@ debug/view_employees_dialog.o
 debug/view_products_dialog.o
 debug/moc_about_me_dialog.o
 debug/moc_add_employee_dialog.o
+debug/moc_add_money_dialog.o
 debug/moc_add_product_dialog.o
 debug/moc_customer_menu_dialog.o
 debug/moc_employeewindow.o

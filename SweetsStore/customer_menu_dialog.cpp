@@ -1,12 +1,17 @@
 #include "customer_menu_dialog.h"
 #include "ui_customer_menu_dialog.h"
 
+#include <iostream>
+
 #include <QTableView>
 #include <QScrollBar>
 
 #include "view_products_dialog.h"
-#include "about_me_dialog.h"
 #include "utilities.h"
+
+/* forms */
+#include "about_me_dialog.h"
+#include "add_money_dialog.h"
 
 /* create the models */
 QStandardItemModel *productsModelCustomer = new QStandardItemModel();
@@ -57,5 +62,13 @@ void CustomerMenuDialog::on_abtMeBtn_clicked() {
     aboutMeWindow.setModal(true);
     aboutMeWindow.show();
     aboutMeWindow.exec();
+}
+
+
+void CustomerMenuDialog::on_addMoneyBtn_clicked() {
+    AddMoneyDialog addMoneyWindow;
+    addMoneyWindow.setModal(true);
+    addMoneyWindow.show();
+    addMoneyWindow.exec();
 }
 

@@ -39,7 +39,7 @@ bool checkSignInCustomer(std::string email, std::string password, std::map<std::
     auto key = customerDatabase->find(email);
     /* if the key doesn't exist */
     if(key == customerDatabase->end()) { return false; }
-    qDebug() << QString::fromStdString(key->second.getPassword());
+
     /* check if the password is correct */
     if(key->second.getPassword() == password) {
         /* fill the current employee variable */

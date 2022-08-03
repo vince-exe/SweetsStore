@@ -13,6 +13,7 @@ UI_DIR = $$PWD
 SOURCES += \
     about_me_dialog.cpp \
     add_employee_dialog.cpp \
+    add_money_dialog.cpp \
     add_product_dialog.cpp \
     customer.cpp \
     customer_menu_dialog.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
 HEADERS += \
     about_me_dialog.h \
     add_employee_dialog.h \
+    add_money_dialog.h \
     add_product_dialog.h \
     customer.h \
     customer_menu_dialog.h \
@@ -56,6 +58,7 @@ HEADERS += \
 FORMS += \
     aboutmedialog.ui \
     add_employee_dialog.ui \
+    add_money_dialog.ui \
     add_product_dialog.ui \
     customer_menu_dialog.ui \
     employeewindow.ui \
