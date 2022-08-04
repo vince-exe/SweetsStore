@@ -20,6 +20,7 @@ debug/update_employee_dialog.o
 debug/update_product_dialog.o
 debug/utilities.o
 debug/view_employees_dialog.o
+debug/view_orders_dialog.o
 debug/view_products_dialog.o
 debug/moc_about_me_dialog.o
 debug/moc_add_employee_dialog.o
@@ -33,4 +34,5 @@ debug/moc_sign_up_dialog.o
 debug/moc_update_employee_dialog.o
 debug/moc_update_product_dialog.o
 debug/moc_view_employees_dialog.o
+debug/moc_view_orders_dialog.o
 debug/moc_view_products_dialog.o

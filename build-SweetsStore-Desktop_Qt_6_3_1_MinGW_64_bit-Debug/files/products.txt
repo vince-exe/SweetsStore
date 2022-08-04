@@ -1,5 +1,5 @@
 banana;02/08/2025;valle verde;0.99;43
-biscotto all'amarena;05/10/2024;gargiulo dolci;2.50;80
+biscotto all'amarena;05/10/2024;gargiulo dolci;2.50;75
 cavolfiore;30/07/2024;valle gialla;0.99;43
 ciambella;30/07/2025;valle verde;1.99;5
 succo alla mela;02/11/2026;valle verde;2.30;15

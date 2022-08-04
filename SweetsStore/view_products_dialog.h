@@ -11,7 +11,7 @@
 void printTable(QStandardItemModel* model, std::map<std::string, Product>* productsMap, QTableView* table);
 
 /* print the searched product in the table */
-void printsearchedProduct(std::map<std::string, Product>* productsMap, QTableView* table, std::string searchedProduct);
+void printsearchedProduct(std::map<std::string, Product>* productsMap, QStandardItemModel* searchModel, QTableView* table, std::string searchedProduct);
 
 namespace Ui {
 class ViewProductsDialog;

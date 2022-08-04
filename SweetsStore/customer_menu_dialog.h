@@ -24,6 +24,16 @@ private slots:
 
     void on_tableView_activated(const QModelIndex &index);
 
+    void on_viewOrdersBtn_clicked();
+
+    void on_infoBtn_clicked();
+
+    void on_srchProdBox_textChanged(const QString &arg1);
+
+    void on_srchButton_clicked();
+
+    void on_resetBtn_clicked();
+
 private:
     Ui::CustomerMenuDialog *ui;
 };

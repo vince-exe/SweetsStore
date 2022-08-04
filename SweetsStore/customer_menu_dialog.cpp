@@ -5,14 +5,17 @@
 
 #include <QTableView>
 #include <QScrollBar>
+#include <QMessageBox>
 
 #include "view_products_dialog.h"
 #include "utilities.h"
+#include "product_utilities.h"
 
 /* forms */
 #include "about_me_dialog.h"
 #include "add_money_dialog.h"
 #include "buy_product_dialog.h"
+#include "view_orders_dialog.h"
 
 /* create the models */
 QStandardItemModel *productsModelCustomer = new QStandardItemModel();
@@ -41,6 +44,9 @@ CustomerMenuDialog::CustomerMenuDialog(QWidget *parent) :
     /* set the model */
     productsModelCustomer->setHorizontalHeaderLabels(horizontalHeaderCustomer);
     productsModelCustomer->setVerticalHeaderLabels(verticalHeaderCustomer);
+    /* set the search model */
+    searchModelCustomer->setHorizontalHeaderLabels(horizontalHeaderCustomer);
+    searchModelCustomer->setVerticalHeaderLabels(verticalHeaderCustomer);
     /* table settings */
     ui->tableView->verticalHeader()->setVisible(false);
     ui->tableView->setSelectionMode(QAbstractItemView::NoSelection);
@@ -110,3 +116,41 @@ void CustomerMenuDialog::on_tableView_activated(const QModelIndex &index) {
     selectedProduct.setQuantity(qnt);
 }
 
+/* view the orders */
+void CustomerMenuDialog::on_viewOrdersBtn_clicked() {
+    ViewOrdersDialog viewOrdersWindow;
+    viewOrdersWindow.setModal(true);
+    viewOrdersWindow.show();
+    viewOrdersWindow.exec();
+}
+
+/* info button clicked */
+void CustomerMenuDialog::on_infoBtn_clicked() {
+    QMessageBox messageBox;
+    messageBox.information(0, "Info", "To update / delete an order select it with a double click then use the buttons");
+    messageBox.setFixedSize(550, 300);
+}
+
+/* check if the user pass the limit of characters for the product name */
+void CustomerMenuDialog::on_srchProdBox_textChanged(const QString &arg1) {
+    if(arg1.toStdString().length() > prodNameLen) { ui->srchProdBox->backspace(); }
+}
+
+/* search button clicked */
+void CustomerMenuDialog::on_srchButton_clicked() {
+    if(!ui->srchProdBox->text().toStdString().length()) {
+        printTable(productsModelCustomer, &productsDatabase, ui->tableView);
+        return;
+    }
+
+    /* print the searched product */
+    printsearchedProduct(&productsDatabase, searchModelCustomer, ui->tableView, ui->srchProdBox->text().toStdString());
+    ui->srchProdBox->clear();
+ }
+
+/* reset button for searching */
+void CustomerMenuDialog::on_resetBtn_clicked() {
+    /* print the table */
+    printTable(productsModelCustomer, &productsDatabase, ui->tableView);
+    ui->srchProdBox->clear();
+}

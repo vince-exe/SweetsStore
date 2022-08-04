@@ -37,7 +37,7 @@ void printTable(QStandardItemModel* model, std::map<std::string, Product>* produ
     table->setModel(model);
 }
 
-void printsearchedProduct(std::map<std::string, Product>* productsMap, QTableView* table, std::string searchedProduct) {
+void printsearchedProduct(std::map<std::string, Product>* productsMap, QStandardItemModel* searchModel, QTableView* table, std::string searchedProduct) {
     /* set the model */
     searchModel->setHorizontalHeaderLabels(horizontalHeaderProduct);
     searchModel->setVerticalHeaderLabels(verticalHeaderProduct);
@@ -236,7 +236,7 @@ void ViewProductsDialog::on_srchButton_clicked() {
    }
 
    /* print the searched model */
-    printsearchedProduct(&productsDatabase, ui->tableView, productSearched);
+    printsearchedProduct(&productsDatabase, searchModel, ui->tableView, productSearched);
 }
 
 void ViewProductsDialog::on_resetBtn_clicked() {
