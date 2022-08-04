@@ -44,6 +44,7 @@ void AddMoneyDialog::on_saveBtn_clicked() {
         if(confirmBox.clickedButton() == noBtn) { this->close(); return; }
 
         it->second.setMoney(money);
+        currentCustomer.setMoney(money);
 
         QMessageBox messageBox;
         messageBox.information(0, "Success", "Successfully added the amount of money to the bank account");

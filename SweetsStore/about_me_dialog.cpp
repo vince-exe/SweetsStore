@@ -28,8 +28,8 @@ AboutMeDialog::AboutMeDialog(QWidget *parent) :
     ui->ageBtn->setText(QString::number(p->getAge()));
 
     if(loggedInAsCustomer) {
-        /* set the amount of money ( note that we are going to take the amount of money from the database because the user can update it in real-time ) */
-        ui->salaryBtn->setText(QString::number(customersDatabase[currentCustomer.getEmail()].getMoney()));
+        /* set the money */
+        ui->salaryBtn->setText(QString::number(currentCustomer.getMoney()));
         /* set Email */
         ui->emailBtn->setText(QString::fromUtf8(currentCustomer.getEmail().c_str()));
         /* set Password */

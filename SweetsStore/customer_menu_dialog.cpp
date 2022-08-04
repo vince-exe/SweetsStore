@@ -12,6 +12,7 @@
 /* forms */
 #include "about_me_dialog.h"
 #include "add_money_dialog.h"
+#include "buy_product_dialog.h"
 
 /* create the models */
 QStandardItemModel *productsModelCustomer = new QStandardItemModel();
@@ -57,6 +58,7 @@ CustomerMenuDialog::~CustomerMenuDialog() {
     delete ui;
 }
 
+/* about me dialog */
 void CustomerMenuDialog::on_abtMeBtn_clicked() {
     AboutMeDialog aboutMeWindow;
     aboutMeWindow.setModal(true);
@@ -64,11 +66,47 @@ void CustomerMenuDialog::on_abtMeBtn_clicked() {
     aboutMeWindow.exec();
 }
 
-
+/* when the user wants to add money to his bank account */
 void CustomerMenuDialog::on_addMoneyBtn_clicked() {
     AddMoneyDialog addMoneyWindow;
     addMoneyWindow.setModal(true);
     addMoneyWindow.show();
     addMoneyWindow.exec();
+}
+
+/* when the user wants to buy a product istantly */
+void CustomerMenuDialog::on_buyNowBtn_clicked() {
+    if(!selectedProductCheck) { return; }
+
+    selectedProductCheck = false;
+    /* open the buy product window */
+    BuyProductDialog buyProductWindow;
+    buyProductWindow.setModal(true);
+    buyProductWindow.show();
+    buyProductWindow.exec();
+
+    printTable(productsModelCustomer, &productsDatabase, ui->tableView);
+}
+
+/* when the user wants to select a product */
+void CustomerMenuDialog::on_tableView_activated(const QModelIndex &index) {
+    selectedProductCheck = true;
+    /* get the product name*/
+    QString prodName = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 0)).toString();
+    /* get the expire date */
+    QString expireDate = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 1)).toString();
+    /* get the brand name */
+    QString brandName = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 2)).toString();
+    /* get the price */
+    float price = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 3)).toFloat();
+    /* get the quantity */
+    int qnt = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 4)).toInt();
+
+    /* set the product */
+    selectedProduct.setName(prodName.toStdString());
+    selectedProduct.setBrand(brandName.toStdString());
+    selectedProduct.setExpiry(expireDate.toStdString());
+    selectedProduct.setPrice(price);
+    selectedProduct.setQuantity(qnt);
 }
 

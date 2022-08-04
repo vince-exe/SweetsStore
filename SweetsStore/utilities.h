@@ -13,6 +13,7 @@
 #include "employee.h"
 #include "product.h"
 #include "customer.h"
+#include "order.h"
 
 /* define the map that will contain all the employees */
 extern std::map<std::string, Employee> employeeDatabase;
@@ -22,6 +23,9 @@ extern std::map<std::string, Product> productsDatabase;
 
 /* define a map that will contain all the customers */
 extern std::map<std::string, Customer> customersDatabase;
+
+/* define the map that will contain all the customers orders */
+extern std::map<int, Order> ordersDatabase;
 
 /* define the current employee */
 extern Employee currentEmployee;
@@ -44,14 +48,17 @@ extern bool selectedProductCheck;
 /* take care of see if the user logged as customer */
 extern bool loggedInAsCustomer;
 
-/* read informations in the products map */
+/* read informations in the products file */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
 
-/* read informations in the employees map */
+/* read informations in the employees file */
 void readEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase);
 
-/* read informations in the customers map */
+/* read informations in the customers file */
 void readCustomersInformations(FILE* f, std::map<std::string, Customer>* customersDatabase);
+
+/* read the informations in the orders file */
+void readOrdersInformations(FILE* f, std::map<int, Order>* ordersDatabase);
 
 /* store the informations in the products file */
 void storeProductInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
@@ -61,6 +68,9 @@ void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employ
 
 /* store the informations of the customers */
 void storeCustomersInformations(FILE *f, std::map<std::string, Customer> *customersDatabase);
+
+/* store the informations of the orders */
+void storeOrdersInformations(FILE* f, std::map<int, Order>* ordersDatabase);
 
 /* defining a variable that check if there are new changes in the application */
 extern bool newChanges;

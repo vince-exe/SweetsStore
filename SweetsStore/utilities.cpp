@@ -19,8 +19,11 @@ std::map<std::string, Employee> employeeDatabase;
 /* defining the products map */
 std::map<std::string, Product> productsDatabase;
 
-/* define a map that will contain all the customers */
+/* defining a map that will contain all the customers */
 std::map<std::string, Customer> customersDatabase;
+
+/* defining the map that will contain all the customers orders */
+std::map<int, Order> ordersDatabase;
 
 /* defining the current employee variable */
 Employee currentEmployee;
@@ -105,6 +108,15 @@ void storeCustomersInformations(FILE *f, std::map<std::string, Customer> *custom
     }
 }
 
+void storeOrdersInformations(FILE *f, std::map<int, Order> *ordersDatabase) {
+    char buffer[1024];
+
+    for(auto it = ordersDatabase->begin(); it != ordersDatabase->end(); it++) {
+        sprintf(buffer, "%d;%s;%s;%s;%d\n", it->second.getId(), it->second.getCustomerId().c_str(), it->second.getProductId().c_str(), it->second.getOrderDate().c_str(), it->second.getQuantity());
+        fprintf(f, buffer);
+    }
+}
+
 /* read informations in the employees map */
 void readEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase) {
     char buffer[1024];
@@ -178,6 +190,39 @@ void readCustomersInformations(FILE *f, std::map<std::string, Customer> *custome
             customer.setPassword(token);
             /* insert the informations in the map */
             customersDatabase->insert(std::pair<std::string, Customer>(customer.getEmail(), customer));
+        }
+    }
+}
+
+void readOrdersInformations(FILE *f, std::map<int, Order> *ordersDatabase) {
+    char buffer[1024];
+    char* token = NULL;
+    Order order;
+
+    while(fgets(buffer, 1024, f)) {
+        /* delete the \n from the buffer */
+        buffer[strlen(buffer) - 1] = '\0';
+
+        token = strtok(buffer, tokenCharacter);
+
+        if(token != NULL) {
+            order.setId(std::atoi(token));
+
+            token = strtok(NULL, tokenCharacter);
+            order.setCustomerId(token);
+
+            token = strtok(NULL, tokenCharacter);
+            order.setProductId(token);
+
+            token = strtok(NULL, tokenCharacter);
+            order.setOrderDate(token);
+
+            token = strtok(NULL, tokenCharacter);
+            order.setQuantity(std::atoi(token));
+
+            /* insert the order in the orders database */
+            ordersDatabase->insert(std::pair<int, Order>(order.getId(), order));
+            Order::lastOrderId += 1;
         }
     }
 }

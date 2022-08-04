@@ -20,6 +20,10 @@ private slots:
 
     void on_addMoneyBtn_clicked();
 
+    void on_buyNowBtn_clicked();
+
+    void on_tableView_activated(const QModelIndex &index);
+
 private:
     Ui::CustomerMenuDialog *ui;
 };

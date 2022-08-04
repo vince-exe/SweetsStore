@@ -15,6 +15,7 @@ SOURCES += \
     add_employee_dialog.cpp \
     add_money_dialog.cpp \
     add_product_dialog.cpp \
+    buy_product_dialog.cpp \
     customer.cpp \
     customer_menu_dialog.cpp \
     employee.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
     main.cpp \
     main_window_utilities.cpp \
     mainwindow.cpp \
+    order.cpp \
     person.cpp \
     product.cpp \
     product_utilities.cpp \
@@ -38,6 +40,7 @@ HEADERS += \
     add_employee_dialog.h \
     add_money_dialog.h \
     add_product_dialog.h \
+    buy_product_dialog.h \
     customer.h \
     customer_menu_dialog.h \
     employee.h \
@@ -45,6 +48,7 @@ HEADERS += \
     employeewindow.h \
     main_window_utilities.h \
     mainwindow.h \
+    order.h \
     person.h \
     product.h \
     product_utilities.h \
@@ -60,6 +64,7 @@ FORMS += \
     add_employee_dialog.ui \
     add_money_dialog.ui \
     add_product_dialog.ui \
+    buy_product_dialog.ui \
     customer_menu_dialog.ui \
     employeewindow.ui \
     mainwindow.ui \

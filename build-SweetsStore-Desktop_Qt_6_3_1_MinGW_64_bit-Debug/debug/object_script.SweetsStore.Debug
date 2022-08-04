@@ -2,6 +2,7 @@ debug/about_me_dialog.o
 debug/add_employee_dialog.o
 debug/add_money_dialog.o
 debug/add_product_dialog.o
+debug/buy_product_dialog.o
 debug/customer.o
 debug/customer_menu_dialog.o
 debug/employee.o
@@ -10,6 +11,7 @@ debug/employeewindow.o
 debug/main.o
 debug/main_window_utilities.o
 debug/mainwindow.o
+debug/order.o
 debug/person.o
 debug/product.o
 debug/product_utilities.o
@@ -23,6 +25,7 @@ debug/moc_about_me_dialog.o
 debug/moc_add_employee_dialog.o
 debug/moc_add_money_dialog.o
 debug/moc_add_product_dialog.o
+debug/moc_buy_product_dialog.o
 debug/moc_customer_menu_dialog.o
 debug/moc_employeewindow.o
 debug/moc_mainwindow.o
