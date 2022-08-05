@@ -84,6 +84,13 @@ void CustomerMenuDialog::on_addMoneyBtn_clicked() {
 void CustomerMenuDialog::on_buyNowBtn_clicked() {
     if(!selectedProductCheck) { return; }
 
+    if(!selectedProduct.getQuantity()) {
+        QMessageBox messageBox;
+        messageBox.warning(0, "Warning", "The product is out of stock");
+        messageBox.setFixedSize(550, 300);
+        return;
+    }
+
     selectedProductCheck = false;
     /* open the buy product window */
     BuyProductDialog buyProductWindow;
