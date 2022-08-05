@@ -48,6 +48,11 @@ extern bool selectedProductCheck;
 /* take care of see if the user logged as customer */
 extern bool loggedInAsCustomer;
 
+/* keep trace of the selected order */
+extern Order selectedOrder;
+
+extern bool selectedOrderCheck;
+
 /* read informations in the products file */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
 

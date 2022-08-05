@@ -45,6 +45,10 @@ bool selectedProductCheck = false;
 
 bool loggedInAsCustomer = false;
 
+Order selectedOrder;
+
+bool selectedOrderCheck = false;
+
 /* read informations in the products map */
 void readProductsInformations(FILE* f, std::map<std::string, Product>* productsDatabase) {
     char buffer[1024];

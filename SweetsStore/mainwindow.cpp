@@ -166,8 +166,9 @@ void MainWindow::on_signInButton_clicked() {
         loggedInAsCustomer = true;
         /* open the customer window */
         this->customerWindow = new CustomerMenuDialog(this);
-        this->hide();
+        this->customerWindow->setModal(true);
         this->customerWindow->show();
+        this->customerWindow->exec();
     }
 
     /* failed to login */

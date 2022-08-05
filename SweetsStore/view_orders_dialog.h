@@ -21,6 +21,11 @@ public:
     explicit ViewOrdersDialog(QWidget *parent = nullptr);
     ~ViewOrdersDialog();
 
+private slots:
+    void on_tableView_activated(const QModelIndex &index);
+
+    void on_updtOrderBtn_clicked();
+
 private:
     Ui::ViewOrdersDialog *ui;
 };

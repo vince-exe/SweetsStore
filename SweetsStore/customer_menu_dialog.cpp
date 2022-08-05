@@ -122,6 +122,8 @@ void CustomerMenuDialog::on_viewOrdersBtn_clicked() {
     viewOrdersWindow.setModal(true);
     viewOrdersWindow.show();
     viewOrdersWindow.exec();
+
+    printTable(productsModelCustomer, &productsDatabase, ui->tableView);
 }
 
 /* info button clicked */

@@ -5,6 +5,10 @@
 #include <QScrollBar>
 
 #include "utilities.h"
+#include "order.h"
+
+/* forms */
+#include "update_order_dialog.h"
 
 /* create the models */
 QStandardItemModel* modelOrder = new QStandardItemModel();
@@ -13,7 +17,6 @@ QStandardItemModel* searchModelOrder = new QStandardItemModel();
 /* define the StringList */
 QStringList horizontalHeaderOrder;
 QStringList verticalHeaderOrder;
-
 
 void printTable(std::map<int, Order> *ordersDatabase, QStandardItemModel *model, QTableView *table) {
     int i = 0;
@@ -66,3 +69,29 @@ ViewOrdersDialog::~ViewOrdersDialog() {
     verticalHeaderOrder.clear();
     delete ui;
 }
+
+void ViewOrdersDialog::on_tableView_activated(const QModelIndex &index) {
+    QString prodName = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 2)).toString();
+    int quantity = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 3)).toInt();
+    int orderId = ui->tableView->model()->data(ui->tableView->model()->index(index.row(), 0)).toInt();
+
+    /* set the selected order */
+    selectedOrder.setId(orderId);
+    selectedOrder.setProductId(prodName.toStdString());
+    selectedOrder.setQuantity(quantity);
+    selectedOrderCheck = true;
+}
+
+/* update an order */
+void ViewOrdersDialog::on_updtOrderBtn_clicked() {
+    if(!selectedOrderCheck) { return; }
+
+    UpdateOrderDialog updateOrderWindow;
+    updateOrderWindow.setModal(true);
+    updateOrderWindow.show();
+    updateOrderWindow.exec();
+
+    selectedOrderCheck = false;
+    printTable(&ordersDatabase, modelOrder, ui->tableView);
+}
+

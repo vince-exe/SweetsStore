@@ -139,10 +139,10 @@ background: '#75103c';
 }</string>
    </property>
    <property name="text">
-    <string>Search Order</string>
+    <string/>
    </property>
    <property name="placeholderText">
-    <string>Search Employee</string>
+    <string>Search Order</string>
    </property>
   </widget>
   <widget class="QPushButton" name="srchButton">
