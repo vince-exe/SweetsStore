@@ -33,6 +33,7 @@ SOURCES += \
     update_order_dialog.cpp \
     update_product_dialog.cpp \
     utilities.cpp \
+    view_cart_dialog.cpp \
     view_employees_dialog.cpp \
     view_orders_dialog.cpp \
     view_products_dialog.cpp
@@ -59,6 +60,7 @@ HEADERS += \
     update_order_dialog.h \
     update_product_dialog.h \
     utilities.h \
+    view_cart_dialog.h \
     view_employees_dialog.h \
     view_orders_dialog.h \
     view_products_dialog.h
@@ -76,6 +78,7 @@ FORMS += \
     update_employee_dialog.ui \
     update_order_dialog.ui \
     update_product_dialog.ui \
+    view_cart_dialog.ui \
     view_employees_dialog.ui \
     view_orders_dialog.ui \
     viewproductsdialog.ui

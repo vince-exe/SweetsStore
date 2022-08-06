@@ -1,7 +1,10 @@
+#define _GNU_SOURCE
+
 #include "utilities.h"
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include <QDebug>
 #include <QDateEdit>
@@ -24,6 +27,9 @@ std::map<std::string, Customer> customersDatabase;
 
 /* defining the map that will contain all the customers orders */
 std::map<int, Order> ordersDatabase;
+
+/* defining the vector that will be used as product cart */
+std::vector<std::string> customerCart;
 
 /* defining the current employee variable */
 Employee currentEmployee;
@@ -83,6 +89,15 @@ void readProductsInformations(FILE* f, std::map<std::string, Product>* productsD
     }
 }
 
+void readMyCartInformations(FILE *f, std::vector<std::string> *customerCart) {
+    char buffer[1024];
+
+    while(fgets(buffer, sizeof(buffer), f)) {
+        buffer[strlen(buffer) - 1] = '\0';
+        customerCart->push_back(buffer);
+    }
+}
+
 /* store the informations in the products map */
 void storeProductInformations(FILE* f, std::map<std::string, Product>* productsDatabase) {
     char buffer[1024];
@@ -90,6 +105,13 @@ void storeProductInformations(FILE* f, std::map<std::string, Product>* productsD
     for(auto it = productsDatabase->begin(); it != productsDatabase->end(); it++) {
         sprintf(buffer, "%s;%s;%s;%0.2f;%d\n", it->second.getName().c_str(), it->second.getExpiry().c_str(), it->second.getBrand().c_str(), it->second.getPrice(), it->second.getQuantity());
         fprintf(f, buffer);
+    }
+}
+
+/* store the informations in the my_cart file */
+void storeMyCartInformations(FILE* f, std::vector<std::string>* customerCart) {
+    for(std::string& product : *customerCart) {
+        fprintf(f, "%s\n", product.c_str());
     }
 }
 

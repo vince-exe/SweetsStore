@@ -16,6 +16,7 @@
 #include "add_money_dialog.h"
 #include "buy_product_dialog.h"
 #include "view_orders_dialog.h"
+#include "view_cart_dialog.h"
 
 /* create the models */
 QStandardItemModel *productsModelCustomer = new QStandardItemModel();
@@ -163,3 +164,35 @@ void CustomerMenuDialog::on_resetBtn_clicked() {
     printTable(productsModelCustomer, &productsDatabase, ui->tableView);
     ui->srchProdBox->clear();
 }
+
+/* add a product to the cart */
+void CustomerMenuDialog::on_addCartBtn_clicked() {
+    if(!selectedProductCheck) { return; }
+    selectedProductCheck = true;
+
+    /* check if the product is already in the customer cart */
+    if(std::find(customerCart.begin(), customerCart.end(), selectedProduct.getName()) != customerCart.end()) {
+        QMessageBox messageBox;
+        messageBox.warning(0, "Warning", "The selected product is already in your cart");
+        messageBox.setFixedSize(550, 300);
+        return;
+    }
+
+    QMessageBox messageBox;
+    messageBox.information(0, "Success", "Product added to the cart");
+
+    customerCart.push_back(selectedProduct.getName());
+    /* store all the informations in the cart */
+    FILE* f = fopen("files/my_cart.txt", "w");
+    storeMyCartInformations(f, &customerCart);
+    fclose(f);
+}
+
+/* view the cart */
+void CustomerMenuDialog::on_addMoneyBtn_2_clicked() {
+    ViewCartDialog viewCartWindow;
+    viewCartWindow.setModal(true);
+    viewCartWindow.show();
+    viewCartWindow.exec();
+}
+

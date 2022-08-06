@@ -103,6 +103,17 @@ bool openStoreOrderFile(const char *pathFile) {
     return true;
 }
 
+bool openStoreCartInformations(const char* pathFile) {
+    FILE* f = fopen(pathFile, "r");
+    if(!f) { return false; }
+
+    fseek(f, 0, SEEK_SET);
+    readMyCartInformations(f, &customerCart);
+    fclose(f);
+
+    return true;
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -122,7 +133,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->titleLabel->setAlignment(Qt::AlignCenter);
 
     /* try to open all the system files */
-    if(!openStoreEmployeeFile("files/employees.txt") || !openStoreCustomerFile("files/customers.txt") || !openStoreProductsFile("files/products.txt") || !openStoreOrderFile("files/orders.txt")) {
+    if(!openStoreEmployeeFile("files/employees.txt") || !openStoreCustomerFile("files/customers.txt") || !openStoreProductsFile("files/products.txt") || !openStoreOrderFile("files/orders.txt") || !openStoreCartInformations("files/my_cart.txt")) {
         QMessageBox messageBox;
         messageBox.critical(0, "Fatal Error", "The application failed to open the system files");
         messageBox.setFixedSize(550,300);

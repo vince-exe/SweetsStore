@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 
 #include <QDateEdit>
 #include <QSpinBox>
@@ -26,6 +27,9 @@ extern std::map<std::string, Customer> customersDatabase;
 
 /* define the map that will contain all the customers orders */
 extern std::map<int, Order> ordersDatabase;
+
+/* define the vector that will be used as product cart */
+extern std::vector<std::string> customerCart;
 
 /* define the current employee */
 extern Employee currentEmployee;
@@ -65,17 +69,23 @@ void readCustomersInformations(FILE* f, std::map<std::string, Customer>* custome
 /* read the informations in the orders file */
 void readOrdersInformations(FILE* f, std::map<int, Order>* ordersDatabase);
 
+/* read the informations in the my_cart file */
+void readMyCartInformations(FILE* f, std::vector<std::string>* customerCart);
+
 /* store the informations in the products file */
 void storeProductInformations(FILE* f, std::map<std::string, Product>* productsDatabase);
 
 /* store the informations in the employees file */
 void storeEmployeesInformations(FILE* f, std::map<std::string, Employee>* employeesDatabase);
 
-/* store the informations of the customers */
+/* store the informations of the customers file */
 void storeCustomersInformations(FILE *f, std::map<std::string, Customer> *customersDatabase);
 
-/* store the informations of the orders */
+/* store the informations of the orders file */
 void storeOrdersInformations(FILE* f, std::map<int, Order>* ordersDatabase);
+
+/* store the informations in the my_cart file */
+void storeMyCartInformations(FILE* f, std::vector<std::string>* customerCart);
 
 /* defining a variable that check if there are new changes in the application */
 extern bool newChanges;

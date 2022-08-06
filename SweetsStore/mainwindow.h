@@ -27,6 +27,9 @@ bool openStoreCustomerFile(const char* pathFile);
 /* open the orders file and store the informations inside the orders database */
 bool openStoreOrderFile(const char* pathFile);
 
+/* open the my_cart file and store the informations inside the customerCart vector */
+bool openStoreCartInformations(const char* pathFile);
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

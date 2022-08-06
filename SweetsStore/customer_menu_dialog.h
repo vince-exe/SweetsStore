@@ -34,6 +34,10 @@ private slots:
 
     void on_resetBtn_clicked();
 
+    void on_addCartBtn_clicked();
+
+    void on_addMoneyBtn_2_clicked();
+
 private:
     Ui::CustomerMenuDialog *ui;
 };
