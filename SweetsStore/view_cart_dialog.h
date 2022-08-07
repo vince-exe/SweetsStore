@@ -36,6 +36,10 @@ private slots:
 
     void on_tableView_activated(const QModelIndex &index);
 
+    void on_buySelectedBtn_clicked();
+
+    void on_buyAllBtn_clicked();
+
 private:
     Ui::ViewCartDialog *ui;
 };

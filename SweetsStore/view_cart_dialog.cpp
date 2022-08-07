@@ -9,6 +9,9 @@
 #include "product.h"
 #include "product_utilities.h"
 
+/* forms */
+#include "buy_product_dialog.h"
+
 /* create the models */
 QStandardItemModel* modelCart = new QStandardItemModel();
 QStandardItemModel* searchModelCart = new QStandardItemModel();
@@ -168,9 +171,64 @@ void ViewCartDialog::on_rmvProductBtn_clicked() {
     /* use the model to remove the row */
     modelCart->removeRow(index.row(), index.parent());
 
-    newChanges = true;
-    selectedProductCheck = false;
-
     /* reprint the table */
     printTable(&customerCart, &productsDatabase, modelCart, ui->tableView);
 }
+
+/* if he wants to buy a specific product from the cart */
+void ViewCartDialog::on_buySelectedBtn_clicked() {
+    if(!selectedProductCheck) { return; }
+    selectedProductCheck = false;
+
+    /* we store the value of the money before the user proceeds, to see if he bought the product */
+    float moneyBefore = currentCustomer.getMoney();
+
+    BuyProductDialog buyProductWindow;
+    buyProductWindow.setModal(true);
+    buyProductWindow.show();
+    buyProductWindow.exec();
+
+    /* if he bought the product */
+    if(moneyBefore != currentCustomer.getMoney()) {
+        customerCart.erase(std::find(customerCart.begin(), customerCart.end(), selectedProduct.getName()));
+
+        FILE* f = fopen("files/my_cart.txt", "w");
+        storeMyCartInformations(f, &customerCart);
+        fclose(f);
+
+        /* get the index of the selected row */
+        QModelIndex index = ui->tableView->selectionModel()->currentIndex();
+        /* use the model to remove the row */
+        modelCart->removeRow(index.row(), index.parent());
+
+        printTable(&customerCart, &productsDatabase, modelCart, ui->tableView);
+    }
+}
+
+/* buy all the products present in the cart */
+void ViewCartDialog::on_buyAllBtn_clicked() {
+    int i = 0;
+    for(auto& productId : customerCart) {
+        selectedProduct  = productsDatabase.find(productId)->second;
+        float moneyBefore = currentCustomer.getMoney();
+
+        BuyProductDialog buyProductWindow;
+        buyProductWindow.setModal(true);
+        buyProductWindow.show();
+        buyProductWindow.exec();
+
+        /* check if he bought the product */
+        if(moneyBefore != currentCustomer.getMoney()) {
+            customerCart.erase(std::find(customerCart.begin(), customerCart.end(), selectedProduct.getName()));
+
+            FILE* f = fopen("files/my_cart.txt", "w");
+            storeMyCartInformations(f, &customerCart);
+            fclose(f);
+        }
+        i++;
+    }
+
+    printTable(&customerCart, &productsDatabase, modelCart, ui->tableView);
+}
+
+

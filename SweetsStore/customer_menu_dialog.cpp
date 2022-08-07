@@ -194,5 +194,6 @@ void CustomerMenuDialog::on_addMoneyBtn_2_clicked() {
     viewCartWindow.setModal(true);
     viewCartWindow.show();
     viewCartWindow.exec();
-}
 
+    printTable(productsModelCustomer, &productsDatabase, ui->tableView);
+}
