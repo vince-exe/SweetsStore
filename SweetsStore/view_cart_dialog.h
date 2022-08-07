@@ -38,8 +38,6 @@ private slots:
 
     void on_buySelectedBtn_clicked();
 
-    void on_buyAllBtn_clicked();
-
 private:
     Ui::ViewCartDialog *ui;
 };

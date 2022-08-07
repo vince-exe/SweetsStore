@@ -193,7 +193,7 @@ background-color: rgb(84, 13, 43);
    <property name="geometry">
     <rect>
      <x>1030</x>
-     <y>340</y>
+     <y>410</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -288,7 +288,7 @@ background: '#75103c';
    <property name="geometry">
     <rect>
      <x>1030</x>
-     <y>200</y>
+     <y>250</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -314,38 +314,6 @@ background-color: rgb(84, 13, 43);
    </property>
    <property name="text">
     <string>Buy</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="buyAllBtn">
-   <property name="geometry">
-    <rect>
-     <x>1030</x>
-     <y>490</y>
-     <width>141</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>HP Simplified Jpan</family>
-     <pointsize>16</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-background: '#75103c';
-color: rgb(209, 209, 209);
-border: 4px solid '#1a1818';
-letter-spacing: 2px;
-}
-
-QPushButton::hover {
-background-color: rgb(84, 13, 43);
-}</string>
-   </property>
-   <property name="text">
-    <string>Buy All</string>
    </property>
   </widget>
  </widget>

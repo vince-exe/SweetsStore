@@ -204,31 +204,3 @@ void ViewCartDialog::on_buySelectedBtn_clicked() {
         printTable(&customerCart, &productsDatabase, modelCart, ui->tableView);
     }
 }
-
-/* buy all the products present in the cart */
-void ViewCartDialog::on_buyAllBtn_clicked() {
-    int i = 0;
-    for(auto& productId : customerCart) {
-        selectedProduct  = productsDatabase.find(productId)->second;
-        float moneyBefore = currentCustomer.getMoney();
-
-        BuyProductDialog buyProductWindow;
-        buyProductWindow.setModal(true);
-        buyProductWindow.show();
-        buyProductWindow.exec();
-
-        /* check if he bought the product */
-        if(moneyBefore != currentCustomer.getMoney()) {
-            customerCart.erase(std::find(customerCart.begin(), customerCart.end(), selectedProduct.getName()));
-
-            FILE* f = fopen("files/my_cart.txt", "w");
-            storeMyCartInformations(f, &customerCart);
-            fclose(f);
-        }
-        i++;
-    }
-
-    printTable(&customerCart, &productsDatabase, modelCart, ui->tableView);
-}
-
-
