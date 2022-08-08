@@ -1,6 +1,0 @@
-banana;02/08/2025;valle verde;1.00;0
-biscotto all'amarena;05/10/2024;gargiulo dolci;2.50;20
-ciambella;30/07/2025;valle verde;1.99;5
-succo alla mela;02/11/2026;valle verde;2.30;12
-succo alla pera;30/07/2025;valle frutta;0.99;9
-succo alla pesca;10/08/2023;valle verde;5.00;8
