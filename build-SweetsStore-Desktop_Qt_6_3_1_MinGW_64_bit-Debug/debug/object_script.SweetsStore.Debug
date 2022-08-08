@@ -6,8 +6,8 @@ debug/buy_product_dialog.o
 debug/customer.o
 debug/customer_menu_dialog.o
 debug/employee.o
+debug/employee_dialog.o
 debug/employee_utilities.o
-debug/employeewindow.o
 debug/main.o
 debug/main_window_utilities.o
 debug/mainwindow.o
@@ -32,7 +32,7 @@ debug/moc_add_money_dialog.o
 debug/moc_add_product_dialog.o
 debug/moc_buy_product_dialog.o
 debug/moc_customer_menu_dialog.o
-debug/moc_employeewindow.o
+debug/moc_employee_dialog.o
 debug/moc_mainwindow.o
 debug/moc_sign_up_dialog.o
 debug/moc_update_customer_dialog.o

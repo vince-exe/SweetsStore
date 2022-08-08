@@ -19,8 +19,8 @@ SOURCES += \
     customer.cpp \
     customer_menu_dialog.cpp \
     employee.cpp \
+    employee_dialog.cpp \
     employee_utilities.cpp \
-    employeewindow.cpp \
     main.cpp \
     main_window_utilities.cpp \
     mainwindow.cpp \
@@ -49,8 +49,8 @@ HEADERS += \
     customer.h \
     customer_menu_dialog.h \
     employee.h \
+    employee_dialog.h \
     employee_utilities.h \
-    employeewindow.h \
     main_window_utilities.h \
     mainwindow.h \
     order.h \
@@ -76,7 +76,7 @@ FORMS += \
     add_product_dialog.ui \
     buy_product_dialog.ui \
     customer_menu_dialog.ui \
-    employeewindow.ui \
+    employee_dialog.ui \
     mainwindow.ui \
     sign_up_dialog.ui \
     update_customer_dialog.ui \

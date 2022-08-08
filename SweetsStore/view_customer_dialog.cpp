@@ -147,6 +147,8 @@ void ViewCustomerDialog::on_updtCustomerBtn_clicked() {
     updateCustomerWindow.setModal(true);
     updateCustomerWindow.show();
     updateCustomerWindow.exec();
+
+    printCustomersTable(modelCustomerMenu, &customersDatabase, ui->tableView);
 }
 
 /* remove a customer */

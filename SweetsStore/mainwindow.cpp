@@ -8,7 +8,6 @@
 #include <QMessageBox>
 
 #include "employee.h"
-#include "employeewindow.h"
 
 #include "utilities.h"
 #include "employee_utilities.h"
@@ -167,9 +166,10 @@ void MainWindow::on_signInButton_clicked() {
     if(checkSignInEmployee(email, password, &employeeDatabase)) {
         loggedInAsCustomer = false;
         /* open the employee window */
-        this->employeeWindow = new EmployeeWindow(this);
-        this->hide();
+        this->employeeWindow = new EmployeeDialog(this);
+        this->employeeWindow->setModal(true);
         this->employeeWindow->show();
+        this->employeeWindow->exec();
     }
 
     /* check if he is a customer */

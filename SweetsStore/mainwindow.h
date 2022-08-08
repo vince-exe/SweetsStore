@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 
-#include "employeewindow.h"
 #include "customer_menu_dialog.h"
+#include "employee_dialog.h"
 
 #include "employee.h"
 #include "customer.h"
@@ -54,7 +54,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    EmployeeWindow* employeeWindow;
+    EmployeeDialog* employeeWindow;
     CustomerMenuDialog* customerWindow;
 };
 
