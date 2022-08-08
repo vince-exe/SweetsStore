@@ -27,7 +27,6 @@ void printTable(std::vector<std::string>* customerCart, std::map<std::string, Pr
     for(auto& value : *customerCart) {
         /* get the product from the products database */
         auto product = productsDatabase->find(value);
-
         model->setItem(i, 0, getItem(QString::fromStdString(product->second.getName())));
         model->setItem(i, 1, getItem(QString::fromStdString(product->second.getExpiry())));
         model->setItem(i, 2, getItem(QString::fromStdString(product->second.getBrand())));

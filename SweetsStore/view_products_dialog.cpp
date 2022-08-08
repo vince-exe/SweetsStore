@@ -114,20 +114,8 @@ void ViewProductsDialog::on_addProdBtn_2_clicked() {
         return;
     }
 
-    /* open the file in reading mode to check if exist */
-    FILE* file = fopen("files/products.txt", "r");
-
-    if(!file) {
-        QMessageBox messageBox;
-        messageBox.critical(0, "Fatal Error", "The application failed to save the changes");
-        messageBox.setFixedSize(550,300);
-
-        exit(-1);
-    }
-    fclose(file);
-
     /* open it in write mode */
-    file = fopen("files/products.txt", "w");
+    FILE* file = fopen("files/products.txt", "w");
     /* store the informations in the file */
     storeProductInformations(file, &productsDatabase);
     /* close the product file */

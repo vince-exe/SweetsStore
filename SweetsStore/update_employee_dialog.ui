@@ -237,9 +237,9 @@ background-color: rgb(84, 13, 43);
   <widget class="QLabel" name="titleLabel">
    <property name="geometry">
     <rect>
-     <x>165</x>
+     <x>130</x>
      <y>20</y>
-     <width>271</width>
+     <width>331</width>
      <height>71</height>
     </rect>
    </property>
@@ -264,7 +264,7 @@ background-color: rgb(84, 13, 43);
 }</string>
    </property>
    <property name="text">
-    <string>Add Employee</string>
+    <string>Update Employee</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="passBox">

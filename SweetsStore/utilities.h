@@ -49,6 +49,11 @@ extern Product selectedProduct;
 /* check if a row has been clicked */
 extern bool selectedProductCheck;
 
+/* save the selected customer */
+extern Customer selectedCustomer;
+
+extern bool selectedCustomerCheck;
+
 /* take care of see if the user logged as customer */
 extern bool loggedInAsCustomer;
 

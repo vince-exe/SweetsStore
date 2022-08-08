@@ -83,7 +83,7 @@ selection-background-color: rgb(84, 13, 43);
 QHeaderView::section {
 border-color: rgb(26, 24, 24);
 color: rgb(209, 209, 209);
-font: 17pt &quot;HP Simplified Jpan&quot;;
+font: 13pt &quot;HP Simplified Jpan&quot;;
 background-color: rgb(102, 16, 53);
 height: 65px;
 }

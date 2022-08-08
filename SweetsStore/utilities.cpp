@@ -46,6 +46,11 @@ bool selectedEmployeCheck = false;
 /* save the name (key) of the selected product */
 Product selectedProduct;
 
+/* save the selected customer */
+Customer selectedCustomer;
+
+bool selectedCustomerCheck = false;
+
 /* check if a row has been clicked ( product ) */
 bool selectedProductCheck = false;
 

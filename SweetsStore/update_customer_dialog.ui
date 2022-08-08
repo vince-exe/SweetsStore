@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UpdateCustomerDialog</class>
+ <widget class="QDialog" name="UpdateCustomerDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>618</width>
+    <height>612</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+	background-color: rgb(102, 16, 53);
+}
+</string>
+  </property>
+  <widget class="QLineEdit" name="salaryBox">
+   <property name="geometry">
+    <rect>
+     <x>375</x>
+     <y>360</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	font: 16pt &quot;HP Simpified Jpan&quot;;
+	border: 4px solid rgb(26, 24, 24);
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>Money</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="saveBtn">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>550</y>
+     <width>161</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background: '#75103c';
+color: rgb(209, 209, 209);
+border: 4px solid '#1a1818';
+}
+
+QPushButton::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>Save | Exit</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="femaleBox">
+   <property name="geometry">
+    <rect>
+     <x>415</x>
+     <y>450</y>
+     <width>93</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+	border: 4px solid rgb(26, 24, 24);
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>F</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="passBox">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>260</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simpified Jpan</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	font: 16pt &quot;HP Simpified Jpan&quot;;
+	border: 4px solid rgb(26, 24, 24);
+	border-radius: 10px;
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>Password</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="firstNameBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>150</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simpified Jpan</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	font: 16pt &quot;HP Simpified Jpan&quot;;
+	border: 4px solid rgb(26, 24, 24);
+	border-radius: 10px;
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>First Name</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lastNameBox">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>150</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simpified Jpan</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	font: 16pt &quot;HP Simpified Jpan&quot;;
+	border: 4px solid rgb(26, 24, 24);
+	border-radius: 10px;
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>Last Name</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="maleBox">
+   <property name="geometry">
+    <rect>
+     <x>115</x>
+     <y>450</y>
+     <width>93</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+	border: 4px solid rgb(26, 24, 24);
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+   <property name="text">
+    <string>M</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="ageBox">
+   <property name="geometry">
+    <rect>
+     <x>75</x>
+     <y>360</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSpinBox {
+	border: 4px solid rgb(26, 24, 24);   
+	padding-left: 50px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font: 700 16pt &quot;Roboto&quot;;
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="emailBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>260</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simpified Jpan</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+	font: 16pt &quot;HP Simpified Jpan&quot;;
+	border: 4px solid rgb(26, 24, 24);
+	border-radius: 10px;
+	background: rgb(117, 16, 60);
+	color: rgb(209, 209, 209);
+}</string>
+   </property>
+   <property name="placeholderText">
+    <string>Email</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>20</y>
+     <width>351</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>HP Simplified Jpan</family>
+     <pointsize>30</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+color: '#ebebeb';
+ background: '#75103c';
+ color: '#e8e8e8';
+ border: 4px solid '#1a1818';
+ border-radius: 15px;
+}
+
+QLabel::hover {
+background-color: rgb(84, 13, 43);
+}</string>
+   </property>
+   <property name="text">
+    <string>Update Customer</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

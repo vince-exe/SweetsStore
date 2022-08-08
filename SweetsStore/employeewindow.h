@@ -24,6 +24,8 @@ private slots:
 
     void on_emplyMenuBtn_clicked();
 
+    void on_srcProdBtn_3_clicked();
+
 private:
     Ui::EmployeeWindow *ui;
     AboutMeDialog* aboutMeWindow;

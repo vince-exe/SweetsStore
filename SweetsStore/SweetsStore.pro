@@ -29,11 +29,13 @@ SOURCES += \
     product.cpp \
     product_utilities.cpp \
     sign_up_dialog.cpp \
+    update_customer_dialog.cpp \
     update_employee_dialog.cpp \
     update_order_dialog.cpp \
     update_product_dialog.cpp \
     utilities.cpp \
     view_cart_dialog.cpp \
+    view_customer_dialog.cpp \
     view_employees_dialog.cpp \
     view_orders_dialog.cpp \
     view_products_dialog.cpp
@@ -56,11 +58,13 @@ HEADERS += \
     product.h \
     product_utilities.h \
     sign_up_dialog.h \
+    update_customer_dialog.h \
     update_employee_dialog.h \
     update_order_dialog.h \
     update_product_dialog.h \
     utilities.h \
     view_cart_dialog.h \
+    view_customer_dialog.h \
     view_employees_dialog.h \
     view_orders_dialog.h \
     view_products_dialog.h
@@ -75,10 +79,12 @@ FORMS += \
     employeewindow.ui \
     mainwindow.ui \
     sign_up_dialog.ui \
+    update_customer_dialog.ui \
     update_employee_dialog.ui \
     update_order_dialog.ui \
     update_product_dialog.ui \
     view_cart_dialog.ui \
+    view_customer_dialog.ui \
     view_employees_dialog.ui \
     view_orders_dialog.ui \
     viewproductsdialog.ui

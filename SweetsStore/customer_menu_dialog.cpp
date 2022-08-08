@@ -178,6 +178,14 @@ void CustomerMenuDialog::on_addCartBtn_clicked() {
         return;
     }
 
+    /* if the quantity is 0 */
+    if(!selectedProduct.getQuantity()) {
+        QMessageBox messageBox;
+        messageBox.warning(0, "Warning", "The product is out of stuck");
+        messageBox.setFixedSize(550, 300);
+        return;
+    }
+
     QMessageBox messageBox;
     messageBox.information(0, "Success", "Product added to the cart");
 

@@ -12,6 +12,7 @@
 #include "about_me_dialog.h"
 #include "view_products_dialog.h"
 #include "view_employees_dialog.h"
+#include "view_customer_dialog.h"
 
 EmployeeWindow::EmployeeWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -47,3 +48,11 @@ void EmployeeWindow::on_emplyMenuBtn_clicked() {
     viewEmployeeWindow.setModal(true);
     viewEmployeeWindow.exec();
 }
+
+/* open the customer menu */
+void EmployeeWindow::on_srcProdBtn_3_clicked() {
+    ViewCustomerDialog viewCustomerWindow;
+    viewCustomerWindow.setModal(true);
+    viewCustomerWindow.exec();
+}
+

@@ -1,3 +1,1 @@
-marco;visone;M;18;2500.00;marco@gmail.com;marco777
-root;root;M;28;2500.00;root@gmail.com;root1234
-vincy;caliendo;M;17;8000.00;vincy@gmail.com;vincy789
+root;root;M;30;1000.00;root@gmail.com;root1234

@@ -126,20 +126,8 @@ void ViewEmployeesDialog::on_saveBtn_clicked() {
         return;
     }
 
-    /* open the file in reading mode to check if exist */
-    FILE* file = fopen("files/employees.txt", "r");
-
-    if(!file) {
-        QMessageBox messageBox;
-        messageBox.critical(0, "Fatal Error", "The application failed to save the changes");
-        messageBox.setFixedSize(550,300);
-
-        exit(-1);
-    }
-    fclose(file);
-
     /* open it in write mode */
-    file = fopen("files/employees.txt", "w");
+    FILE* file = fopen("files/employees.txt", "w");
     /* store the informations in the file */
     storeEmployeesInformations(file, &employeeDatabase);
     /* close the employees file */

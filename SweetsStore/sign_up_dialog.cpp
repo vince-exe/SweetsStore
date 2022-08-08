@@ -132,6 +132,8 @@ void SignUpDialog::on_signUpBtn_clicked() {
     messageBox.setFixedSize(550, 300);
 
     clearBoxes(ui->firstNameBox, ui->lastNameBox, ui->emailBox, ui->passBox, ui->moneyBox, ui->ageBox, ui->maleBox, ui->femaleBox);
+
+    this->close();
     return;
 }
 

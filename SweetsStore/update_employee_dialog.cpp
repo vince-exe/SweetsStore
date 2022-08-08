@@ -27,6 +27,7 @@ UpdateEmployeeDialog::UpdateEmployeeDialog(QWidget *parent) :
     ui(new Ui::UpdateEmployeeDialog) {
     ui->setupUi(this);
 
+    ui->titleLabel->setAlignment(Qt::AlignCenter);
     ui->firstNameBox->setAlignment(Qt::AlignCenter);
     ui->lastNameBox->setAlignment(Qt::AlignCenter);
     ui->emailBox->setAlignment(Qt::AlignCenter);
@@ -101,7 +102,7 @@ void UpdateEmployeeDialog::on_saveBtn_clicked() {
         messageBox.warning(0, "Warning", "Selected a gender please");
         messageBox.setFixedSize(550, 300);
 
-        clearBoxesEmployee(ui->firstNameBox, ui->lastNameBox, ui->emailBox, ui->passBox, ui->salaryBox, ui->ageBox, ui->maleBox, ui->femaleBox);
+        resetInformations(ui->firstNameBox, ui->lastNameBox, ui->emailBox, ui->passBox, ui->salaryBox, ui->ageBox, ui->maleBox, ui->femaleBox);
         return;
     }
     Employee employee;
