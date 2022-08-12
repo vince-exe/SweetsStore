@@ -13,4 +13,4 @@
 ### <p align="center">  If you sign in as an employee and you pull an update, the application will not automatically save the update for you, but it's your responsability to press the apposite save button to apply the changes.</p><br>
 
 # <p align="center">💘 Thank You 💘</p>
-<p align="center"> <img src="https://freeimage.host/i/UUJPDP" width="800px" height="600px"></p>
+<p align="center"> <img src="https://data.whicdn.com/images/164035936/original.gif" width="400px" height="400px"></p>
