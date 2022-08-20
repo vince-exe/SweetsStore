@@ -3,7 +3,8 @@
 
 ## <p align="center">🔨 Requirements To Build 🔨</p>
 #### <p align="center">-> 🕹️ Mingw Compiler 🕹️ <- </p>
-#### <p align="center">-> 📻 QtLibrary 📻 <- </p><br>
+#### <p align="center">-> 📻 QtLibrary 📻 <- </p>
+#### <p align="center">-> 💣 Copy the files folder ( located into the release.zip ) into the build directory 💣 <- </p><br>
 
 ## <p align="center">💣  Storage System 💣</p>
 ### <p align="center"> 🗒️ The application store the informations in the system files located in the files folder.</p>
